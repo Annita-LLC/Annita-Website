@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#FF7D06">
+  <title>Coming Soon - Annita</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Zen+Dots&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #FF7D06;
+      --secondary: #6C1D3A;
+      --accent: #FFC200;
+      --dark: #111111;
+      --light: #FFFFFF;
+      --grey: #F5F5F5;
+      --blue-dark: #001a57;
+      --blue-light: #00c2ff;
+      --safe-area-inset-top: env(safe-area-inset-top, 0px);
+      --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      -webkit-tap-highlight-color: transparent;
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--dark);
+      overflow-x: hidden;
+      background-color: var(--grey);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      min-height: -webkit-fill-available;
+      text-align: center;
+      line-height: 1.5;
+      padding: 20px;
+      padding-top: calc(20px + var(--safe-area-inset-top));
+      padding-bottom: calc(20px + var(--safe-area-inset-bottom));
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: clamp(24px, 5vw, 32px);
+      font-weight: 700;
+      text-decoration: none;
+      margin-bottom: clamp(20px, 5vw, 30px);
+    }
+
+    .logo-image {
+      width: clamp(40px, 8vw, 50px);
+      height: clamp(40px, 8vw, 50px);
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: clamp(10px, 3vw, 15px);
+      border: 2px solid var(--primary);
+    }
+
+    .logo-text {
+      font-family: 'Zen Dots', cursive;
+      font-weight: 400;
+      color: var(--primary);
+    }
+
+    .coming-soon-container {
+      background-color: var(--light);
+      padding: clamp(25px, 5vw, 50px);
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      width: min(90%, 600px);
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: clamp(28px, 6vw, 48px);
+      color: var(--secondary);
+      margin-bottom: clamp(15px, 3vw, 20px);
+      line-height: 1.2;
+    }
+
+    p {
+      font-size: clamp(16px, 3vw, 18px);
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: clamp(20px, 4vw, 30px);
+    }
+
+    .button {
+      display: inline-block;
+      padding: clamp(10px, 3vw, 12px) clamp(20px, 4vw, 25px);
+      background-color: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      font-size: clamp(15px, 3vw, 16px);
+      border: 2px solid transparent;
+    }
+
+    .button:hover, .button:focus {
+      background-color: #e67000;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .button:active {
+      transform: translateY(0);
+    }
+
+    /* Animation for subtle attention */
+    @keyframes subtlePulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+
+    .coming-soon-container {
+      animation: subtlePulse 8s ease-in-out infinite;
+    }
+
+    /* Improved accessibility for reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .coming-soon-container {
+        animation: none;
+      }
+      
+      .button:hover, .button:focus {
+        transform: none;
+      }
+    }
+
+    /* Dark mode support */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --dark: #f1f1f1;
+        --light: #222222;
+        --grey: #121212;
+      }
+
+      .coming-soon-container {
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      }
+
+      p {
+        color: #bbb;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="coming-soon-container">
+    <a href="/" class="logo">
+      <img src="/images/Annita's Logo.jpg" class="logo-image" alt="Annita Logo">
+      <span class="logo-text">Annita</span>
+    </a>
+    <h1>🚧 Page Under Development</h1>
+    <p>The page you're trying to access is still being built. We're putting on the final touches — check back soon for the full experience!</p>
+    <a href="index.html" class="button">Back to Homepage</a>
+  </div>
+</body>
+</html>
