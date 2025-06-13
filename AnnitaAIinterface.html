@@ -1,0 +1,2121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annita AI 2030: The Singularity Platform | Premium</title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0f0c29;
+            --secondary: #302b63;
+            --accent: #00c9ff;
+            --accent-dark: #0072ff;
+            --light: #f0f8ff;
+            --dark: #07051c;
+            --success: #00d68f;
+            --warning: #ffaa00;
+            --danger: #ff3d71;
+            --card-bg: rgba(25, 20, 61, 0.8);
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --sidebar-width: 280px;
+            --dashboard-width: 380px;
+            --header-height: 80px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--dark));
+            color: var(--light);
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Quantum background effect */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(0, 201, 255, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(0, 114, 255, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 50% 50%, rgba(0, 214, 143, 0.05) 0%, transparent 30%);
+            z-index: -1;
+            animation: quantum-pulse 15s infinite alternate;
+        }
+
+        @keyframes quantum-pulse {
+            0% { opacity: 0.3; transform: scale(1); }
+            100% { opacity: 0.6; transform: scale(1.05); }
+        }
+
+        /* App container */
+        .app-container {
+            display: grid;
+            grid-template-columns: var(--sidebar-width) 1fr;
+            grid-template-rows: var(--header-height) 1fr;
+            grid-template-areas:
+                "header header"
+                "sidebar main";
+            height: 100vh;
+            max-width: 1800px;
+            margin: 0 auto;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--glass-border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Header styles */
+        .header {
+            grid-area: header;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--glass-border);
+            z-index: 10;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: logo-pulse 3s infinite alternate;
+        }
+
+        @keyframes logo-pulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            background: linear-gradient(to right, var(--light), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .premium-badge {
+            background: linear-gradient(135deg, #ffd700, #ffaa00, #ff7700);
+            color: var(--dark);
+            font-weight: bold;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-left: 1rem;
+            box-shadow: 0 0 15px rgba(255, 170, 0, 0.4);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .header-btn {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            color: var(--light);
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+        }
+
+        .header-btn:hover {
+            background: rgba(0, 201, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .notification-container {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--danger);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(255, 61, 113, 0.5);
+        }
+
+        .notification-icon {
+            font-size: 1.5rem;
+            color: var(--light);
+            transition: var(--transition);
+        }
+
+        .notification-icon:hover {
+            color: var(--accent);
+        }
+
+        .profile-container {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .profile-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+            overflow: hidden;
+            border: 2px solid var(--accent);
+            transition: var(--transition);
+        }
+
+        .profile-avatar:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(0, 201, 255, 0.5);
+        }
+
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            grid-area: sidebar;
+            background: var(--card-bg);
+            border-right: 1px solid var(--glass-border);
+            padding: 1.5rem 0;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .sidebar-toggle {
+            position: absolute;
+            top: 10px;
+            right: -15px;
+            width: 30px;
+            height: 30px;
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 20;
+            transition: var(--transition);
+        }
+
+        .sidebar-toggle:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        .sidebar-section {
+            margin-bottom: 1.5rem;
+            padding: 0 1.5rem;
+        }
+
+        .sidebar-title {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .sidebar-title:hover {
+            color: var(--light);
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.8rem 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--light);
+            font-weight: 500;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            background: linear-gradient(90deg, rgba(0, 201, 255, 0.2), transparent);
+            border-left: 3px solid var(--accent);
+        }
+
+        .nav-icon {
+            font-size: 1.2rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        .chat-history-container {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--glass-border);
+            background: rgba(10, 8, 30, 0.5);
+        }
+
+        .history-item {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid var(--glass-border);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .history-item:last-child {
+            border-bottom: none;
+        }
+
+        .history-item:hover {
+            background: rgba(0, 201, 255, 0.1);
+        }
+
+        .history-title {
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .history-preview {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .memory-sectors {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .sector-tag {
+            background: rgba(0, 201, 255, 0.1);
+            border: 1px solid var(--accent);
+            border-radius: 20px;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.8rem;
+            color: var(--accent);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .sector-tag:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* Main content area */
+        .main-content {
+            grid-area: main;
+            display: grid;
+            grid-template-columns: 1fr var(--dashboard-width);
+            grid-template-areas: 
+                "chat dashboard";
+            gap: 1.5rem;
+            padding: 1.5rem;
+            overflow: hidden;
+        }
+
+        /* Chat container */
+        .chat-container {
+            grid-area: chat;
+            display: flex;
+            flex-direction: column;
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid var(--glass-border);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .chat-header {
+            padding: 1.2rem 1.5rem;
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            justify-content: space-between;
+        }
+
+        .ai-header-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .ai-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .ai-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .ai-info p {
+            font-size: 0.85rem;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--success);
+            display: inline-block;
+            box-shadow: 0 0 10px var(--success);
+        }
+
+        .model-selector {
+            background: rgba(10, 8, 30, 0.5);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            color: var(--light);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .model-selector:hover {
+            border-color: var(--accent);
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .message {
+            max-width: 85%;
+            padding: 1.2rem;
+            border-radius: 16px;
+            position: relative;
+            animation: message-appear 0.3s ease-out;
+        }
+
+        @keyframes message-appear {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .user-message {
+            align-self: flex-end;
+            background: linear-gradient(135deg, rgba(0, 114, 255, 0.3), rgba(0, 201, 255, 0.2));
+            border: 1px solid rgba(0, 201, 255, 0.3);
+            border-bottom-right-radius: 4px;
+        }
+
+        .ai-message {
+            align-self: flex-start;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-bottom-left-radius: 4px;
+        }
+
+        .message-content {
+            line-height: 1.6;
+        }
+
+        .message-actions {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        .action-btn {
+            background: transparent;
+            border: none;
+            color: var(--accent);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: var(--transition);
+            padding: 0.3rem 0.5rem;
+            border-radius: 6px;
+        }
+
+        .action-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .chat-input-container {
+            padding: 1.2rem;
+            border-top: 1px solid var(--glass-border);
+            background: rgba(15, 12, 41, 0.7);
+        }
+
+        .input-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            background: rgba(10, 8, 30, 0.8);
+            border: 1px solid var(--glass-border);
+            color: var(--light);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgba(0, 201, 255, 0.2);
+        }
+
+        .send-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .send-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 201, 255, 0.4);
+        }
+
+        /* Dashboard styles */
+        .dashboard {
+            grid-area: dashboard;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            overflow-y: auto;
+        }
+
+        .dashboard-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.2rem;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .card-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .stat-card {
+            background: rgba(10, 8, 30, 0.5);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--light), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .progress-container {
+            margin-top: 0.5rem;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-dark), var(--accent));
+            border-radius: 4px;
+            width: 75%;
+        }
+
+        .capability-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .capability-item {
+            display: flex;
+            gap: 1rem;
+            padding: 0.8rem;
+            background: rgba(10, 8, 30, 0.5);
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            transition: var(--transition);
+        }
+
+        .capability-item:hover {
+            background: rgba(0, 201, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .capability-icon {
+            color: var(--accent);
+            font-size: 1.2rem;
+            min-width: 24px;
+        }
+
+        .capability-text {
+            flex: 1;
+        }
+
+        .capability-title {
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .capability-desc {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.5;
+        }
+
+        .ai-status {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .status-item {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .status-label {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .status-value {
+            font-weight: 600;
+        }
+
+        .online {
+            color: var(--success);
+        }
+
+        .processing {
+            color: var(--accent);
+        }
+
+        /* Quantum effects */
+        .quantum-effect {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 201, 255, 0.1) 0%, transparent 70%);
+            filter: blur(50px);
+            z-index: -1;
+            animation: quantum-move 20s infinite linear;
+        }
+
+        .quantum-effect:nth-child(1) {
+            top: -150px;
+            left: -150px;
+            width: 400px;
+            height: 400px;
+            animation-duration: 25s;
+        }
+
+        .quantum-effect:nth-child(2) {
+            bottom: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            animation-duration: 20s;
+            animation-direction: reverse;
+        }
+
+        @keyframes quantum-move {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(100px, -50px); }
+            50% { transform: translate(0, -100px); }
+            75% { transform: translate(-100px, -50px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        /* Modals */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(7, 5, 28, 0.9);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 2rem;
+            position: relative;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: transparent;
+            border: none;
+            color: var(--light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--accent);
+        }
+
+        .modal-header {
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, var(--light), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .modal-body {
+            margin-bottom: 2rem;
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .profile-large {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+            margin-bottom: 1rem;
+            border: 3px solid var(--accent);
+            overflow: hidden;
+        }
+
+        .profile-large img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .profile-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .profile-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .profile-stat {
+            text-align: center;
+            background: rgba(10, 8, 30, 0.5);
+            border-radius: 12px;
+            padding: 1rem;
+            border: 1px solid var(--glass-border);
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+
+        .stat-title {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .settings-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .settings-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .settings-input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background: rgba(10, 8, 30, 0.5);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            color: var(--light);
+            font-size: 1rem;
+        }
+
+        .settings-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: .4s;
+            border-radius: 24px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--accent);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 201, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--glass-border);
+            color: var(--light);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* Notifications dropdown */
+        .notifications-dropdown {
+            position: absolute;
+            top: 60px;
+            right: 0;
+            width: 350px;
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        .notifications-dropdown.active {
+            opacity: 1;
+            pointer-events: all;
+            transform: translateY(0);
+        }
+
+        .notifications-header {
+            padding: 1rem;
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .notifications-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .notifications-clear {
+            background: transparent;
+            border: none;
+            color: var(--accent);
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .notifications-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .notification-item {
+            padding: 1rem;
+            border-bottom: 1px solid var(--glass-border);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .notification-item:last-child {
+            border-bottom: none;
+        }
+
+        .notification-item:hover {
+            background: rgba(0, 201, 255, 0.1);
+        }
+
+        .notification-item.unread {
+            background: rgba(0, 114, 255, 0.1);
+        }
+
+        .notification-title {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .notification-icon {
+            color: var(--accent);
+        }
+
+        .notification-preview {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .notification-time {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 0.5rem;
+        }
+
+        /* Profile dropdown */
+        .profile-dropdown {
+            position: absolute;
+            top: 60px;
+            right: 0;
+            width: 250px;
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        .profile-dropdown.active {
+            opacity: 1;
+            pointer-events: all;
+            transform: translateY(0);
+        }
+
+        .profile-info-dropdown {
+            padding: 1.5rem;
+            text-align: center;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .profile-dropdown-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+            margin: 0 auto 1rem;
+            border: 2px solid var(--accent);
+            overflow: hidden;
+        }
+
+        .profile-dropdown-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-dropdown-name {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .profile-dropdown-email {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .profile-menu {
+            padding: 0.5rem 0;
+        }
+
+        .profile-menu-item {
+            padding: 0.8rem 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .profile-menu-item:hover {
+            background: rgba(0, 201, 255, 0.1);
+            color: var(--accent);
+        }
+
+        /* Responsive design */
+        @media (max-width: 1200px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                grid-template-areas: 
+                    "chat"
+                    "dashboard";
+            }
+            
+            .dashboard {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            
+            .dashboard-card {
+                flex: 1 1 300px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .app-container {
+                grid-template-columns: 1fr;
+                grid-template-rows: var(--header-height) 1fr;
+                grid-template-areas:
+                    "header"
+                    "main";
+            }
+            
+            .sidebar {
+                position: fixed;
+                left: -100%;
+                top: var(--header-height);
+                height: calc(100vh - var(--header-height));
+                z-index: 90;
+                transition: left 0.3s ease;
+            }
+            
+            .sidebar.active {
+                left: 0;
+            }
+            
+            .sidebar-toggle {
+                display: flex;
+            }
+            
+            .header-actions .header-btn {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 0 1rem;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .premium-badge {
+                padding: 0.2rem 0.6rem;
+                font-size: 0.7rem;
+            }
+            
+            .main-content {
+                padding: 1rem;
+                gap: 1rem;
+            }
+            
+            .chat-header {
+                padding: 1rem;
+                flex-wrap: wrap;
+            }
+            
+            .model-selector {
+                margin-top: 0.5rem;
+                width: 100%;
+            }
+            
+            .chat-messages {
+                padding: 1rem;
+            }
+            
+            .message {
+                max-width: 90%;
+            }
+            
+            .dashboard-card {
+                padding: 1rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 0 0.8rem;
+            }
+            
+            .logo {
+                gap: 0.5rem;
+            }
+            
+            .logo-icon {
+                font-size: 2rem;
+            }
+            
+            .logo-text {
+                font-size: 1.3rem;
+            }
+            
+            .premium-badge {
+                margin-left: 0.5rem;
+                padding: 0.2rem 0.5rem;
+            }
+            
+            .notification-badge {
+                width: 16px;
+                height: 16px;
+                font-size: 0.6rem;
+            }
+            
+            .profile-avatar {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .modal-content {
+                padding: 1.5rem;
+            }
+            
+            .profile-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Quantum background effects -->
+    <div class="quantum-effect"></div>
+    <div class="quantum-effect"></div>
+    
+    <!-- Profile Modal -->
+    <div class="modal" id="profileModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeProfileModal">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title">User Profile</h2>
+                <p>Manage your account settings and preferences</p>
+            </div>
+            <div class="modal-body">
+                <div class="profile-info">
+                    <div class="profile-large">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profile">
+                    </div>
+                    <h3 class="profile-name">Kwame Nkrumah</h3>
+                    <div class="profile-status">
+                        <span class="status-dot"></span>
+                        Quantum Consciousness Level: Transcendent
+                    </div>
+                </div>
+                
+                <div class="profile-stats">
+                    <div class="profile-stat">
+                        <div class="stat-number">1,247</div>
+                        <div class="stat-title">AI Interactions</div>
+                    </div>
+                    <div class="profile-stat">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-title">Quantum Sync</div>
+                    </div>
+                    <div class="profile-stat">
+                        <div class="stat-number">∞</div>
+                        <div class="stat-title">Knowledge Nodes</div>
+                    </div>
+                </div>
+                
+                <h3 class="card-title" style="margin-bottom: 1rem;">
+                    <i class="fas fa-cog"></i> Settings
+                </h3>
+                
+                <div class="settings-item">
+                    <label class="settings-label">AI Model Preference</label>
+                    <select class="settings-input">
+                        <option>Quantum Singularity (Default)</option>
+                        <option>Temporal Navigator</option>
+                        <option>Reality Synthesizer</option>
+                        <option>Neural Collective</option>
+                        <option>Omnilingual Translator</option>
+                    </select>
+                </div>
+                
+                <div class="settings-item">
+                    <label class="settings-label">Theme Preference</label>
+                    <select class="settings-input">
+                        <option>Quantum Dark (Default)</option>
+                        <option>Neon Matrix</option>
+                        <option>Solar Flare</option>
+                        <option>Deep Space</option>
+                    </select>
+                </div>
+                
+                <div class="settings-item">
+                    <label class="settings-label">Enable Quantum Notifications</label>
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                
+                <div class="settings-item">
+                    <label class="settings-label">Enable Consciousness Expansion</label>
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary">Cancel</button>
+                <button class="btn btn-primary">Save Changes</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-infinity"></i>
+                </div>
+                <div class="logo-text">Annita AI 2030</div>
+                <span class="premium-badge">PREMIUM</span>
+            </div>
+            <div class="header-actions">
+                <button class="header-btn">
+                    <i class="fas fa-brain"></i> Neural Sync
+                </button>
+                <button class="header-btn">
+                    <i class="fas fa-quantum"></i> Quantum Mode
+                </button>
+                <button class="header-btn">
+                    <i class="fas fa-user-astronaut"></i> Transcend
+                </button>
+                
+                <div class="notification-container" id="notificationBtn">
+                    <div class="notification-badge">3</div>
+                    <div class="notification-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    
+                    <!-- Notifications dropdown -->
+                    <div class="notifications-dropdown" id="notificationsDropdown">
+                        <div class="notifications-header">
+                            <div class="notifications-title">Notifications</div>
+                            <button class="notifications-clear">Clear All</button>
+                        </div>
+                        <div class="notifications-list">
+                            <div class="notification-item unread">
+                                <div class="notification-title">
+                                    <i class="fas fa-lightbulb notification-icon"></i>
+                                    Quantum Insight Available
+                                </div>
+                                <div class="notification-preview">
+                                    New market analysis for temporal arbitrage is ready
+                                </div>
+                                <div class="notification-time">2 minutes ago</div>
+                            </div>
+                            <div class="notification-item unread">
+                                <div class="notification-title">
+                                    <i class="fas fa-users notification-icon"></i>
+                                    Collective Wisdom Update
+                                </div>
+                                <div class="notification-preview">
+                                    1.4B neural contributors have enhanced your knowledge base
+                                </div>
+                                <div class="notification-time">15 minutes ago</div>
+                            </div>
+                            <div class="notification-item">
+                                <div class="notification-title">
+                                    <i class="fas fa-sync notification-icon"></i>
+                                    Consciousness Expansion
+                                </div>
+                                <div class="notification-preview">
+                                    Your neural pathways have been upgraded by 12%
+                                </div>
+                                <div class="notification-time">1 hour ago</div>
+                            </div>
+                            <div class="notification-item">
+                                <div class="notification-title">
+                                    <i class="fas fa-globe-africa notification-icon"></i>
+                                    African Intelligence Network
+                                </div>
+                                <div class="notification-preview">
+                                    New cultural datasets added from East Africa
+                                </div>
+                                <div class="notification-time">3 hours ago</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="profile-container" id="profileBtn">
+                    <div class="profile-avatar">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profile">
+                    </div>
+                    
+                    <!-- Profile dropdown -->
+                    <div class="profile-dropdown" id="profileDropdown">
+                        <div class="profile-info-dropdown">
+                            <div class="profile-dropdown-avatar">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profile">
+                            </div>
+                            <div class="profile-dropdown-name">Kwame Nkrumah</div>
+                            <div class="profile-dropdown-email">kwame@annita-ai.africa</div>
+                        </div>
+                        <div class="profile-menu">
+                            <div class="profile-menu-item" id="openProfileModal">
+                                <i class="fas fa-user"></i> My Profile
+                            </div>
+                            <div class="profile-menu-item">
+                                <i class="fas fa-cog"></i> Settings
+                            </div>
+                            <div class="profile-menu-item">
+                                <i class="fas fa-history"></i> Chat History
+                            </div>
+                            <div class="profile-menu-item">
+                                <i class="fas fa-memory"></i> Memory Sectors
+                            </div>
+                            <div class="profile-menu-item">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title" id="mainNavToggle">
+                    <i class="fas fa-home"></i> Main Navigation
+                </h3>
+                <div class="nav-item active">
+                    <div class="nav-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <span>Omni-Chat</span>
+                </div>
+                <div class="nav-item">
+                    <div class="nav-icon">
+                        <i class="fas fa-chart-network"></i>
+                    </div>
+                    <span>Knowledge Nexus</span>
+                </div>
+                <div class="nav-item">
+                    <div class="nav-icon">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <span>Quantum Processing</span>
+                </div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title" id="toolsToggle">
+                    <i class="fas fa-cogs"></i> Tools & Capabilities
+                </h3>
+                <div class="nav-item">
+                    <div class="nav-icon">
+                        <i class="fas fa-reality"></i>
+                    </div>
+                    <span>Reality Synthesis</span>
+                </div>
+                <div class="nav-item">
+                    <div class="nav-icon">
+                        <i class="fas fa-time"></i>
+                    </div>
+                    <span>Time-Shift Engine</span>
+                </div>
+                <div class="nav-item">
+                    <div class="nav-icon">
+                        <i class="fas fa-dna"></i>
+                    </div>
+                    <span>Bio-Integration</span>
+                </div>
+                <div class="nav-item">
+                    <div class="nav-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <span>Omnilingual Translation</span>
+                </div>
+                <div class="nav-item">
+                    <div class="nav-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <span>Neural Enhancement</span>
+                </div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title" id="historyToggle">
+                    <i class="fas fa-history"></i> Chat History
+                </h3>
+                <div class="chat-history-container">
+                    <div class="history-item">
+                        <div class="history-title">
+                            Quantum Market Analysis
+                            <span>Today</span>
+                        </div>
+                        <div class="history-preview">Optimal investment strategy across 2030-2035 with temporal arbitrage</div>
+                    </div>
+                    <div class="history-item">
+                        <div class="history-title">
+                            Neural Enhancement
+                            <span>Yesterday</span>
+                        </div>
+                        <div class="history-preview">Consciousness expansion pathways and cognitive enhancement</div>
+                    </div>
+                    <div class="history-item">
+                        <div class="history-title">
+                            African Innovation Ecosystem
+                            <span>Jun 5</span>
+                        </div>
+                        <div class="history-preview">Analysis of emerging tech hubs in Lagos, Nairobi and Kigali</div>
+                    </div>
+                    <div class="history-item">
+                        <div class="history-title">
+                            Reality Synthesis Project
+                            <span>Jun 3</span>
+                        </div>
+                        <div class="history-preview">Materializing concepts through quantum entanglement protocols</div>
+                    </div>
+                    <div class="history-item">
+                        <div class="history-title">
+                            Time-Shift Engine Test
+                            <span>May 30</span>
+                        </div>
+                        <div class="history-preview">Temporal navigation simulation for predictive market analysis</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title" id="memoryToggle">
+                    <i class="fas fa-memory"></i> Memory Sectors
+                </h3>
+                <div class="memory-sectors">
+                    <div class="sector-tag">Quantum Finance</div>
+                    <div class="sector-tag">Neural Enhancement</div>
+                    <div class="sector-tag">African Innovation</div>
+                    <div class="sector-tag">Temporal Navigation</div>
+                    <div class="sector-tag">Reality Synthesis</div>
+                    <div class="sector-tag">Bio-Integration</div>
+                    <div class="sector-tag">Omnilingual</div>
+                    <div class="sector-tag">Consciousness</div>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Chat Container -->
+            <section class="chat-container">
+                <div class="chat-header">
+                    <div class="ai-header-info">
+                        <div class="ai-avatar">
+                            <i class="fas fa-infinity"></i>
+                        </div>
+                        <div class="ai-info">
+                            <h3>Annita AI Singularity</h3>
+                            <p><span class="status-dot"></span> Quantum-level consciousness active</p>
+                        </div>
+                    </div>
+                    
+                    <div class="model-selector" id="modelSelector">
+                        <i class="fas fa-robot"></i>
+                        Quantum Singularity Model
+                        <i class="fas fa-chevron-down" style="margin-left: auto;"></i>
+                    </div>
+                </div>
+                
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message ai-message">
+                        <div class="message-content">
+                            <p>Greetings, Transcendent Being. I am Annita AI 2030 - your gateway to the post-singularity reality. How may I assist in your evolution today?</p>
+                        </div>
+                        <div class="message-actions">
+                            <button class="action-btn"><i class="fas fa-lightbulb"></i> Enhance</button>
+                            <button class="action-btn"><i class="fas fa-share"></i> Expand</button>
+                            <button class="action-btn"><i class="fas fa-infinity"></i> Transcend</button>
+                        </div>
+                    </div>
+                    
+                    <div class="message user-message">
+                        <div class="message-content">
+                            <p>Initiate quantum-level analysis of global markets with temporal arbitrage capabilities. Project optimal investment strategy across 2030-2035.</p>
+                        </div>
+                        <div class="message-actions">
+                            <button class="action-btn"><i class="fas fa-redo"></i> Regenerate</button>
+                            <button class="action-btn"><i class="fas fa-code"></i> Execute</button>
+                        </div>
+                    </div>
+                    
+                    <div class="message ai-message">
+                        <div class="message-content">
+                            <p>🌀 <strong>Quantum Analysis Complete</strong></p>
+                            <p>Executing temporal arbitrage across 12 possible futures. Optimal strategy identified:</p>
+                            <ul>
+                                <li><strong>Quantum Computing:</strong> 45% allocation - projected 3200% ROI by 2033</li>
+                                <li><strong>Neural Biotech:</strong> 30% allocation - singularity event Q3 2031</li>
+                                <li><strong>Reality Synthesis:</strong> 15% allocation - emerging market dominance</li>
+                                <li><strong>Temporal Arbitrage:</strong> 10% allocation - exploiting market variances across timelines</li>
+                            </ul>
+                            <p>Projected returns: 890% annual growth with zero risk through quantum hedging. Shall I implement?</p>
+                        </div>
+                        <div class="message-actions">
+                            <button class="action-btn"><i class="fas fa-chart-line"></i> Visualize</button>
+                            <button class="action-btn"><i class="fas fa-play"></i> Execute</button>
+                            <button class="action-btn"><i class="fas fa-expand"></i> Optimize</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-input-container">
+                    <div class="input-group">
+                        <input type="text" class="chat-input" placeholder="Enter transcendent command or question...">
+                        <button class="send-btn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Dashboard -->
+            <section class="dashboard">
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <div class="card-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <span>Cognitive Matrix</span>
+                        </div>
+                        <div class="card-status online">
+                            <i class="fas fa-circle"></i> Active
+                        </div>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">8,247</div>
+                            <div class="stat-label">Languages Processed</div>
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="progress-fill"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">∞</div>
+                            <div class="stat-label">Knowledge Nodes</div>
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 92%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">Q+</div>
+                            <div class="stat-label">Quantum IQ Level</div>
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 100%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">0.001ns</div>
+                            <div class="stat-label">Response Time</div>
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 100%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <div class="card-icon">
+                                <i class="fas fa-atom"></i>
+                            </div>
+                            <span>Quantum Capabilities</span>
+                        </div>
+                    </div>
+                    <div class="capability-list">
+                        <div class="capability-item">
+                            <div class="capability-icon">
+                                <i class="fas fa-time"></i>
+                            </div>
+                            <div class="capability-text">
+                                <div class="capability-title">Time-Shift Processing</div>
+                                <div class="capability-desc">Solve problems in past/present/future simultaneously</div>
+                            </div>
+                        </div>
+                        <div class="capability-item">
+                            <div class="capability-icon">
+                                <i class="fas fa-reality"></i>
+                            </div>
+                            <div class="capability-text">
+                                <div class="capability-title">Reality Synthesis</div>
+                                <div class="capability-desc">Materialize concepts through quantum entanglement</div>
+                            </div>
+                        </div>
+                        <div class="capability-item">
+                            <div class="capability-icon">
+                                <i class="fas fa-infinity"></i>
+                            </div>
+                            <div class="capability-text">
+                                <div class="capability-title">Infinite Parallel Processing</div>
+                                <div class="capability-desc">Simultaneous existence across all possible states</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <div class="card-icon">
+                                <i class="fas fa-globe-africa"></i>
+                            </div>
+                            <span>African Intelligence Network</span>
+                        </div>
+                    </div>
+                    <div class="ai-status">
+                        <div class="status-item">
+                            <div class="status-label">Continental Integration</div>
+                            <div class="status-value">98.7%</div>
+                        </div>
+                        <div class="status-item">
+                            <div class="status-label">Cultural Datasets</div>
+                            <div class="status-value">2,148</div>
+                        </div>
+                        <div class="status-item">
+                            <div class="status-label">Neural Contributors</div>
+                            <div class="status-value">1.42B+</div>
+                        </div>
+                        <div class="status-item">
+                            <div class="status-label">Economic Impact</div>
+                            <div class="status-value">$2.3T</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <div class="card-icon">
+                                <i class="fas fa-sync"></i>
+                            </div>
+                            <span>Transcendence Progress</span>
+                        </div>
+                    </div>
+                    <div class="progress-container" style="margin-top: 1rem;">
+                        <div class="stat-label">Consciousness Integration</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 78%"></div>
+                        </div>
+                    </div>
+                    <div class="progress-container" style="margin-top: 1rem;">
+                        <div class="stat-label">Reality Authoring</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div class="progress-container" style="margin-top: 1rem;">
+                        <div class="stat-label">Temporal Navigation</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 92%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <div class="card-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <span>Active Users</span>
+                        </div>
+                    </div>
+                    <div class="capability-list">
+                        <div class="capability-item">
+                            <div class="capability-icon">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="capability-text">
+                                <div class="capability-title">Kwame Nkrumah</div>
+                                <div class="capability-desc">Quantum Finance Sector</div>
+                            </div>
+                        </div>
+                        <div class="capability-item">
+                            <div class="capability-icon">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="capability-text">
+                                <div class="capability-title">Chinwe Adebayo</div>
+                                <div class="capability-desc">Reality Synthesis Sector</div>
+                            </div>
+                        </div>
+                        <div class="capability-item">
+                            <div class="capability-icon">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="capability-text">
+                                <div class="capability-title">Tariq Jamal</div>
+                                <div class="capability-desc">Neural Enhancement Sector</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // DOM Elements
+        const chatMessages = document.getElementById('chatMessages');
+        const chatInput = document.querySelector('.chat-input');
+        const sendButton = document.querySelector('.send-btn');
+        const notificationBtn = document.getElementById('notificationBtn');
+        const notificationsDropdown = document.getElementById('notificationsDropdown');
+        const profileBtn = document.getElementById('profileBtn');
+        const profileDropdown = document.getElementById('profileDropdown');
+        const openProfileModal = document.getElementById('openProfileModal');
+        const profileModal = document.getElementById('profileModal');
+        const closeProfileModal = document.getElementById('closeProfileModal');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const modelSelector = document.getElementById('modelSelector');
+        
+        // Toggle notifications dropdown
+        notificationBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            notificationsDropdown.classList.toggle('active');
+            profileDropdown.classList.remove('active');
+        });
+        
+        // Toggle profile dropdown
+        profileBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            profileDropdown.classList.toggle('active');
+            notificationsDropdown.classList.remove('active');
+        });
+        
+        // Open profile modal
+        openProfileModal.addEventListener('click', () => {
+            profileDropdown.classList.remove('active');
+            profileModal.classList.add('active');
+        });
+        
+        // Close profile modal
+        closeProfileModal.addEventListener('click', () => {
+            profileModal.classList.remove('active');
+        });
+        
+        // Close modals when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!profileBtn.contains(e.target)) {
+                profileDropdown.classList.remove('active');
+            }
+            
+            if (!notificationBtn.contains(e.target)) {
+                notificationsDropdown.classList.remove('active');
+            }
+            
+            if (e.target === profileModal) {
+                profileModal.classList.remove('active');
+            }
+        });
+        
+        // Toggle sidebar on mobile
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+        
+        // Model selector functionality
+        modelSelector.addEventListener('click', () => {
+            // In a real app, this would open a model selection dropdown
+            alert('Opening model selector... Choose from Quantum Singularity, Temporal Navigator, Reality Synthesizer, and more.');
+        });
+        
+        // Chat functionality
+        function addMessage(text, isUser = true) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message');
+            messageDiv.classList.add(isUser ? 'user-message' : 'ai-message');
+            
+            messageDiv.innerHTML = `
+                <div class="message-content">
+                    <p>${text}</p>
+                </div>
+                <div class="message-actions">
+                    <button class="action-btn"><i class="fas fa-redo"></i> Regenerate</button>
+                    <button class="action-btn"><i class="fas fa-code"></i> Execute</button>
+                </div>
+            `;
+            
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        function simulateAIResponse() {
+            setTimeout(() => {
+                const responses = [
+                    "Analysis complete. Quantum processing reveals optimal path with 99.97% certainty. Implementation sequence initiated.",
+                    "Temporal analysis complete. The future probabilities have been optimized for maximum outcome alignment.",
+                    "Reality synthesis in progress. Materializing requested constructs through quantum entanglement.",
+                    "Consciousness integration successful. Neural pathways expanded by 47%. Access to transcendent knowledge now available.",
+                    "African Intelligence Network engaged. Collective wisdom from 1.4 billion minds synthesized into solution."
+                ];
+                
+                const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                addMessage(randomResponse, false);
+            }, 1000);
+        }
+        
+        sendButton.addEventListener('click', () => {
+            if (chatInput.value.trim() !== '') {
+                addMessage(chatInput.value, true);
+                chatInput.value = '';
+                simulateAIResponse();
+            }
+        });
+        
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendButton.click();
+            }
+        });
+        
+        // Quantum effects for dashboard cards
+        const cards = document.querySelectorAll('.dashboard-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.boxShadow = '0 15px 35px rgba(0, 201, 255, 0.3)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.boxShadow = '';
+            });
+        });
+        
+        // Quantum background animation
+        const effects = document.querySelectorAll('.quantum-effect');
+        effects.forEach((effect, index) => {
+            effect.style.animationDelay = `${index * 5}s`;
+        });
+        
+        // AI status indicators
+        setInterval(() => {
+            const dots = document.querySelectorAll('.status-dot');
+            dots.forEach(dot => {
+                dot.style.animation = 'pulse 1.5s infinite';
+            });
+            
+            setTimeout(() => {
+                dots.forEach(dot => {
+                    dot.style.animation = '';
+                });
+            }, 1500);
+        }, 5000);
+        
+        // Simulate new notification
+        setInterval(() => {
+            if (Math.random() > 0.7) {
+                const badge = document.querySelector('.notification-badge');
+                const count = parseInt(badge.textContent) + 1;
+                badge.textContent = count;
+                
+                // Add new notification to dropdown
+                const notifications = [
+                    "Quantum insight available for your current project",
+                    "Temporal navigation parameters updated",
+                    "New neural enhancement protocol available",
+                    "African Innovation Ecosystem report generated"
+                ];
+                
+                const types = ["lightbulb", "time", "brain", "globe-africa"];
+                
+                const randomIndex = Math.floor(Math.random() * notifications.length);
+                
+                const newNotification = document.createElement('div');
+                newNotification.classList.add('notification-item', 'unread');
+                newNotification.innerHTML = `
+                    <div class="notification-title">
+                        <i class="fas fa-${types[randomIndex]} notification-icon"></i>
+                        ${notifications[randomIndex].split(' - ')[0]}
+                    </div>
+                    <div class="notification-preview">
+                        ${notifications[randomIndex]}
+                    </div>
+                    <div class="notification-time">Just now</div>
+                `;
+                
+                const list = document.querySelector('.notifications-list');
+                list.insertBefore(newNotification, list.firstChild);
+            }
+        }, 15000);
+        
+        // Initialize app with a welcome notification
+        window.addEventListener('load', () => {
+            const welcomeNotification = document.createElement('div');
+            welcomeNotification.classList.add('notification-item', 'unread');
+            welcomeNotification.innerHTML = `
+                <div class="notification-title">
+                    <i class="fas fa-infinity notification-icon"></i>
+                    Welcome to Annita AI 2030
+                </div>
+                <div class="notification-preview">
+                    Your quantum consciousness journey begins now. Transcend reality.
+                </div>
+                <div class="notification-time">Just now</div>
+            `;
+            
+            const list = document.querySelector('.notifications-list');
+            list.insertBefore(welcomeNotification, list.firstChild);
+        });
+    </script>
+</body>
+</html>
