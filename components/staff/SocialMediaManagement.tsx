@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { MessageSquare, Heart, Share2, TrendingUp, Users, Eye, Calendar, Clock, Plus, Search, Filter, BarChart3 } from 'lucide-react'
+import { MessageSquare, Heart, Share2, TrendingUp, Users, Eye, Calendar, Clock, Plus, Search, Filter, BarChart3, Play, Edit, Trash2 } from 'lucide-react'
 
 interface SocialPost {
   id: string

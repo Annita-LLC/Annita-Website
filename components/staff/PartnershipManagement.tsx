@@ -539,7 +539,7 @@ export default function PartnershipManagement() {
                   <div key={index} className="flex items-center justify-between p-3 bg-white rounded-lg border border-gray-200">
                     <div className="flex items-center space-x-3">
                       <div className="w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center text-indigo-600">
-                        <Handshake className="w-4 h-4" />
+                        <Users className="w-4 h-4" />
                       </div>
                       <div>
                         <p className="text-sm font-medium text-gray-900">{partner.company}</p>
