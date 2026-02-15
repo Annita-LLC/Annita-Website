@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Target, Plus, TrendingUp, CheckCircle2, Clock, AlertCircle, Calendar, BarChart3 } from 'lucide-react'
 
-export default function GoalsObjectives() {
+export default function GoalsObjectives({ userRole }: { userRole?: string }) {
   const [activeView, setActiveView] = useState<'active' | 'completed' | 'all'>('active')
 
   const goals = [

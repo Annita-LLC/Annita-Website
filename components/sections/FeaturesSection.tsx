@@ -8,6 +8,7 @@ import LogisticsFeature from './features/LogisticsFeature'
 import ConnectFeature from './features/ConnectFeature'
 import AIFeature from './features/AIFeature'
 import CustomSolutionsFeature from './features/CustomSolutionsFeature'
+import GovernmentSolutionsFeature from './features/GovernmentSolutionsFeature'
 
 const FeaturesSection = () => {
   const ref = useRef(null)
@@ -45,6 +46,7 @@ const FeaturesSection = () => {
           <ConnectFeature />
           <AIFeature />
           <CustomSolutionsFeature />
+          <GovernmentSolutionsFeature />
         </div>
       </div>
     </section>

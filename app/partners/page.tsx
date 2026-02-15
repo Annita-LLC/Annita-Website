@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
+import SEOHead from '@/components/seo/SEOHead'
 import { 
   UserPlus, 
   Users, 

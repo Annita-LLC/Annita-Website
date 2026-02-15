@@ -342,8 +342,8 @@ const IdeasPage = () => {
   return (
     <>
       <SEOHead
-        title="Ideas & Tips - Annita"
-        description="Share your ideas, suggestions, and feedback to help shape the future of Annita. Submit feature requests, business ideas, and community initiatives."
+        title="Ideas & Tips - Shape Annita's Digital Ecosystem"
+        description="Share your ideas, suggestions, and feedback to help shape Annita's digital ecosystem. Submit feature requests, business ideas, and community initiatives for MSMEs, governments, and partners."
         keywords={["ideas", "tips", "feedback", "feature requests", "suggestions", "community", "innovation", "Annita"]}
         canonical="/ideas"
       />
@@ -373,9 +373,9 @@ const IdeasPage = () => {
                   Ideas & <span className="text-orange-200">Tips</span>
                 </h1>
                   <p className="text-lg sm:text-xl text-orange-100 max-w-2xl mx-auto lg:mx-0 leading-relaxed mb-8">
-                  Help shape the future of Annita! Share your ideas, suggestions, and feedback. 
-                  Together, we can build something amazing for Africa.
-                </p>
+                    Help shape the future of Annita's digital ecosystem! Share your ideas, suggestions, and feedback. 
+                    Together, we can build something amazing for MSMEs, governments, and partners across Africa.
+                  </p>
                   
                   {/* Quick Stats */}
                   <div className="grid grid-cols-2 gap-4 mb-8">

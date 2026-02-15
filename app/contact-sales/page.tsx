@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import SEOHead from '@/components/seo/SEOHead'
 import { 
   Phone,
@@ -135,89 +136,69 @@ export default function ContactSalesPage() {
       />
 
       {/* Hero Section */}
-      <section className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-orange-600 via-orange-700 to-red-600 text-white overflow-hidden">
-        {/* Animated Background Elements */}
+      <section className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-600 text-white overflow-hidden">
+        {/* Background Elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full animate-pulse"></div>
-          <div className="absolute top-32 right-20 w-16 h-16 bg-white/5 rounded-full animate-bounce"></div>
-          <div className="absolute bottom-20 left-1/4 w-12 h-12 bg-white/10 rounded-full animate-pulse delay-1000"></div>
-          <div className="absolute bottom-32 right-1/3 w-8 h-8 bg-white/5 rounded-full animate-bounce delay-500"></div>
+          <div className="absolute top-10 left-10 w-32 h-32 bg-white/5 rounded-full animate-pulse"></div>
+          <div className="absolute bottom-10 right-10 w-24 h-24 bg-white/5 rounded-full animate-bounce"></div>
+          <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-white/5 rounded-full animate-pulse delay-1000"></div>
         </div>
-        
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* Left Column - Main Content */}
-              <div className="text-center lg:text-left">
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 leading-tight">
-                  Let's <span className="text-orange-200">Grow</span> Together
-                </h1>
-                <p className="text-lg sm:text-xl text-orange-100 max-w-2xl mx-auto lg:mx-0 leading-relaxed mb-8">
-                  Ready to transform your business? Our expert sales team is here to help you 
-                  find the perfect solution and accelerate your growth journey across Africa.
-                </p>
-                
-                {/* Quick Stats */}
-                <div className="grid grid-cols-3 gap-3 sm:gap-4 mb-6 sm:mb-8">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4">
-                    <div className="text-xl sm:text-2xl font-bold">Free</div>
-                    <div className="text-xs sm:text-sm text-orange-200">Consultation</div>
-                  </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4">
-                    <div className="text-xl sm:text-2xl font-bold">2hrs</div>
-                    <div className="text-xs sm:text-sm text-orange-200">Response</div>
-                  </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4">
-                    <div className="text-xl sm:text-2xl font-bold">Custom</div>
-                    <div className="text-xs sm:text-sm text-orange-200">Solutions</div>
-                  </div>
-                </div>
 
-                {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
-                  <button 
-                    onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="bg-white text-orange-600 px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold hover:bg-orange-50 transition-all duration-200 flex items-center justify-center shadow-lg text-sm sm:text-base"
-                  >
-                    <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-                    Get Started
-                  </button>
-                  <button 
-                    onClick={() => window.open('tel:+231775057227', '_blank')}
-                    className="border-2 border-white text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold hover:bg-white hover:text-orange-600 transition-all duration-200 flex items-center justify-center text-sm sm:text-base"
-                  >
-                    <Phone className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-                    Call Now
-                  </button>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 leading-tight">
+                Contact <span className="text-blue-200">Sales</span>
+              </h1>
+
+              <p className="text-lg sm:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed mb-8">
+                Ready to transform your business? Our expert sales team is here to help you find the perfect solution and accelerate your growth journey across Africa.
+              </p>
+
+              {/* Stats */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                  <CheckCircle className="w-8 h-8 text-blue-200 mx-auto mb-2" />
+                  <div className="text-2xl sm:text-3xl font-bold">Free</div>
+                  <div className="text-xs sm:text-sm text-blue-200">Consultation</div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                  <Clock className="w-8 h-8 text-blue-200 mx-auto mb-2" />
+                  <div className="text-2xl sm:text-3xl font-bold">2hrs</div>
+                  <div className="text-xs sm:text-sm text-blue-200">Response</div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                  <Target className="w-8 h-8 text-blue-200 mx-auto mb-2" />
+                  <div className="text-2xl sm:text-3xl font-bold">Custom</div>
+                  <div className="text-xs sm:text-sm text-blue-200">Solutions</div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                  <Users className="w-8 h-8 text-blue-200 mx-auto mb-2" />
+                  <div className="text-2xl sm:text-3xl font-bold">Expert</div>
+                  <div className="text-xs sm:text-sm text-blue-200">Team Ready</div>
                 </div>
               </div>
-              
-              {/* Right Column - Interactive Elements */}
-              <div className="relative">
-                {/* Sales Excellence Visualization */}
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/20">
-                  <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-center">Sales Excellence</h3>
-                  <div className="space-y-3 sm:space-y-4">
-                    <div className="flex items-center justify-between p-3 bg-white/10 rounded-lg">
-                      <span className="text-orange-200">Free Consultation</span>
-                      <span className="font-semibold text-white">No obligation</span>
-                    </div>
-                    <div className="flex items-center justify-between p-3 bg-white/10 rounded-lg">
-                      <span className="text-orange-200">Quick Response</span>
-                      <span className="font-semibold text-white">Within 2 hours</span>
-                    </div>
-                    <div className="flex items-center justify-between p-3 bg-white/10 rounded-lg">
-                      <span className="text-orange-200">Custom Solutions</span>
-                      <span className="font-semibold text-white">Tailored for you</span>
-                    </div>
-                    <div className="flex items-center justify-between p-3 bg-white/10 rounded-lg">
-                      <span className="text-orange-200">Success Rate</span>
-                      <span className="font-semibold text-white">99%</span>
-                    </div>
-                  </div>
-                </div>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button
+                  onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-all duration-200 shadow-lg text-sm sm:text-base"
+                >
+                  Get Started
+                </button>
+                <button
+                  onClick={() => window.open('tel:+231775057227', '_blank')}
+                  className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-all duration-200 text-sm sm:text-base"
+                >
+                  Call Now
+                </button>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -552,8 +533,8 @@ export default function ContactSalesPage() {
 
       {/* CTA Section */}
       <CTASection
-        title="Ready to Transform Your Business?"
-        subtitle="Join thousands of MSMEs already using Annita to grow their revenue, reach new customers, and streamline their operations across Africa."
+        title="Ready to Access Custom Solutions?"
+        subtitle="Get tailored digital infrastructure designed for MSMEs, governments, and strategic partners. Integrate our ecosystem of e-commerce, fintech, AI, and more across Africa."
         primaryButtonText="Try V1.0 Now"
         secondaryButtonText="Contact Sales"
         primaryButtonLink="/maintenance"

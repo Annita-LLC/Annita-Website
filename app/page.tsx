@@ -15,8 +15,8 @@ const CTASection = dynamic(() => import('@/components/sections/CTASection'), { s
 
 // Home page specific CTA content
 const homeCTAProps = {
-  title: "Ready to Transform Your Business?",
-  subtitle: "Join thousands of MSMEs already using Annita to grow their revenue, reach new customers, and streamline their operations across Africa."
+  title: "Ready to Join Africa's Digital Ecosystem?",
+  subtitle: "Access custom-built solutions tailored for MSMEs, governments, and strategic partners. Integrate e-commerce, fintech, AI, communication, marketing, logistics, and more into your operations."
 }
 
 export default function HomePage() {
@@ -58,7 +58,7 @@ export default function HomePage() {
     "mainEntity": {
       "@type": "Organization",
       "name": "Annita",
-      "description": "Africa's first all-in-one digital platform empowering MSMEs",
+      "description": "Africa's first all-in-one digital ecosystem empowering MSMEs, governments, and strategic partners",
       "url": "https://annita.com",
       "logo": "https://annita.com/logo.png",
       "foundingDate": "2021",
@@ -80,7 +80,7 @@ export default function HomePage() {
       ],
       "offers": {
         "@type": "Offer",
-        "description": "All-in-one digital platform for MSMEs",
+        "description": "All-in-one digital ecosystem for MSMEs, governments, and strategic partners",
         "price": "0",
         "priceCurrency": "USD"
       }
@@ -90,8 +90,8 @@ export default function HomePage() {
   return (
     <>
       <SEOHead
-        title="Annita - Africa's First AI-Powered All-in-One Digital Platform"
-        description="Built for African businesses. Cross-border trade, institutional backing, seamless integration. Connect with authentic African suppliers and grow your business."
+        title="Annita - Africa's First All-in-One Digital Ecosystem"
+        description="Africa's first all-in-one digital ecosystem. Custom-built solutions for MSMEs, governments, and partners. Integrating e-commerce, fintech, AI, communication, marketing, logistics, and more."
         keywords={[
           'Annita',
           'Africa digital platform',

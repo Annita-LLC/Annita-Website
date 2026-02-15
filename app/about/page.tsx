@@ -53,7 +53,7 @@ const AboutPage = () => {
     "name": "Annita",
     "url": "https://www.an-nita.com",
     "logo": "https://www.an-nita.com/favicon.png",
-    "description": "Africa's first all-in-one digital platform integrating e-commerce, fintech, AI-driven tools, and lifestyle services",
+    "description": "Africa's first all-in-one digital ecosystem integrating e-commerce, fintech, AI, communication, marketing, logistics, and more. Delivering custom-built solutions for MSMEs, governments, and strategic partners across the continent.",
     "foundingDate": "2021",
     "address": {
       "@type": "PostalAddress",
@@ -103,14 +103,14 @@ const AboutPage = () => {
       }
     ],
     "numberOfEmployees": "10-50",
-    "slogan": "Africa's Leading All-in-One Digital Platform"
+    "slogan": "Africa's First All-in-One Digital Ecosystem"
   }
 
   return (
     <>
       <SEOHead
         title="About Us - Annita | Empowering Africa's Digital Future"
-        description="Learn about Annita, Africa's leading all-in-one digital platform. Discover our mission to empower 5 million MSMEs across Africa by 2029 through innovative e-commerce, fintech, and AI solutions."
+        description="Learn about Annita, Africa's first all-in-one digital ecosystem. Discover our mission to empower MSMEs, governments, and strategic partners through custom-built solutions integrating e-commerce, fintech, AI, and more."
         keywords={[
           'Annita',
           'about Annita',
@@ -185,7 +185,7 @@ const AboutPage = () => {
                 </h1>
 
                 <p className="text-lg sm:text-xl text-orange-100 max-w-3xl mx-auto leading-relaxed mb-8">
-                  Africa's first all-in-one digital platform combining e-commerce, fintech, AI, communication, marketing, logistics, and more into a single ecosystem.
+                  Annita is Africa's first all-in-one digital ecosystem—integrating e-commerce, fintech, AI, communication, marketing, logistics, and more into a single, connected system. Built for both online and offline access, Annita delivers custom-built solutions for MSMEs, governments, and strategic partners across the continent.
                 </p>
 
                 {/* Stats */}
@@ -261,7 +261,7 @@ const AboutPage = () => {
                   Empowering Africa's Future Through <span className="text-orange-500">Innovation</span>
                 </h2>
                 <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                  Africa's first all-in-one digital platform combining e-commerce, fintech, AI, communication, marketing, logistics, and more. Empowering MSMEs with innovative solutions and connectivity.
+                  Annita is Africa's first all-in-one digital ecosystem—integrating e-commerce, fintech, AI, communication, marketing, logistics, and more into a single, connected system. We design and deploy tailored digital infrastructure that empowers individuals and organizations with innovative tools, seamless connectivity, and real economic opportunity.
                 </p>
               </motion.div>
 
@@ -627,10 +627,10 @@ const AboutPage = () => {
                 className="text-center p-6 sm:p-8 lg:p-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl text-white shadow-2xl"
               >
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6">
-                  Ready to Join Our Mission?
+                  Ready to Access Our Digital Ecosystem?
                 </h3>
                 <p className="text-orange-100 mb-6 sm:mb-8 max-w-2xl mx-auto text-sm sm:text-base lg:text-lg leading-relaxed">
-                  Be part of Africa's largest digital transformation. Connect with our team to learn how we're empowering MSMEs across the continent.
+                  Join our mission to deliver custom-built solutions for MSMEs, governments, and strategic partners across Africa.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                   <Link

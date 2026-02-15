@@ -117,6 +117,7 @@ const Navigation = () => {
         { name: 'About Us', href: '/about', icon: Users, description: 'Our story and mission' },
         { name: 'Features & Solutions', href: '/features', icon: Zap, description: 'Everything Annita offers' },
         { name: 'Custom Solutions', href: '/solutions', icon: Code, description: 'Bespoke tech development' },
+        { name: 'Government Solutions', href: '/government-solutions', icon: Building, description: 'Digital solutions for governments' },
         { name: 'Ideas & Tips', href: '/ideas', icon: Lightbulb, description: 'Share ideas and feedback' },
         { name: 'Become a Partner', href: '/partners', icon: Users, description: 'Partner with Annita' },
         { name: 'Partner Application', href: '/partners/apply', icon: UserCheckIcon, description: 'Apply to become a partner' },

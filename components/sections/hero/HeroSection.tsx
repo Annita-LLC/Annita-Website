@@ -38,18 +38,18 @@ const HeroSection = () => {
   const slides = [
     {
       id: 1,
-      badge: "All-in-One Platform",
-      title: "Sell, Pay, Trade",
-      titleHighlight: "Deliver",
-      subtitle: "Africa's first all-in-one digital platform combining e-commerce, fintech, AI, communication, marketing, logistics, and more into a single ecosystem.",
+      badge: "Digital Ecosystem",
+      title: "Africa's First All-in-One",
+      titleHighlight: "Digital Ecosystem",
+      subtitle: "One Digital Ecosystem. Endless innovative solutions for MSMEs, governments, and strategic partners. Sell. Pay. Trade. Deliver. Market. Grow. Seamless online and offline experience.",
       background: "from-gray-50 via-white to-orange-50/30"
     },
     {
       id: 2,
-      badge: "Live Marketplace",
-      title: "Real Vendors, Real",
-      titleHighlight: "Sales Right Now",
-      subtitle: "3,000+ KYC-verified vendors across Africa. Secure transactions guaranteed with institutional backing.",
+      badge: "Custom Solutions",
+      title: "Tailored Solutions for",
+      titleHighlight: "MSMEs, Governments & Partners",
+      subtitle: "Annita delivers custom-built solutions specifically designed for micro, small, and medium enterprises, government agencies, and strategic partners across Africa.",
       background: "from-blue-50 via-white to-purple-50/30"
     },
     {
@@ -57,15 +57,15 @@ const HeroSection = () => {
       badge: "Pan-African Network",
       title: "Connect Across All",
       titleHighlight: "54 African Countries",
-      subtitle: "Access suppliers from all AfCFTA regions. Trade in 30+ African currencies with seamless cross-border integration.",
+      subtitle: "Access our digital ecosystem from all AfCFTA regions. Trade, communicate, and collaborate seamlessly with partners across the entire African continent.",
       background: "from-green-50 via-white to-teal-50/30"
     },
     {
       id: 4,
-      badge: "Endless Solutions",
-      title: "Innovative Solutions for",
-      titleHighlight: "All MSMEs",
-      subtitle: "Endless innovative solutions combining e-commerce, fintech, AI, communication, marketing, logistics, and more.",
+      badge: "Tailored Infrastructure",
+      title: "Designed & Deployed",
+      titleHighlight: "Digital Infrastructure",
+      subtitle: "We design and deploy tailored digital infrastructure that empowers individuals and organizations with innovative tools, seamless connectivity, and real economic opportunity.",
       background: "from-purple-50 via-white to-pink-50/30"
     },
     {
@@ -73,7 +73,7 @@ const HeroSection = () => {
       badge: "AI-Powered",
       title: "Smart Business",
       titleHighlight: "Intelligence",
-      subtitle: "AI-driven insights and automation to optimize your business operations and growth across the entire ecosystem.",
+      subtitle: "AI-driven insights and automation within our integrated ecosystem to optimize your business operations and growth across all sectors.",
       background: "from-teal-50 via-white to-cyan-50/30"
     },
     {

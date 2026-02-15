@@ -1,6 +1,6 @@
 'use client'
 
-import { X, ArrowRight, ExternalLink, Award } from 'lucide-react'
+import { X, ArrowRight, ExternalLink, Award, Building2 } from 'lucide-react'
 import Link from 'next/link'
 
 interface WelcomeModalProps {
@@ -17,9 +17,9 @@ export default function WelcomeModal({ isOpen, onClose }: WelcomeModalProps) {
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 w-8 h-8 flex items-center justify-center bg-white/10 backdrop-blur-sm rounded-full text-gray-600 dark:text-gray-300 hover:bg-white/20 transition-colors"
+          className="absolute top-4 right-4 z-20 w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-800 hover:bg-gray-100 transition-colors shadow-lg border border-gray-200"
         >
-          <X className="w-5 h-5" />
+          <X className="w-6 h-6" />
         </button>
 
         <div className="p-6 text-center">
@@ -28,7 +28,7 @@ export default function WelcomeModal({ isOpen, onClose }: WelcomeModalProps) {
           </h2>
 
           <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
-            Africa's first all-in-one digital platform. Explore our comprehensive features and see how we're transforming business across the continent.
+            Africa's first all-in-one digital ecosystem. Explore our integrated solutions for e-commerce, fintech, AI, communication, marketing, logistics, and more.
           </p>
 
           <div className="bg-gradient-to-r from-orange-50 to-yellow-50 dark:from-orange-900/20 dark:to-yellow-900/20 rounded-lg p-3 mb-4 border border-orange-200 dark:border-orange-800">
@@ -39,7 +39,7 @@ export default function WelcomeModal({ isOpen, onClose }: WelcomeModalProps) {
 
           <div className="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-3 mb-6 border border-purple-200 dark:border-purple-800">
             <p className="text-purple-800 dark:text-purple-200 text-xs leading-relaxed">
-              <strong>Need something custom?</strong> We build tailored tech solutions including web apps, mobile apps, system integrations, and cloud solutions specifically designed for your unique business needs.
+              <strong>Need custom solutions?</strong> We design and deploy tailored digital infrastructure for MSMEs, governments, and strategic partners across Africa.
             </p>
           </div>
 
@@ -69,6 +69,15 @@ export default function WelcomeModal({ isOpen, onClose }: WelcomeModalProps) {
             >
               Awards & Recognition
               <Award className="w-3.5 h-3.5 ml-2" />
+            </Link>
+
+            <Link
+              href="/government-solutions"
+              onClick={onClose}
+              className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-2.5 rounded-lg font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-200 shadow-lg flex items-center justify-center text-sm"
+            >
+              Government Solutions
+              <Building2 className="w-3.5 h-3.5 ml-2" />
             </Link>
 
             <Link

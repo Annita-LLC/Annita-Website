@@ -15,7 +15,7 @@ const TermsPage = () => {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "Terms of Service - Annita",
-    "description": "Comprehensive terms of service explaining user rights, obligations, and legal agreements for using Annita's digital platform services.",
+    "description": "Terms of service for Annita's digital ecosystem. User rights, obligations, and legal agreements for MSMEs, governments, and strategic partners.",
     "url": "https://www.an-nita.com/terms",
     "mainEntity": {
       "@type": "Organization",
@@ -31,7 +31,7 @@ const TermsPage = () => {
     <>
       <SEOHead
         title="Terms of Service - Annita | User Rights & Legal Agreement"
-        description="Understand your rights and obligations with Annita's comprehensive terms of service. Clear legal agreements for our digital platform, payments, and business services."
+        description="Terms of service for Annita's digital ecosystem. User rights, obligations, and legal agreements for MSMEs, governments, and strategic partners."
         keywords={[
           'terms of service',
           'terms and conditions',

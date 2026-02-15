@@ -38,6 +38,7 @@ const Footer = () => {
         { name: 'About Us', href: '/about' },
         { name: 'Features & Solutions', href: '/features' },
         { name: 'Custom Solutions', href: '/solutions' },
+        { name: 'Government Solutions', href: '/government-solutions' },
         { name: 'Careers', href: '/careers' },
         { name: 'Partners', href: '/partners' },
       ]
@@ -143,8 +144,7 @@ const Footer = () => {
               </div>
             </Link>
             <p className="text-gray-400 mb-4 sm:mb-6 leading-relaxed text-xs sm:text-sm">
-              Annita is Africa's first all-in-one digital platform, combining e-commerce, fintech, AI, communication, marketing, logistics, and more into a single ecosystem.
-              We empower MSMEs and individuals with innovative solutions, connectivity, and convenience.
+              Annita is Africa's first all-in-one digital ecosystem—integrating e-commerce, fintech, AI, communication, marketing, logistics, and more into a single, connected system. Built for both online and offline access, Annita delivers custom-built solutions for MSMEs, governments, and strategic partners across the continent.
             </p>
             
             {/* Contact Info */}

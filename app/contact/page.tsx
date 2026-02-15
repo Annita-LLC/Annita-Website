@@ -11,7 +11,7 @@ const ContactPage = () => {
     "@context": "https://schema.org",
     "@type": "ContactPage",
     "name": "Contact Annita - Get Support and Assistance",
-    "description": "Contact Annita for support, partnerships, or any questions about our all-in-one digital platform. Multiple contact methods available including email, phone, and live chat.",
+    "description": "Contact Annita for custom solutions and support. Reach out about our digital ecosystem for MSMEs, governments, and partners across Africa.",
     "url": "https://annita.com/contact",
     "mainEntity": {
       "@type": "Organization",
@@ -32,7 +32,7 @@ const ContactPage = () => {
     <>
       <SEOHead
         title="Contact Us - Get Support and Assistance | Annita"
-        description="Contact Annita for support, partnerships, or any questions about our all-in-one digital platform. Multiple contact methods available including email, phone, and live chat."
+        description="Contact Annita for custom solutions and support. Reach out about our digital ecosystem for MSMEs, governments, and partners across Africa."
         keywords={[
           'contact Annita',
           'Annita support',

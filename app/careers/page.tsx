@@ -8,8 +8,8 @@ export default function CareersPage() {
   return (
     <>
       <SEOHead
-        title="Careers - Join Annita's Mission"
-        description="Join Annita's mission to empower Africa's MSMEs. Explore career opportunities in technology, business, and innovation."
+        title="Careers - Join Annita's Digital Ecosystem"
+        description="Join Annita's digital ecosystem to empower MSMEs, governments, and strategic partners. Explore career opportunities in technology, business, and innovation."
         canonical="/careers"
       />
 
@@ -22,7 +22,7 @@ export default function CareersPage() {
                   Join Our <span className="text-orange-200">Mission</span>
                 </h1>
                 <p className="text-lg sm:text-xl text-orange-100 max-w-2xl mx-auto lg:mx-0 leading-relaxed mb-8">
-                  Help us empower millions of African MSMEs through innovative technology. Be part of something bigger than yourself.
+                  Help us empower MSMEs, governments, and strategic partners through our digital ecosystem. Be part of something bigger than yourself.
                 </p>
                 
                 {/* Quick Stats */}
@@ -80,7 +80,7 @@ export default function CareersPage() {
                 Why Join <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600">Annita</span>?
               </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                We're building Africa's first all-in-one digital platform. Join a passionate team making a real impact on millions of businesses across the continent.
+                We're building Africa's first all-in-one digital ecosystem. Join a passionate team making a real impact on MSMEs, governments, and strategic partners across the continent.
               </p>
             </div>
 

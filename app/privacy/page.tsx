@@ -15,7 +15,7 @@ const PrivacyPage = () => {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "Privacy Policy - Annita",
-    "description": "Comprehensive privacy policy explaining how Annita collects, uses, and protects your personal information with GDPR compliance and data security measures.",
+    "description": "Comprehensive privacy policy for Annita's digital ecosystem. Learn how we protect data for MSMEs, governments, and partners with GDPR compliance and security measures.",
     "url": "https://www.an-nita.com/privacy",
     "mainEntity": {
       "@type": "Organization",
@@ -31,7 +31,7 @@ const PrivacyPage = () => {
     <>
       <SEOHead
         title="Privacy Policy - Annita | Your Data Security & Rights"
-        description="Learn how Annita protects your personal information with bank-grade security, GDPR compliance, and transparent data practices. Exercise your privacy rights with confidence."
+        description="Comprehensive privacy policy for Annita's digital ecosystem. Learn how we protect data for MSMEs, governments, and partners with GDPR compliance and security measures."
         keywords={[
           'privacy policy',
           'data protection',

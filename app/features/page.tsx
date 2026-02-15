@@ -402,8 +402,8 @@ export default function FeaturesPage() {
   return (
     <>
       <SEOHead
-        title="Features - Everything Annita Offers | Africa's All-in-One Digital Platform"
-        description="Discover all that Annita offers: live marketplace, advanced payments, AI tools, logistics, marketing, creator tools, education solutions, and custom tech development. Africa's most comprehensive digital ecosystem."
+        title="Features - Everything Annita Offers | Africa's All-in-One Digital Ecosystem"
+        description="Discover all that Annita offers: live marketplace, advanced payments, AI tools, logistics, marketing, creator tools, education solutions, and custom tech development. Custom-built solutions for MSMEs, governments, and strategic partners across Africa."
         keywords={[
           'Annita features',
           'digital platform features',

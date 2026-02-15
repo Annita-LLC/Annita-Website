@@ -1,101 +1,57 @@
 "use client"
 
-import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion } from 'framer-motion'
 import {
   Cookie,
   Settings,
-  Mail,
-  Phone
+  Shield,
+  CheckCircle
 } from 'lucide-react'
 
 const HeroSection = () => {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const stats = [
+    { number: "Transparent", label: "Cookies", icon: Cookie },
+    { number: "Full", label: "Control", icon: Settings },
+    { number: "GDPR", label: "Compliant", icon: Shield },
+    { number: "Easy", label: "Management", icon: CheckCircle }
+  ]
 
   return (
-    <section className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-orange-600 via-orange-700 to-red-600 text-white overflow-hidden">
-      {/* Animated Background Elements */}
+    <section className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-600 text-white overflow-hidden">
+      {/* Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full animate-pulse"></div>
-        <div className="absolute top-20 right-20 w-16 h-16 bg-white/10 rounded-full animate-bounce"></div>
-        <div className="absolute bottom-20 left-1/4 w-24 h-24 bg-white/10 rounded-full animate-pulse"></div>
-        <div className="absolute bottom-10 right-1/3 w-12 h-12 bg-white/10 rounded-full animate-bounce"></div>
+        <div className="absolute top-10 left-10 w-32 h-32 bg-white/5 rounded-full animate-pulse"></div>
+        <div className="absolute bottom-10 right-10 w-24 h-24 bg-white/5 rounded-full animate-bounce"></div>
+        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-white/5 rounded-full animate-pulse delay-1000"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
-          <motion.div
-            ref={ref}
-            initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8 }}
-          >
-            {/* Heading */}
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-6 leading-tight">
-              Your Cookie <span className="text-orange-200">Preferences</span>
+        <div className="max-w-4xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 leading-tight">
+              Cookie <span className="text-blue-200">Policy</span>
             </h1>
 
-            {/* Description */}
-            <p className="text-xl sm:text-2xl text-gray-400 mb-8 leading-relaxed max-w-2xl">
-              Learn about how Annita uses cookies and similar technologies to enhance your browsing experience and manage your cookie preferences with ease.
+            <p className="text-lg sm:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed mb-8">
+              Understand how Annita uses cookies with full transparency and user control. Manage your cookie preferences, learn about tracking technologies, and protect your privacy.
             </p>
 
-            {/* Quick Contact Options */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-              <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <Mail className="w-6 h-6 text-orange-200" />
-                <div>
-                  <div className="font-semibold text-white">Cookie Support</div>
-                  <div className="text-sm text-gray-400 leading-relaxed">annitallc@gmail.com</div>
+            {/* Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+              {stats.map((stat, index) => (
+                <div key={index} className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                  <stat.icon className="w-8 h-8 text-blue-200 mx-auto mb-2" />
+                  <div className="text-2xl sm:text-3xl font-bold">{stat.number}</div>
+                  <div className="text-xs sm:text-sm text-blue-200">{stat.label}</div>
                 </div>
-              </div>
-              <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <Phone className="w-6 h-6 text-orange-200" />
-                <div>
-                  <div className="font-semibold text-white">Phone Support</div>
-                  <div className="text-sm text-gray-400 leading-relaxed">+231 77 505 7227</div>
-                </div>
-              </div>
+              ))}
             </div>
-          </motion.div>
 
-          {/* Visualization Card */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative"
-          >
-            <div className="bg-white/10 backdrop-blur-sm p-8 rounded-3xl shadow-2xl border border-white/20">
-              <div className="text-center mb-6">
-                <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Settings className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-2">Cookie Control</h3>
-                <p className="text-orange-200">Full control & transparency</p>
-              </div>
-
-              <div className="space-y-4">
-                <div className="flex items-center justify-between p-4 bg-white/10 rounded-xl">
-                  <span className="text-gray-400 leading-relaxed">Full Control</span>
-                  <span className="font-bold text-green-300">✓</span>
-                </div>
-                <div className="flex items-center justify-between p-4 bg-white/10 rounded-xl">
-                  <span className="text-gray-400 leading-relaxed">Transparent Usage</span>
-                  <span className="font-bold text-green-300">✓</span>
-                </div>
-                <div className="flex items-center justify-between p-4 bg-white/10 rounded-xl">
-                  <span className="text-gray-400 leading-relaxed">GDPR Compliant</span>
-                  <span className="font-bold text-green-300">✓</span>
-                </div>
-                <div className="flex items-center justify-between p-4 bg-white/10 rounded-xl">
-                  <span className="text-gray-400 leading-relaxed">Easy Management</span>
-                  <span className="font-bold text-green-300">✓</span>
-                </div>
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>

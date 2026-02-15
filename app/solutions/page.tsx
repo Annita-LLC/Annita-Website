@@ -194,8 +194,8 @@ export default function SolutionsPage() {
   return (
     <>
       <SEOHead
-        title="Custom Tech Solutions - Bespoke Software Development | Annita"
-        description="Get custom tech solutions tailored to your business needs. We build web apps, mobile apps, integrations, cloud solutions, fintech platforms, and business intelligence systems. Expert software development for African businesses."
+        title="Solutions - Custom Digital Infrastructure | Annita"
+        description="Explore Annita's custom solutions for MSMEs, governments, and strategic partners. Tailored digital infrastructure integrating e-commerce, fintech, AI, and more."
         keywords={[
           'custom software development',
           'bespoke solutions',

@@ -128,8 +128,8 @@ export default function AwardsPage() {
   return (
     <>
       <SEOHead
-        title="Awards & Recognition - Annita"
-        description="Discover Annita's achievements, awards, and recognition for our innovative contributions to Africa's digital transformation."
+        title="Awards & Recognition - Annita | Celebrating Innovation in Africa's Digital Ecosystem"
+        description="Discover Annita's achievements, awards, and recognition for our innovative contributions to Africa's digital ecosystem, delivering custom solutions for MSMEs, governments, and partners."
         keywords={['awards', 'recognition', 'achievements', 'Annita', 'Africa']}
         canonical="/awards"
       />

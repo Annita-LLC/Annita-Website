@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { User, Mail, Phone, Building2, Briefcase, Calendar, MapPin, FileText, CheckCircle2, Download, ArrowLeft, AlertCircle } from 'lucide-react'
 import SEOHead from '@/components/seo/SEOHead'
+import { EmployeeIdValidator } from '@/components/staff/EmployeeIdValidator'
 
 export default function StaffRegisterPage() {
   const [step, setStep] = useState<'form' | 'pending' | 'approved' | 'credentials'>('form')
@@ -74,14 +75,11 @@ export default function StaffRegisterPage() {
 
   const handleApprove = () => {
     // In production, this would be done by admin/HR
-    // Generate unique credentials
-    const employeeId = `EMP${Math.floor(Math.random() * 10000).toString().padStart(4, '0')}`
+    // Generate unique credentials with better format
+    const employeeId = EmployeeIdValidator.generateUniqueId()
     const secretCode = Math.floor(100000 + Math.random() * 900000).toString()
 
-    setCredentials({
-      employeeId,
-      secretCode
-    })
+    setCredentials({ employeeId, secretCode })
     setStep('credentials')
   }
 
@@ -115,12 +113,23 @@ export default function StaffRegisterPage() {
         noFollow={true}
       />
 
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 flex items-center justify-center px-4 py-8 sm:py-12 pt-20 sm:pt-24">
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 flex items-center justify-center px-3 sm:px-4 py-6 sm:py-8 lg:py-12 pt-16 sm:pt-20 lg:pt-24">
         <div className="w-full max-w-2xl">
-          {/* Header */}
-          <div className="text-center mb-6 sm:mb-8">
-            <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">Staff Registration</h1>
-            <p className="text-sm sm:text-base text-gray-400">
+          {/* Mobile Header */}
+          <div className="lg:hidden text-center mb-6">
+            <h1 className="text-2xl font-bold text-white mb-2">Staff Registration</h1>
+            <p className="text-sm text-gray-400">
+              {step === 'form' && 'Request staff account'}
+              {step === 'pending' && 'Registration pending'}
+              {step === 'approved' && 'Registration approved'}
+              {step === 'credentials' && 'Account created'}
+            </p>
+          </div>
+
+          {/* Desktop Header */}
+          <div className="hidden lg:block text-center mb-8">
+            <h1 className="text-3xl font-bold text-white mb-2">Staff Registration</h1>
+            <p className="text-base text-gray-400">
               {step === 'form' && 'Fill in your details to request a staff account'}
               {step === 'pending' && 'Your registration is pending approval'}
               {step === 'approved' && 'Your registration has been approved'}
@@ -129,7 +138,7 @@ export default function StaffRegisterPage() {
           </div>
 
           {/* Form Card */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl shadow-2xl border border-white/20 p-4 sm:p-6 lg:p-8">
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl shadow-2xl border border-white/20 p-3 sm:p-4 lg:p-6 xl:p-8">
             {step === 'form' && (
               <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                 {error && (

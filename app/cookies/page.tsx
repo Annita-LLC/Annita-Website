@@ -117,7 +117,7 @@ const CookiesPage = () => {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "Cookie Policy - Annita",
-    "description": "Comprehensive cookie policy explaining how Annita uses cookies and tracking technologies with user control and privacy protection measures.",
+    "description": "Cookie policy for Annita's digital ecosystem. User control and privacy protection for MSMEs, governments, and partners.",
     "url": "https://www.an-nita.com/cookies",
     "mainEntity": {
       "@type": "Organization",
@@ -133,7 +133,7 @@ const CookiesPage = () => {
     <>
       <SEOHead
         title="Cookie Policy - Annita | Transparent Cookie Management & Privacy Control"
-        description="Understand how Annita uses cookies with full transparency and user control. Manage your cookie preferences, learn about tracking technologies, and protect your privacy."
+        description="Cookie policy for Annita's digital ecosystem. User control and privacy protection for MSMEs, governments, and partners."
         keywords={[
           'cookie policy',
           'cookie management',
