@@ -33,9 +33,18 @@ export const metadata: Metadata = {
     default: 'Annita - Africa\'s First All-in-One Digital Platform',
     template: '%s | Annita'
   },
-  description: 'Annita is Africa\'s premier digital platform, offering integrated e-commerce, fintech, AI, and logistics solutions. Empowering 450M+ African MSMEs with innovative technology for digital transformation.',
+  description: "Annita is Africa’s first all-in-one digital ecosystem—integrating e-commerce, fintech, AI, communication, marketing, logistics, and more into a single, connected system. Built for both online and offline access, Annita delivers custom-built solutions for MSMEs, governments, and strategic partners across the continent. We design and deploy tailored digital infrastructure that empowers individuals and organizations with innovative tools, seamless connectivity, and real economic opportunity.",
   keywords: [
     'Annita',
+    'Annita Africa',
+    'Annita digital ecosystem',
+    'Annita platform',
+    'Annita fintech',
+    'Annita e-commerce',
+    'Annita AI',
+    'Annita communication',
+    'Annita marketing',
+    'Annita logistics',
     'Africa',
     'digital platform',
     'e-commerce',
@@ -89,7 +98,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://www.an-nita.com',
     title: 'Annita - Africa\'s First All-in-One Digital Platform',
-    description: 'Empowering 450M+ African MSMEs with integrated e-commerce, fintech, AI, and logistics solutions.',
+    description: 'Africa\'s first all-in-one digital ecosystem integrating e-commerce, fintech, AI, communication, marketing, logistics, and more.',
     siteName: 'Annita',
     images: [
       {
@@ -103,7 +112,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Annita - Africa\'s First All-in-One Digital Platform',
-    description: 'Empowering 450M+ African MSMEs with integrated e-commerce, fintech, AI, and logistics solutions.',
+    description: 'Africa\'s first all-in-one digital ecosystem integrating e-commerce, fintech, AI, communication, marketing, logistics, and more.',
     images: ['/twitter-image.jpg'],
     creator: '@annita_africa',
     site: '@annita_africa',
@@ -191,7 +200,7 @@ export default function RootLayout({
               "name": "Annita",
                              "url": "https://www.an-nita.com",
                "logo": "https://www.an-nita.com/logo.png",
-              "description": "Africa's first all-in-one digital platform, combining e-commerce, fintech, AI, communication, marketing, logistics, and more into a single ecosystem.",
+              "description": "Annita is Africa's first all-in-one digital ecosystem—integrating e-commerce, fintech, AI, communication, marketing, logistics, and more into a single, connected system. Built for both online and offline access, Annita delivers custom-built solutions for MSMEs, governments, and strategic partners across the continent. We design and deploy tailored digital infrastructure that empowers individuals and organizations with innovative tools, seamless connectivity, and real economic opportunity.",
               "foundingDate": "2021",
               "address": {
                 "@type": "PostalAddress",
