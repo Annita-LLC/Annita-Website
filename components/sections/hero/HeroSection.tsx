@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef, memo } from 'react'
+import { useState, useEffect, useRef, memo, useCallback, useMemo } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { 
   Sparkles,
@@ -9,7 +9,74 @@ import {
 } from 'lucide-react'
 import Button from '@/components/ui/Button'
 
-const HeroSection = () => {
+// Move static data outside component to prevent re-creation
+const videos = [
+  {
+    id: 1,
+    title: "Annita 3.0 Preview",
+    description: "See what's coming in our next major update",
+    src: "https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Freel%2F1141319817913700%2F&show_text=false&width=560&t=0"
+  },
+  {
+    id: 2,
+    title: "Annita Platform Demo",
+    description: "Experience our current marketplace features",
+    src: "https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fweb.facebook.com%2Fannitallc%2Fposts%2Fpfbid0w721YvqYafVyFfF1KRK3yqYwi3kA5m39B4uBt8S9vLHA878dHnyf6GuHDkpx8E37l&show_text=false&width=500"
+  }
+]
+
+const slides = [
+  {
+    id: 1,
+    badge: "Digital Ecosystem",
+    title: "Africa's First All-in-One",
+    titleHighlight: "Digital Ecosystem",
+    subtitle: "One Digital Ecosystem. Endless innovative solutions for MSMEs, governments, and strategic partners. Sell. Pay. Trade. Deliver. Market. Grow. Seamless online and offline experience.",
+    background: "from-gray-50 via-white to-orange-50/30 dark:from-gray-900 dark:via-gray-800 dark:to-orange-900/20"
+  },
+  {
+    id: 2,
+    badge: "Custom Solutions",
+    title: "Tailored Solutions for",
+    titleHighlight: "MSMEs, Governments & Partners",
+    subtitle: "Annita delivers custom-built solutions specifically designed for micro, small, and medium enterprises, government agencies, and strategic partners across Africa.",
+    background: "from-blue-50 via-white to-purple-50/30 dark:from-blue-900/20 dark:via-gray-800 dark:to-purple-900/20"
+  },
+  {
+    id: 3,
+    badge: "Pan-African Network",
+    title: "Connect Across All",
+    titleHighlight: "54 African Countries",
+    subtitle: "Access our digital ecosystem from all AfCFTA regions. Trade, communicate, and collaborate seamlessly with partners across the entire African continent.",
+    background: "from-green-50 via-white to-teal-50/30 dark:from-green-900/20 dark:via-gray-800 dark:to-teal-900/20"
+  },
+  {
+    id: 4,
+    badge: "Tailored Infrastructure",
+    title: "Designed & Deployed",
+    titleHighlight: "Digital Infrastructure",
+    subtitle: "We design and deploy tailored digital infrastructure that empowers individuals and organizations with innovative tools, seamless connectivity, and real economic opportunity.",
+    background: "from-purple-50 via-white to-pink-50/30 dark:from-purple-900/20 dark:via-gray-800 dark:to-pink-900/20"
+  },
+  {
+    id: 5,
+    badge: "AI-Powered",
+    title: "Smart Business",
+    titleHighlight: "Intelligence",
+    subtitle: "AI-driven insights and automation within our integrated ecosystem to optimize your business operations and growth across all sectors.",
+    background: "from-teal-50 via-white to-cyan-50/30 dark:from-teal-900/20 dark:via-gray-800 dark:to-cyan-900/20"
+  },
+  {
+    id: 6,
+    badge: "Award-Winning",
+    title: "Recognized Across",
+    titleHighlight: "Africa & Globally",
+    subtitle: "9 prestigious awards including African Startup Conference, Moonshot Borderless Awards, and $12,375 in non-dilutive funding from global competitions.",
+    background: "from-yellow-50 via-white to-orange-50/30 dark:from-yellow-900/20 dark:via-gray-800 dark:to-orange-900/20"
+  }
+]
+
+const HeroSection = memo(() => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "0px" })
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -20,71 +87,32 @@ const HeroSection = () => {
   const videoIntervalRef = useRef<NodeJS.Timeout | null>(null)
   const videoResumeTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
-  const videos = [
-    {
-      id: 1,
-      title: "Annita 3.0 Preview",
-      description: "See what's coming in our next major update",
-      src: "https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Freel%2F1141319817913700%2F&show_text=false&width=560&t=0"
-    },
-    {
-      id: 2,
-      title: "Annita Platform Demo",
-      description: "Experience our current marketplace features",
-      src: "https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fweb.facebook.com%2Fannitallc%2Fposts%2Fpfbid0w721YvqYafVyFfF1KRK3yqYwi3kA5m39B4uBt8S9vLHA878dHnyf6GuHDkpx8E37l&show_text=false&width=500"
-    }
-  ]
+  // Optimize callback functions with useCallback
+  const goToSlide = useCallback((index: number) => {
+    setCurrentSlide(index)
+  }, [])
 
-  const slides = [
-    {
-      id: 1,
-      badge: "Digital Ecosystem",
-      title: "Africa's First All-in-One",
-      titleHighlight: "Digital Ecosystem",
-      subtitle: "One Digital Ecosystem. Endless innovative solutions for MSMEs, governments, and strategic partners. Sell. Pay. Trade. Deliver. Market. Grow. Seamless online and offline experience.",
-      background: "from-gray-50 via-white to-orange-50/30"
-    },
-    {
-      id: 2,
-      badge: "Custom Solutions",
-      title: "Tailored Solutions for",
-      titleHighlight: "MSMEs, Governments & Partners",
-      subtitle: "Annita delivers custom-built solutions specifically designed for micro, small, and medium enterprises, government agencies, and strategic partners across Africa.",
-      background: "from-blue-50 via-white to-purple-50/30"
-    },
-    {
-      id: 3,
-      badge: "Pan-African Network",
-      title: "Connect Across All",
-      titleHighlight: "54 African Countries",
-      subtitle: "Access our digital ecosystem from all AfCFTA regions. Trade, communicate, and collaborate seamlessly with partners across the entire African continent.",
-      background: "from-green-50 via-white to-teal-50/30"
-    },
-    {
-      id: 4,
-      badge: "Tailored Infrastructure",
-      title: "Designed & Deployed",
-      titleHighlight: "Digital Infrastructure",
-      subtitle: "We design and deploy tailored digital infrastructure that empowers individuals and organizations with innovative tools, seamless connectivity, and real economic opportunity.",
-      background: "from-purple-50 via-white to-pink-50/30"
-    },
-    {
-      id: 5,
-      badge: "AI-Powered",
-      title: "Smart Business",
-      titleHighlight: "Intelligence",
-      subtitle: "AI-driven insights and automation within our integrated ecosystem to optimize your business operations and growth across all sectors.",
-      background: "from-teal-50 via-white to-cyan-50/30"
-    },
-    {
-      id: 6,
-      badge: "Award-Winning",
-      title: "Recognized Across",
-      titleHighlight: "Africa & Globally",
-      subtitle: "9 prestigious awards including African Startup Conference, Moonshot Borderless Awards, and $12,375 in non-dilutive funding from global competitions.",
-      background: "from-yellow-50 via-white to-orange-50/30"
-    }
-  ]
+  const goToVideo = useCallback((index: number) => {
+    setCurrentVideo(index)
+  }, [])
+
+  const togglePause = useCallback(() => {
+    setIsPaused(prev => !prev)
+  }, [])
+
+  const handleVideoPlay = useCallback(() => {
+    setIsVideoPlaying(true)
+    setIsPaused(true)
+  }, [])
+
+  const handleVideoStop = useCallback(() => {
+    setIsVideoPlaying(false)
+    setIsPaused(false)
+  }, [])
+
+  // Memoize current slide to prevent unnecessary re-renders
+  const currentSlideData = useMemo(() => slides[currentSlide], [currentSlide])
+  const currentVideoData = useMemo(() => videos[currentVideo], [currentVideo])
 
   // Start/stop slide interval based on pause state and video playing state
   useEffect(() => {
@@ -126,14 +154,6 @@ const HeroSection = () => {
       }
     }
   }, [isPaused, videos.length])
-
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index)
-  }
-
-  const goToVideo = (index: number) => {
-    setCurrentVideo(index)
-  }
 
   const handleVideoInteraction = () => {
     // When video is interacted with, assume it's playing
@@ -177,14 +197,14 @@ const HeroSection = () => {
   }, [])
 
   return (
-    <section className="relative min-h-screen bg-white overflow-hidden">
+    <section className="relative min-h-screen bg-[var(--content-bg)] overflow-hidden">
       {/* Subtle gradient background */}
       <div className={`absolute inset-0 bg-gradient-to-br ${slides[currentSlide].background}`}></div>
       
       {/* Minimal background elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-orange-100 rounded-full opacity-20 blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-blue-100 rounded-full opacity-15 blur-3xl"></div>
+        <div className="absolute top-20 left-10 w-32 h-32 bg-orange-100 dark:bg-orange-900/20 rounded-full opacity-20 blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-blue-100 dark:bg-blue-900/20 rounded-full opacity-15 blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -207,7 +227,7 @@ const HeroSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.4 }}
-                className="inline-flex items-center px-4 py-2 bg-orange-50 text-orange-700 rounded-full text-sm font-medium mb-8"
+                className="inline-flex items-center px-4 py-2 bg-orange-50 dark:bg-orange-900/20 text-orange-700 dark:text-orange-300 rounded-full text-sm font-medium mb-8"
               >
                 <Sparkles className="w-4 h-4 mr-2" />
                   {slides[currentSlide].badge}
@@ -222,11 +242,11 @@ const HeroSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.6 }}
-                className="text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight mb-6"
+                className="text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-bold text-[var(--text-primary)] leading-tight mb-6"
               >
                   {slides[currentSlide].title.split(slides[currentSlide].titleHighlight)[0]}
                 <br />
-                  <span className="text-orange-600">{slides[currentSlide].titleHighlight}</span>
+                  <span className="text-[var(--brand-primary)]">{slides[currentSlide].titleHighlight}</span>
               </motion.h1>
               </AnimatePresence>
 
@@ -238,7 +258,7 @@ const HeroSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-sm sm:text-base lg:text-xl text-gray-600 leading-relaxed mb-8 max-w-xl lg:max-w-none"
+                className="text-sm sm:text-base lg:text-xl text-[var(--text-secondary)] leading-relaxed mb-8 max-w-xl lg:max-w-none"
               >
                   {slides[currentSlide].subtitle}
               </motion.p>
@@ -305,7 +325,7 @@ const HeroSection = () => {
           >
             <div className="relative w-full max-w-[320px] sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
               {/* Video Container */}
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-gray-50 to-white p-2 sm:p-3 md:p-4 lg:p-6 backdrop-blur-sm border border-gray-100">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 p-2 sm:p-3 md:p-4 lg:p-6 backdrop-blur-sm border border-gray-100 dark:border-gray-700">
                 <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-blue-500/5 rounded-2xl"></div>
                 
 
@@ -350,6 +370,6 @@ const HeroSection = () => {
 
     </section>
   )
-}
+})
 
-export default memo(HeroSection)
+export default HeroSection

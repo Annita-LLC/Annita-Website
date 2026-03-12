@@ -6,12 +6,27 @@ const nextConfig = {
   images: {
     // Enable Next.js image optimization
     // unoptimized: false, // default is false, so remove this
-    domains: [
-      'images.unsplash.com',
-      'via.placeholder.com',
-      'localhost',
-      'annita.vercel.app',
-      'annita.com',
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'via.placeholder.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'localhost',
+      },
+      {
+        protocol: 'https',
+        hostname: 'annita.vercel.app',
+      },
+      {
+        protocol: 'https',
+        hostname: 'annita.com',
+      },
     ],
     formats: ['image/webp', 'image/avif'],
     minimumCacheTTL: 31536000, // 1 year
@@ -25,6 +40,40 @@ const nextConfig = {
   swcMinify: true,
   async headers() {
     return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on'
+          },
+          {
+            key: 'X-XSS-Protection',
+            value: '1; mode=block'
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY'
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff'
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'origin-when-cross-origin'
+          }
+        ]
+      },
+      {
+        source: '/_next/static/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable'
+          }
+        ]
+      },
       {
         source: '/staff/:path*',
         headers: [
@@ -45,6 +94,8 @@ const nextConfig = {
   },
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion'],
+    // optimizeCss: true, // Disabled due to critters dependency issue
+    scrollRestoration: true,
     // Enable faster builds
     turbo: {
       rules: {
@@ -66,25 +117,29 @@ const nextConfig = {
             name: 'vendors',
             chunks: 'all',
             priority: 10,
+            reuseExistingChunk: true,
           },
           framerMotion: {
             test: /[\\/]node_modules[\\/]framer-motion[\\/]/,
             name: 'framer-motion',
             chunks: 'all',
             priority: 20,
+            reuseExistingChunk: true,
           },
           lucide: {
             test: /[\\/]node_modules[\\/]lucide-react[\\/]/,
             name: 'lucide-react',
             chunks: 'all',
             priority: 20,
+            reuseExistingChunk: true,
           },
           // Separate heavy libraries
           react: {
-            test: /[\\/]node_modules[\\/]react[\\/]/,
+            test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
             name: 'react',
             chunks: 'all',
             priority: 30,
+            reuseExistingChunk: true,
           },
         },
       }
@@ -94,6 +149,7 @@ const nextConfig = {
     if (!dev) {
       config.optimization.minimize = true
       config.optimization.usedExports = true
+      config.optimization.sideEffects = false
     }
 
     return config
