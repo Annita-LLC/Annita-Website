@@ -18,8 +18,8 @@ const WelcomeModal = memo(({ isOpen, onClose }: WelcomeModalProps) => {
   }, [onClose])
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/60 backdrop-blur-sm">
-      <div className="relative w-full max-w-[95vw] sm:max-w-md bg-white dark:bg-gray-900 rounded-2xl shadow-2xl max-h-[85vh] sm:max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-start justify-center p-2 sm:p-4 pt-[15vh] bg-black/60">
+      <div className="relative w-full max-w-[95vw] sm:max-w-md bg-white dark:bg-gray-900 rounded-2xl shadow-2xl max-h-[85vh] sm:max-h-[90vh] overflow-y-auto mx-auto">
         {/* Close Button */}
         <button
           onClick={handleClose}
@@ -87,7 +87,7 @@ const WelcomeModal = memo(({ isOpen, onClose }: WelcomeModalProps) => {
             </Link>
 
             <Link
-              href="/maintenance"
+              href="https://marketplace.an-nita.com"
               onClick={onClose}
               className="w-full border-2 border-orange-500 text-orange-600 px-2.5 sm:px-4 py-1.5 sm:py-2.5 rounded-lg font-semibold hover:bg-orange-500 hover:text-white transition-all duration-200 flex items-center justify-center text-xs sm:text-sm"
             >

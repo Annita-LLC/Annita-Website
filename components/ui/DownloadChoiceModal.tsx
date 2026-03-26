@@ -33,7 +33,7 @@ const DownloadChoiceModal = ({ isOpen, onClose }: DownloadChoiceModalProps) => {
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="relative bg-white dark:bg-gray-900 rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-[95vw] sm:max-w-lg lg:max-w-xl mx-2 sm:mx-4 overflow-hidden pointer-events-auto max-h-[85vh] sm:max-h-[90vh]"
+            className="relative bg-white dark:bg-gray-900 rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-[95vw] sm:max-w-lg lg:max-w-xl mx-2 sm:mx-4 overflow-hidden pointer-events-auto max-h-[80vh] sm:max-h-[90vh]"
           >
             {/* Header */}
             <div className="bg-gradient-to-r from-orange-500 to-red-500 px-4 sm:px-6 py-4 sm:py-5 text-white">
@@ -52,7 +52,7 @@ const DownloadChoiceModal = ({ isOpen, onClose }: DownloadChoiceModalProps) => {
             </div>
 
             {/* Content */}
-            <div className="px-4 sm:px-6 py-4 sm:py-5 space-y-3 sm:space-y-4 overflow-y-auto max-h-[calc(85vh-120px)] sm:max-h-[calc(90vh-140px)]">
+            <div className="px-4 sm:px-6 py-4 sm:py-5 space-y-3 sm:space-y-4 overflow-y-auto max-h-[calc(80vh-120px)] sm:max-h-[calc(90vh-140px)]">
               {/* V1.0 Marketplace Option */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}

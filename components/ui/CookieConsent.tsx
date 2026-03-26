@@ -51,13 +51,12 @@ const CookieConsent = ({ onPreferencesChange }: CookieConsentProps) => {
     }
 
     // Show once per new visit/session (even if consent already exists)
-    if (!hasShownInSession) {
-      const timer = setTimeout(() => {
-        setIsVisible(true)
-        sessionStorage.setItem('annita-cookie-shown', 'true')
-      }, 1500)
-      return () => clearTimeout(timer)
-    }
+    // For testing: always show the cookie banner
+    const timer = setTimeout(() => {
+      setIsVisible(true)
+      sessionStorage.setItem('annita-cookie-shown', 'true')
+    }, 1500)
+    return () => clearTimeout(timer)
   }, [])
 
   const applyCookiePreferences = (prefs: CookiePreferences) => {
