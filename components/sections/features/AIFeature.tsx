@@ -114,7 +114,7 @@ const AIFeature = () => {
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-2xl lg:text-3xl font-bold text-orange-600 mb-2"
+          className="text-2xl lg:text-3xl font-bold text-[var(--brand-primary)] mb-2"
         >
           Annita AI
         </motion.h3>
@@ -123,7 +123,7 @@ const AIFeature = () => {
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-lg font-medium text-primary-600 mb-4 flex items-center"
+          className="text-lg font-medium text-[var(--brand-primary)] mb-4 flex items-center"
         >
           Artificial Intelligence Platform
           <Sparkles className="w-5 h-5 ml-2 text-orange-500 animate-pulse" />
@@ -133,10 +133,10 @@ const AIFeature = () => {
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-gray-600 mb-6 leading-relaxed"
+          className="text-[var(--text-secondary)] mb-6 leading-relaxed"
         >
           Intelligent automation and AI-powered insights to optimize business operations 
-          and drive growth for MSMEs with <span className="text-orange-600 font-semibold">real-time learning and adaptation</span>.
+          and drive growth for MSMEs with <span className="text-[var(--brand-primary)] font-semibold">real-time learning and adaptation</span>.
         </motion.p>
 
 
@@ -164,15 +164,15 @@ const AIFeature = () => {
           </div>
           
           {/* Demo Image Interface */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 sm:p-6 shadow-soft border border-gray-200 relative z-10">
+          <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-4 sm:p-6 shadow-soft border border-gray-200 dark:border-gray-700 relative z-10">
             <div className="text-center mb-4 sm:mb-6">
-              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-1 sm:mb-2">Annita AI Demo</h3>
-              <p className="text-xs sm:text-sm text-gray-600">Intelligent Assistant</p>
+              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-[var(--text-primary)] mb-1 sm:mb-2">Annita AI Demo</h3>
+              <p className="text-xs sm:text-sm text-[var(--text-secondary)]">Intelligent Assistant</p>
                 </div>
             
             {/* Large Demo Image */}
             <div className="relative mx-auto group">
-              <div className="relative overflow-hidden rounded-2xl shadow-2xl border-2 border-gray-100 bg-gradient-to-br from-gray-50 to-white p-2">
+              <div className="relative overflow-hidden rounded-2xl shadow-2xl border-2 border-gray-100 dark:border-gray-700 bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 p-2">
                 <Image
                   src="/images/DEMO-Images/Annita AI.jpg"
                   alt="Annita AI Demo"

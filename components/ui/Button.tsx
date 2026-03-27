@@ -35,11 +35,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       primary: "bg-orange-500 hover:bg-orange-600 text-white shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 focus:ring-orange-500",
       secondary: "bg-orange-400 hover:bg-orange-500 text-white shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 focus:ring-orange-400",
       accent: "bg-orange-500 hover:bg-orange-600 text-white shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 focus:ring-orange-500",
-      outline: "border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white focus:ring-orange-500 shadow-md hover:shadow-lg transform hover:-translate-y-0.5",
-      ghost: "text-orange-700 hover:bg-orange-100 focus:ring-orange-500 hover:shadow-md transform hover:-translate-y-0.5",
+      outline: "border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white focus:ring-orange-500 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 dark:border-orange-400 dark:text-orange-400 dark:hover:bg-orange-400 dark:hover:text-white",
+      ghost: "text-orange-700 hover:bg-orange-100 focus:ring-orange-500 hover:shadow-md transform hover:-translate-y-0.5 dark:text-orange-300 dark:hover:bg-orange-900/20",
       gradient: "bg-orange-500 hover:bg-orange-600 text-white shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 focus:ring-orange-500",
-      glass: "bg-orange-500/10 backdrop-blur-sm border border-orange-500/20 text-orange-700 hover:bg-orange-500/20 focus:ring-orange-500/50 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5",
-      white: "bg-white text-orange-600 hover:bg-orange-50 focus:ring-orange-500 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+      glass: "bg-orange-500/10 backdrop-blur-sm border border-orange-500/20 text-orange-700 hover:bg-orange-500/20 focus:ring-orange-500/50 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 dark:text-orange-300 dark:bg-orange-400/10 dark:border-orange-400/20 dark:hover:bg-orange-400/20",
+      white: "bg-white text-orange-600 hover:bg-orange-50 focus:ring-orange-500 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 dark:bg-gray-800 dark:text-orange-400 dark:hover:bg-gray-700"
     }
     
     const sizes = {

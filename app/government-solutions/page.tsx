@@ -237,9 +237,9 @@ export default function GovernmentSolutionsPage() {
       <section className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-600 text-white overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-10 left-10 w-32 h-32 bg-white/5 rounded-full animate-pulse"></div>
-          <div className="absolute bottom-10 right-10 w-24 h-24 bg-white/5 rounded-full animate-bounce"></div>
-          <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-white/5 rounded-full animate-pulse delay-1000"></div>
+          <div className="absolute top-10 left-10 w-32 h-32 bg-white/5 dark:bg-white/5 rounded-full animate-pulse"></div>
+          <div className="absolute bottom-10 right-10 w-24 h-24 bg-white/5 dark:bg-white/5 rounded-full animate-bounce"></div>
+          <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-white/5 dark:bg-white/5 rounded-full animate-pulse delay-1000"></div>
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -262,10 +262,10 @@ export default function GovernmentSolutionsPage() {
               {/* Stats */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
                 {stats.map((stat, index) => (
-                  <div key={index} className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                    <stat.icon className="w-8 h-8 text-blue-200 mx-auto mb-2" />
+                  <div key={index} className="bg-white/10 dark:bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                    <stat.icon className="w-8 h-8 text-blue-200 dark:text-blue-200 mx-auto mb-2" />
                     <div className="text-2xl sm:text-3xl font-bold">{stat.number}</div>
-                    <div className="text-xs sm:text-sm text-blue-200">{stat.label}</div>
+                    <div className="text-xs sm:text-sm text-blue-200 dark:text-blue-200">{stat.label}</div>
                   </div>
                 ))}
               </div>
@@ -273,13 +273,13 @@ export default function GovernmentSolutionsPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="#contact"
-                  className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-all duration-200 shadow-lg text-sm sm:text-base"
+                  className="bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-400 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-200 shadow-lg text-sm sm:text-base"
                 >
                   Start Government Project
                 </Link>
                 <Link
                   href="#solutions"
-                  className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-all duration-200 text-sm sm:text-base"
+                  className="border-2 border-white dark:border-gray-300 text-white dark:text-gray-200 px-8 py-4 rounded-lg font-semibold hover:bg-white dark:hover:bg-gray-800 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200 text-sm sm:text-base"
                 >
                   View Solutions
                 </Link>
@@ -294,7 +294,7 @@ export default function GovernmentSolutionsPage() {
       </Suspense>
 
       {/* Solutions Grid */}
-      <section id="solutions" className="py-16 sm:py-20 bg-white">
+      <section id="solutions" className="py-16 sm:py-20 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <motion.div
@@ -304,10 +304,10 @@ export default function GovernmentSolutionsPage() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl sm:text-4xl font-bold text-[var(--text-primary)] mb-6">
                 Government <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Solutions</span>
               </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <p className="text-lg text-[var(--text-secondary)] max-w-3xl mx-auto">
                 Secure, scalable digital platforms designed specifically for government operations and citizen services.
               </p>
             </motion.div>
@@ -320,18 +320,18 @@ export default function GovernmentSolutionsPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-gray-50 rounded-2xl p-6 hover:bg-white hover:shadow-xl transition-all duration-300 group border border-gray-100"
+                  className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 hover:bg-white dark:hover:bg-gray-800 hover:shadow-xl transition-all duration-300 group border border-gray-100 dark:border-gray-700"
                 >
                   <div className={`w-16 h-16 bg-gradient-to-r ${solution.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
                     <solution.icon className="w-8 h-8 text-white" />
                   </div>
 
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{solution.title}</h3>
-                  <p className="text-gray-600 mb-6 leading-relaxed">{solution.description}</p>
+                  <h3 className="text-xl font-bold text-[var(--text-primary)] mb-3">{solution.title}</h3>
+                  <p className="text-[var(--text-secondary)] mb-6 leading-relaxed">{solution.description}</p>
 
                   <ul className="space-y-2">
                     {solution.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-sm text-gray-600">
+                      <li key={featureIndex} className="flex items-center text-sm text-[var(--text-secondary)]">
                         <CheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
                         {feature}
                       </li>
@@ -355,10 +355,10 @@ export default function GovernmentSolutionsPage() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl sm:text-4xl font-bold text-[var(--text-primary)] mb-6">
                 Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Process</span>
               </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <p className="text-lg text-[var(--text-secondary)] max-w-3xl mx-auto">
                 A secure, compliant methodology ensuring government solutions meet the highest standards of security and efficiency.
               </p>
             </motion.div>
@@ -381,8 +381,8 @@ export default function GovernmentSolutionsPage() {
                       {step.step}
                     </div>
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{step.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{step.description}</p>
+                  <h3 className="text-xl font-semibold text-[var(--text-primary)] mb-3">{step.title}</h3>
+                  <p className="text-[var(--text-secondary)] leading-relaxed">{step.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -396,10 +396,10 @@ export default function GovernmentSolutionsPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl sm:text-4xl font-bold text-[var(--text-primary)] mb-6">
                 Technology <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Stack</span>
               </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <p className="text-lg text-[var(--text-secondary)] max-w-3xl mx-auto">
                 Enterprise-grade technologies ensuring security, scalability, and compliance for government systems.
               </p>
             </div>
@@ -410,8 +410,8 @@ export default function GovernmentSolutionsPage() {
                 <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                   <Code className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">React/Next.js</h3>
-                <p className="text-sm text-gray-600">Modern Frontend</p>
+                <h3 className="font-semibold text-[var(--text-primary)] mb-2">React/Next.js</h3>
+                <p className="text-sm text-[var(--text-secondary)]">Modern Frontend</p>
               </div>
 
               {/* Backend */}
@@ -419,8 +419,8 @@ export default function GovernmentSolutionsPage() {
                 <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                   <Database className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Node.js</h3>
-                <p className="text-sm text-gray-600">Secure Backend</p>
+                <h3 className="font-semibold text-[var(--text-primary)] mb-2">Node.js</h3>
+                <p className="text-sm text-[var(--text-secondary)]">Secure Backend</p>
               </div>
 
               {/* Security */}
@@ -428,8 +428,8 @@ export default function GovernmentSolutionsPage() {
                 <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                   <Shield className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Security</h3>
-                <p className="text-sm text-gray-600">Government Grade</p>
+                <h3 className="font-semibold text-[var(--text-primary)] mb-2">Security</h3>
+                <p className="text-sm text-[var(--text-secondary)]">Government Grade</p>
               </div>
 
               {/* Cloud */}
@@ -437,8 +437,8 @@ export default function GovernmentSolutionsPage() {
                 <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                   <Cloud className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">AWS/GCP</h3>
-                <p className="text-sm text-gray-600">Secure Cloud</p>
+                <h3 className="font-semibold text-[var(--text-primary)] mb-2">AWS/GCP</h3>
+                <p className="text-sm text-[var(--text-secondary)]">Secure Cloud</p>
               </div>
 
               {/* Compliance */}
@@ -446,8 +446,8 @@ export default function GovernmentSolutionsPage() {
                 <div className="w-16 h-16 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                   <Lock className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Compliance</h3>
-                <p className="text-sm text-gray-600">Regulatory Standards</p>
+                <h3 className="font-semibold text-[var(--text-primary)] mb-2">Compliance</h3>
+                <p className="text-sm text-[var(--text-secondary)]">Regulatory Standards</p>
               </div>
 
               {/* Analytics */}
@@ -455,8 +455,8 @@ export default function GovernmentSolutionsPage() {
                 <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                   <BarChart3 className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Analytics</h3>
-                <p className="text-sm text-gray-600">Public Insights</p>
+                <h3 className="font-semibold text-[var(--text-primary)] mb-2">Analytics</h3>
+                <p className="text-sm text-[var(--text-secondary)]">Public Insights</p>
               </div>
             </div>
           </div>
@@ -464,7 +464,7 @@ export default function GovernmentSolutionsPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 sm:py-20 bg-white">
+      <section className="py-16 sm:py-20 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -474,10 +474,10 @@ export default function GovernmentSolutionsPage() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl sm:text-4xl font-bold text-[var(--text-primary)] mb-6">
                 Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Questions</span>
               </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              <p className="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
                 Common questions about government digital transformation and our solutions.
               </p>
             </motion.div>
@@ -489,9 +489,9 @@ export default function GovernmentSolutionsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300"
+                className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-lg transition-all duration-300"
               >
-                <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center cursor-pointer" onClick={() => setFaqStates(prev => prev.map((state, i) => i === 0 ? !state : state))}>
+                <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-3 flex items-center cursor-pointer" onClick={() => setFaqStates(prev => prev.map((state, i) => i === 0 ? !state : state))}>
                   <HelpCircle className="w-5 h-5 mr-3 text-blue-600" />
                   How secure are your government solutions?
                   <ChevronDown className={`w-5 h-5 ml-auto transition-transform ${faqStates[0] ? 'rotate-180' : ''}`} />
@@ -502,7 +502,7 @@ export default function GovernmentSolutionsPage() {
                   transition={{ duration: 0.3 }}
                   className="overflow-hidden"
                 >
-                  <p className="text-gray-600 leading-relaxed pt-3">
+                  <p className="text-[var(--text-secondary)] leading-relaxed pt-3">
                     Our government solutions implement bank-grade security measures including end-to-end encryption, multi-factor authentication, regular security audits, and compliance with international standards like ISO 27001, GDPR, and local data protection regulations. All data is stored in secure, government-approved cloud environments with 24/7 monitoring.
                   </p>
                 </motion.div>
@@ -514,9 +514,9 @@ export default function GovernmentSolutionsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300"
+                className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-lg transition-all duration-300"
               >
-                <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center cursor-pointer" onClick={() => setFaqStates(prev => prev.map((state, i) => i === 1 ? !state : state))}>
+                <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-3 flex items-center cursor-pointer" onClick={() => setFaqStates(prev => prev.map((state, i) => i === 1 ? !state : state))}>
                   <HelpCircle className="w-5 h-5 mr-3 text-blue-600" />
                   Do you comply with government regulations and standards?
                   <ChevronDown className={`w-5 h-5 ml-auto transition-transform ${faqStates[1] ? 'rotate-180' : ''}`} />
@@ -527,7 +527,7 @@ export default function GovernmentSolutionsPage() {
                   transition={{ duration: 0.3 }}
                   className="overflow-hidden"
                 >
-                  <p className="text-gray-600 leading-relaxed pt-3">
+                  <p className="text-[var(--text-secondary)] leading-relaxed pt-3">
                     Yes, all our government solutions are designed to comply with relevant regulations including data protection laws, accessibility standards (WCAG 2.1), and government-specific requirements. We work closely with your compliance team to ensure all solutions meet local and international standards before deployment.
                   </p>
                 </motion.div>
@@ -539,9 +539,9 @@ export default function GovernmentSolutionsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300"
+                className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-lg transition-all duration-300"
               >
-                <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center cursor-pointer" onClick={() => setFaqStates(prev => prev.map((state, i) => i === 2 ? !state : state))}>
+                <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-3 flex items-center cursor-pointer" onClick={() => setFaqStates(prev => prev.map((state, i) => i === 2 ? !state : state))}>
                   <HelpCircle className="w-5 h-5 mr-3 text-blue-600" />
                   What is the typical implementation timeline?
                   <ChevronDown className={`w-5 h-5 ml-auto transition-transform ${faqStates[2] ? 'rotate-180' : ''}`} />
@@ -552,7 +552,7 @@ export default function GovernmentSolutionsPage() {
                   transition={{ duration: 0.3 }}
                   className="overflow-hidden"
                 >
-                  <p className="text-gray-600 leading-relaxed pt-3">
+                  <p className="text-[var(--text-secondary)] leading-relaxed pt-3">
                     Implementation timelines vary based on project complexity, but typically range from 3-12 months. Simple citizen portals may take 3-4 months, while complex integrated systems requiring legacy migration can take 8-12 months. We provide detailed project timelines during our initial consultation.
                   </p>
                 </motion.div>
@@ -564,9 +564,9 @@ export default function GovernmentSolutionsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300"
+                className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-lg transition-all duration-300"
               >
-                <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center cursor-pointer" onClick={() => setFaqStates(prev => prev.map((state, i) => i === 3 ? !state : state))}>
+                <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-3 flex items-center cursor-pointer" onClick={() => setFaqStates(prev => prev.map((state, i) => i === 3 ? !state : state))}>
                   <HelpCircle className="w-5 h-5 mr-3 text-blue-600" />
                   Can you integrate with our existing government systems?
                   <ChevronDown className={`w-5 h-5 ml-auto transition-transform ${faqStates[3] ? 'rotate-180' : ''}`} />
@@ -577,7 +577,7 @@ export default function GovernmentSolutionsPage() {
                   transition={{ duration: 0.3 }}
                   className="overflow-hidden"
                 >
-                  <p className="text-gray-600 leading-relaxed pt-3">
+                  <p className="text-[var(--text-secondary)] leading-relaxed pt-3">
                     Yes, integration is a core strength of our solutions. We specialize in connecting new digital platforms with legacy government systems through secure APIs, data migration tools, and middleware solutions. Our team conducts thorough system audits to ensure seamless integration.
                   </p>
                 </motion.div>
@@ -589,9 +589,9 @@ export default function GovernmentSolutionsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300"
+                className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-lg transition-all duration-300"
               >
-                <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center cursor-pointer" onClick={() => setFaqStates(prev => prev.map((state, i) => i === 4 ? !state : state))}>
+                <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-3 flex items-center cursor-pointer" onClick={() => setFaqStates(prev => prev.map((state, i) => i === 4 ? !state : state))}>
                   <HelpCircle className="w-5 h-5 mr-3 text-blue-600" />
                   What ongoing support and maintenance do you provide?
                   <ChevronDown className={`w-5 h-5 ml-auto transition-transform ${faqStates[4] ? 'rotate-180' : ''}`} />
@@ -602,7 +602,7 @@ export default function GovernmentSolutionsPage() {
                   transition={{ duration: 0.3 }}
                   className="overflow-hidden"
                 >
-                  <p className="text-gray-600 leading-relaxed pt-3">
+                  <p className="text-[var(--text-secondary)] leading-relaxed pt-3">
                     We provide comprehensive 24/7 support including system monitoring, regular updates, security patches, performance optimization, and user training. Our government clients receive priority support with dedicated account managers and guaranteed response times for critical issues.
                   </p>
                 </motion.div>
@@ -614,9 +614,9 @@ export default function GovernmentSolutionsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300"
+                className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-lg transition-all duration-300"
               >
-                <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center cursor-pointer" onClick={() => setFaqStates(prev => prev.map((state, i) => i === 5 ? !state : state))}>
+                <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-3 flex items-center cursor-pointer" onClick={() => setFaqStates(prev => prev.map((state, i) => i === 5 ? !state : state))}>
                   <HelpCircle className="w-5 h-5 mr-3 text-blue-600" />
                   How much do government digital solutions typically cost?
                   <ChevronDown className={`w-5 h-5 ml-auto transition-transform ${faqStates[5] ? 'rotate-180' : ''}`} />
@@ -627,7 +627,7 @@ export default function GovernmentSolutionsPage() {
                   transition={{ duration: 0.3 }}
                   className="overflow-hidden"
                 >
-                  <p className="text-gray-600 leading-relaxed pt-3">
+                  <p className="text-[var(--text-secondary)] leading-relaxed pt-3">
                     Costs vary significantly based on project scope, complexity, and requirements. Basic citizen portals may start from $50,000, while comprehensive integrated systems can range from $250,000 to $1M+. We provide detailed proposals with transparent pricing after understanding your specific needs and conducting a requirements analysis.
                   </p>
                 </motion.div>
@@ -639,9 +639,9 @@ export default function GovernmentSolutionsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.7 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300"
+                className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-lg transition-all duration-300"
               >
-                <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center cursor-pointer" onClick={() => setFaqStates(prev => prev.map((state, i) => i === 6 ? !state : state))}>
+                <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-3 flex items-center cursor-pointer" onClick={() => setFaqStates(prev => prev.map((state, i) => i === 6 ? !state : state))}>
                   <HelpCircle className="w-5 h-5 mr-3 text-blue-600" />
                   Do you provide training for government staff?
                   <ChevronDown className={`w-5 h-5 ml-auto transition-transform ${faqStates[6] ? 'rotate-180' : ''}`} />
@@ -652,7 +652,7 @@ export default function GovernmentSolutionsPage() {
                   transition={{ duration: 0.3 }}
                   className="overflow-hidden"
                 >
-                  <p className="text-gray-600 leading-relaxed pt-3">
+                  <p className="text-[var(--text-secondary)] leading-relaxed pt-3">
                     Yes, comprehensive training is included in all our government projects. We provide administrator training, user training sessions, detailed documentation, video tutorials, and ongoing support. Training is customized for different user roles and includes both technical and end-user training programs.
                   </p>
                 </motion.div>
@@ -664,9 +664,9 @@ export default function GovernmentSolutionsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.8 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300"
+                className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-lg transition-all duration-300"
               >
-                <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center cursor-pointer" onClick={() => setFaqStates(prev => prev.map((state, i) => i === 7 ? !state : state))}>
+                <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-3 flex items-center cursor-pointer" onClick={() => setFaqStates(prev => prev.map((state, i) => i === 7 ? !state : state))}>
                   <HelpCircle className="w-5 h-5 mr-3 text-blue-600" />
                   What happens if we need to scale our solution in the future?
                   <ChevronDown className={`w-5 h-5 ml-auto transition-transform ${faqStates[7] ? 'rotate-180' : ''}`} />
@@ -677,7 +677,7 @@ export default function GovernmentSolutionsPage() {
                   transition={{ duration: 0.3 }}
                   className="overflow-hidden"
                 >
-                  <p className="text-gray-600 leading-relaxed pt-3">
+                  <p className="text-[var(--text-secondary)] leading-relaxed pt-3">
                     Our solutions are built with scalability in mind. We use cloud-native architectures that can handle increased user loads, additional features, and expanded functionality. We provide scaling roadmaps and can accommodate future growth without significant redevelopment costs.
                   </p>
                 </motion.div>
@@ -698,10 +698,10 @@ export default function GovernmentSolutionsPage() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl sm:text-4xl font-bold text-[var(--text-primary)] mb-6">
                 Security & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Compliance</span>
               </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <p className="text-lg text-[var(--text-secondary)] max-w-3xl mx-auto">
                 Our government solutions meet the highest international security standards and compliance requirements.
               </p>
             </motion.div>
@@ -713,13 +713,13 @@ export default function GovernmentSolutionsPage() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center hover:shadow-xl transition-all duration-300"
+                className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700 text-center hover:shadow-xl transition-all duration-300"
               >
                 <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <Shield className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2">ISO 27001</h3>
-                <p className="text-sm text-gray-600">Information Security</p>
+                <h3 className="font-bold text-[var(--text-primary)] mb-2">ISO 27001</h3>
+                <p className="text-sm text-[var(--text-secondary)]">Information Security</p>
                 <div className="text-xs text-blue-600 mt-2">Certified</div>
               </motion.div>
 
@@ -729,13 +729,13 @@ export default function GovernmentSolutionsPage() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center hover:shadow-xl transition-all duration-300"
+                className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700 text-center hover:shadow-xl transition-all duration-300"
               >
                 <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <Lock className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2">SOC 2 Type II</h3>
-                <p className="text-sm text-gray-600">Trust Services</p>
+                <h3 className="font-bold text-[var(--text-primary)] mb-2">SOC 2 Type II</h3>
+                <p className="text-sm text-[var(--text-secondary)]">Trust Services</p>
                 <div className="text-xs text-blue-600 mt-2">Certified</div>
               </motion.div>
 
@@ -745,13 +745,13 @@ export default function GovernmentSolutionsPage() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center hover:shadow-xl transition-all duration-300"
+                className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700 text-center hover:shadow-xl transition-all duration-300"
               >
                 <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <FileText className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2">GDPR</h3>
-                <p className="text-sm text-gray-600">Data Protection</p>
+                <h3 className="font-bold text-[var(--text-primary)] mb-2">GDPR</h3>
+                <p className="text-sm text-[var(--text-secondary)]">Data Protection</p>
                 <div className="text-xs text-blue-600 mt-2">Compliant</div>
               </motion.div>
 
@@ -761,13 +761,13 @@ export default function GovernmentSolutionsPage() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center hover:shadow-xl transition-all duration-300"
+                className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700 text-center hover:shadow-xl transition-all duration-300"
               >
                 <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <Users className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2">WCAG 2.1 AA</h3>
-                <p className="text-sm text-gray-600">Accessibility</p>
+                <h3 className="font-bold text-[var(--text-primary)] mb-2">WCAG 2.1 AA</h3>
+                <p className="text-sm text-[var(--text-secondary)]">Accessibility</p>
                 <div className="text-xs text-blue-600 mt-2">Certified</div>
               </motion.div>
 
@@ -777,13 +777,13 @@ export default function GovernmentSolutionsPage() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center hover:shadow-xl transition-all duration-300"
+                className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700 text-center hover:shadow-xl transition-all duration-300"
               >
                 <div className="w-16 h-16 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <Award className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2">ISO 9001</h3>
-                <p className="text-sm text-gray-600">Quality Management</p>
+                <h3 className="font-bold text-[var(--text-primary)] mb-2">ISO 9001</h3>
+                <p className="text-sm text-[var(--text-secondary)]">Quality Management</p>
                 <div className="text-xs text-blue-600 mt-2">Certified</div>
               </motion.div>
 
@@ -793,13 +793,13 @@ export default function GovernmentSolutionsPage() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center hover:shadow-xl transition-all duration-300"
+                className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700 text-center hover:shadow-xl transition-all duration-300"
               >
                 <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <Building className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2">NIST</h3>
-                <p className="text-sm text-gray-600">Cybersecurity</p>
+                <h3 className="font-bold text-[var(--text-primary)] mb-2">NIST</h3>
+                <p className="text-sm text-[var(--text-secondary)]">Cybersecurity</p>
                 <div className="text-xs text-blue-600 mt-2">Framework</div>
               </motion.div>
             </div>
@@ -811,7 +811,7 @@ export default function GovernmentSolutionsPage() {
               viewport={{ once: true }}
               className="text-center"
             >
-              <p className="text-gray-600 max-w-3xl mx-auto">
+              <p className="text-[var(--text-secondary)] max-w-3xl mx-auto">
                 All our government solutions undergo rigorous security testing and compliance audits.
                 We maintain comprehensive documentation and provide regular compliance reports to ensure
                 ongoing adherence to the highest security and regulatory standards.
@@ -822,7 +822,7 @@ export default function GovernmentSolutionsPage() {
       </section>
 
       {/* Contact Form */}
-      <section id="contact" className="py-16 sm:py-20 bg-white">
+      <section id="contact" className="py-16 sm:py-20 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -832,10 +832,10 @@ export default function GovernmentSolutionsPage() {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl sm:text-4xl font-bold text-[var(--text-primary)] mb-6">
                 Start Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Government Project</span>
               </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              <p className="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
                 Transform your government operations with secure digital solutions. Let's discuss your vision.
               </p>
             </motion.div>

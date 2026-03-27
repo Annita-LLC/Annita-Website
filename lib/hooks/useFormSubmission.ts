@@ -6,6 +6,7 @@ interface FormSubmissionState {
   isSubmitted: boolean
   error: string | null
   success: boolean
+  errorType: 'network' | 'database' | 'general' | null
 }
 
 interface UseFormSubmissionOptions {
@@ -19,7 +20,8 @@ export function useFormSubmission(options: UseFormSubmissionOptions = {}) {
     isSubmitting: false,
     isSubmitted: false,
     error: null,
-    success: false
+    success: false,
+    errorType: null
   })
 
   const submitForm = async (formType: string, formData: any) => {
@@ -59,18 +61,15 @@ export function useFormSubmission(options: UseFormSubmissionOptions = {}) {
         return acc
       }, {} as any)
 
-      // Get backend URL from environment
-      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:3001'
-      
-      // Submit directly to backend API
-      const response = await fetch(`${backendUrl}/api/forms/submit`, {
+      // Submit to Next.js API route which forwards to backend
+      const response = await fetch('/api/submit-form', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           formType,
-          formData: sanitizedData
+          ...sanitizedData
         })
       })
 
@@ -96,14 +95,29 @@ export function useFormSubmission(options: UseFormSubmissionOptions = {}) {
       return result.data
 
     } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'An unexpected error occurred'
+      let errorMessage = 'An unexpected error occurred'
+      let errorType: 'network' | 'database' | 'general' = 'general'
+
+      if (error instanceof Error) {
+        errorMessage = error.message
+        
+        // Detect error type based on error message
+        if (error.message.includes('fetch') || error.message.includes('network') || error.message.includes('connection')) {
+          errorType = 'network'
+          errorMessage = 'Network connection issue. Please check your internet connection and try again.'
+        } else if (error.message.includes('database') || error.message.includes('connection') || error.message.includes('timeout')) {
+          errorType = 'database'
+          errorMessage = 'Our database is temporarily unavailable. Please try again in a few minutes.'
+        }
+      }
       
       setState(prev => ({
         ...prev,
         isSubmitting: false,
         isSubmitted: true,
         success: false,
-        error: errorMessage
+        error: errorMessage,
+        errorType
       }))
 
       // Call error callback
@@ -120,7 +134,8 @@ export function useFormSubmission(options: UseFormSubmissionOptions = {}) {
       isSubmitting: false,
       isSubmitted: false,
       error: null,
-      success: false
+      success: false,
+      errorType: null
     })
   }
 
@@ -134,9 +149,9 @@ export function useFormSubmission(options: UseFormSubmissionOptions = {}) {
 // Predefined validation functions for common forms
 export const formValidations = {
   contact: (formData: any) => {
-    if (!formData.name?.trim()) return 'Full name is required'
+    if (!formData.firstName?.trim()) return 'First name is required'
+    if (!formData.lastName?.trim()) return 'Last name is required'
     if (!formData.email?.trim()) return 'Email is required'
-    if (!formData.service?.trim()) return 'Service inquiry is required'
     if (!formData.message?.trim()) return 'Message is required'
     if (formData.message?.length < 10) return 'Message must be at least 10 characters'
     return null

@@ -1,0 +1,31 @@
+[build]
+builder = "NIXPACKS"
+
+[deploy]
+healthcheckPath = "/health"
+healthcheckTimeout = 100
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10
+
+[[services]]
+name = "api"
+
+[services.variables]
+NODE_ENV = "production"
+PORT = "3001"
+
+[[services.ports]]
+port = 3001
+handlers = ["http"]
+
+[services.health_checks]
+path = "/health"
+interval = 30
+timeout = 10
+retries = 3
+
+[[services.env]]
+RAILWAY_ENVIRONMENT = "production"
+
+[plugins]
+- name = "railway-postgres"

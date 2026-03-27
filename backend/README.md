@@ -1,120 +1,206 @@
-# Annita Backend API
+# Annita Backend API - Fortune 500 Level
 
-Backend API server for Annita Website using Node.js and PostgreSQL.
+Enterprise-grade backend API for Annita Website with Railway PostgreSQL integration.
 
-## Setup
+## Features
+
+- **🚀 Railway Integration**: Optimized for Railway cloud platform with PostgreSQL
+- **🔒 Enterprise Security**: JWT authentication, rate limiting, CORS, helmet security
+- **📝 Comprehensive Form Handling**: Contact, career, sales, solution inquiries
+- **👥 Staff Portal**: Secure staff authentication and dashboard
+- **📧 Email Notifications**: Resend integration for automated emails
+- **📊 Logging & Monitoring**: Winston logging with structured output
+- **🛡️ Error Handling**: Comprehensive error handling with proper HTTP status codes
+- **⚡ Performance**: Connection pooling, compression, caching
+- **🔍 Health Checks**: Built-in health monitoring endpoints
+
+## Architecture
+
+```
+src/
+├── config/          # Database configuration
+├── controllers/     # Route controllers
+├── middleware/      # Express middleware
+├── models/         # Data models
+├── routes/         # API routes
+├── services/       # Business logic
+├── types/          # TypeScript types
+├── utils/          # Utility functions
+├── validators/     # Input validation
+└── database/       # Database migrations
+```
+
+## Railway Deployment
 
 ### 1. Install Dependencies
-
 ```bash
-cd backend
 npm install
 ```
 
-### 2. Database Setup
+### 2. Environment Variables
+Set up these environment variables in Railway:
 
-1. Make sure PostgreSQL is installed and running
-2. Create a database:
+#### Database (Railway provides automatically)
+- `DATABASE_URL` - Railway PostgreSQL connection string
 
-```sql
-CREATE DATABASE annita_db;
-```
+#### Security
+- `JWT_SECRET` - JWT secret key (minimum 256 bits)
+- `STAFF_JWT_SECRET` - Staff portal JWT secret (different from main)
+- `BCRYPT_ROUNDS` - Password hashing rounds (default: 12)
 
-3. Run the migration using Node.js (recommended):
-   ```bash
-   npm run migrate
-   ```
-   
-   Or manually run the SQL file using psql:
-   ```bash
-   psql -h localhost -U postgres -d annita_db -f migrations/001_create_form_tables.sql
-   ```
+#### Server Configuration
+- `NODE_ENV` - Set to "production"
+- `PORT` - Server port (default: 3001)
+- `CORS_ORIGIN` - Frontend URL (https://www.an-nita.com)
 
-### 3. Environment Variables
+#### Email (Resend)
+- `RESEND_API_KEY` - Resend API key
+- `RESEND_FROM_EMAIL` - From email address
+- `RESEND_TO_EMAIL` - Admin notification email
+- `APP_NAME` - Application name (Annita)
 
-Copy `.env.example` to `.env` and fill in your credentials:
+#### Rate Limiting
+- `RATE_LIMIT_WINDOW_MS` - Rate limit window (default: 900000ms)
+- `RATE_LIMIT_MAX_REQUESTS` - Max requests per window (default: 100)
 
-```env
-# Database Configuration
-DB_HOST=localhost
-DB_PORT=5432
-DB_NAME=annita_db
-DB_USER=postgres
-DB_PASSWORD=your_password
-DB_SSL=false
+### 3. Deploy to Railway
 
-# Server Configuration
-PORT=3001
-NODE_ENV=development
-FRONTEND_URL=http://localhost:3000
+1. Connect your GitHub repository to Railway
+2. Railway will automatically detect the Node.js application
+3. Add PostgreSQL plugin from Railway marketplace
+4. Set environment variables
+5. Deploy!
 
-# Email Configuration (Resend)
-# Get your API key from https://resend.com/api-keys
-RESEND_API_KEY=re_your_api_key_here
-RESEND_FROM_EMAIL=noreply@yourdomain.com
-RESEND_TO_EMAIL=admin@yourdomain.com
-APP_NAME=Annita
-```
+### 4. Database Initialization
 
-**Email Setup (Resend):**
-1. Sign up at [resend.com](https://resend.com)
-2. Verify your domain or use Resend's test domain
-3. Create an API key in the dashboard
-4. Add the API key to your `.env` file
+The backend automatically creates all necessary tables on first startup:
 
-### 4. Run the Server
-
-Development mode (with auto-reload):
-```bash
-npm run dev
-```
-
-Production mode:
-```bash
-npm start
-```
-
-The server will run on `http://localhost:3001`
+- `contact_inquiries` - Contact form submissions
+- `career_applications` - Job applications
+- `business_inquiries` - Sales and solution inquiries
+- `waitlist` - Email waitlist
+- `staff_users` - Staff authentication
+- `staff_sessions` - Staff session management
+- `staff_activity_logs` - Activity auditing
 
 ## API Endpoints
 
+### Health Checks
+- `GET /health` - Basic health check
+- `GET /health/detailed` - Detailed system metrics
+
 ### Forms
 - `POST /api/forms/submit` - Submit any form type
+- `POST /api/forms/waitlist` - Add to waitlist
 
-### Waitlist
-- `POST /api/waitlist` - Add email to waitlist
+### Staff Portal
+- `POST /api/staff/login` - Staff authentication
+- `GET /api/staff/profile` - Get staff profile
+- `GET /api/staff/submissions` - Get all submissions
+- `GET /api/staff/submissions/:type/:id` - Get submission details
+- `GET /api/staff/activity` - Get activity logs
+- `GET /api/staff/dashboard/stats` - Dashboard statistics
+- `POST /api/staff/logout` - Staff logout
 
-### Health Check
-- `GET /health` - Server health status
+## Form Types Supported
 
-## Form Types
-
-Supported form types (as used by the frontend):
-- `contact` - Contact inquiries
-- `career` - Career applications
+- `contact` - General contact inquiries
+- `career` - Job applications
 - `sales` - Sales inquiries
-- `solution` - Solution/custom project inquiries (mapped to business_inquiries table)
-- `cookie` - Cookie/privacy inquiries (mapped to contact_inquiries table)
-- `privacy` - Privacy policy inquiries (mapped to contact_inquiries table)
-- `legal` - Legal/terms inquiries (mapped to contact_inquiries table)
+- `solution` - Custom solution requests
+- `cookie` - Cookie policy inquiries
+- `privacy` - Privacy policy inquiries
+- `legal` - Legal/terms inquiries
 
-## Database Connection
+## Security Features
 
-The backend uses connection pooling for efficient database access. Make sure your PostgreSQL server is running and accessible with the credentials in your `.env` file.
+- **Rate Limiting**: 100 requests per 15 minutes per IP
+- **CORS Protection**: Configured for frontend domain
+- **Helmet Security**: Security headers and CSP
+- **Input Validation**: Comprehensive request validation
+- **SQL Injection Protection**: Parameterized queries
+- **Authentication**: JWT-based staff authentication
+- **Activity Logging**: Complete audit trail
 
-For DigitalOcean deployments, SSL connections are automatically enabled. See [`DIGITALOCEAN_DEPLOYMENT.md`](./DIGITALOCEAN_DEPLOYMENT.md) for detailed deployment instructions.
+## Error Handling
 
-## Email Notifications
+All errors return consistent JSON format:
+```json
+{
+  "success": false,
+  "error": "Error message",
+  "timestamp": "2024-01-01T00:00:00.000Z",
+  "requestId": "uuid"
+}
+```
 
-The backend uses [Resend](https://resend.com) for sending email notifications:
+## Monitoring
 
-- **Form Submissions**: Admin notifications are sent when forms are submitted
-- **Confirmation Emails**: Users receive confirmation emails after submitting forms
-- **Waitlist**: Both admin notifications and user confirmations for waitlist signups
+### Health Check Response
+```json
+{
+  "success": true,
+  "status": "healthy",
+  "timestamp": "2024-01-01T00:00:00.000Z",
+  "uptime": 3600,
+  "memory": {
+    "used": 45.2,
+    "total": 128.0,
+    "external": 12.5
+  },
+  "database": {
+    "connected": true,
+    "status": "connected"
+  },
+  "environment": "production",
+  "version": "2.0.0"
+}
+```
 
-Email sending is non-blocking - if email fails, form submissions still succeed and are saved to the database.
+## Development
 
-## Deployment
+### Local Development
+```bash
+# Install dependencies
+npm install
 
-This backend is configured for deployment on **DigitalOcean App Platform**. See [`DIGITALOCEAN_DEPLOYMENT.md`](./DIGITALOCEAN_DEPLOYMENT.md) for complete deployment instructions.
+# Start development server
+npm run dev
 
+# Build for production
+npm run build
+
+# Run tests
+npm test
+
+# Lint code
+npm run lint
+```
+
+### Environment Setup
+Copy `.env.example` to `.env` and configure for local development.
+
+## Performance
+
+- **Connection Pooling**: 20 max connections
+- **Request Compression**: Gzip compression enabled
+- **Response Caching**: Built-in caching headers
+- **Database Indexing**: Optimized queries with indexes
+- **Memory Management**: Efficient memory usage monitoring
+
+## Scaling
+
+The backend is designed to scale horizontally:
+- Stateless architecture
+- Database connection pooling
+- Load balancer ready
+- Health check endpoints
+- Graceful shutdown handling
+
+## Support
+
+For issues and support:
+- Check Railway logs for deployment issues
+- Review application logs in `/logs` directory
+- Monitor health check endpoint
+- Check database connection status

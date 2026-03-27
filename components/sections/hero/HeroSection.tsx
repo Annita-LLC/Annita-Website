@@ -31,7 +31,7 @@ const slides = [
     badge: "Digital Ecosystem",
     title: "Africa's First All-in-One",
     titleHighlight: "Digital Ecosystem",
-    subtitle: "One Digital Ecosystem. Endless innovative solutions for MSMEs, governments, and strategic partners. Sell. Pay. Trade. Deliver. Market. Grow. Seamless online and offline experience.",
+    subtitle: "One Digital Ecosystem. Endless innovative solutions for MSMEs, governments, and strategic partners. Sell. Pay. Trade. Deliver. Market. Grow. Seamless online and offline experience. Try our marketplace at marketplace.an-nita.com",
     background: "from-gray-50 via-white to-orange-50/30 dark:from-gray-900 dark:via-gray-800 dark:to-orange-900/20"
   },
   {
@@ -39,7 +39,7 @@ const slides = [
     badge: "Custom Solutions",
     title: "Tailored Solutions for",
     titleHighlight: "MSMEs, Governments & Partners",
-    subtitle: "Annita delivers custom-built solutions specifically designed for micro, small, and medium enterprises, government agencies, and strategic partners across Africa.",
+    subtitle: "Annita delivers custom-built solutions specifically designed for micro, small, and medium enterprises, government agencies, and strategic partners across Africa. Start today at marketplace.an-nita.com",
     background: "from-blue-50 via-white to-purple-50/30 dark:from-blue-900/20 dark:via-gray-800 dark:to-purple-900/20"
   },
   {
@@ -73,6 +73,14 @@ const slides = [
     titleHighlight: "Africa & Globally",
     subtitle: "9 prestigious awards including African Startup Conference, Moonshot Borderless Awards, and $12,375 in non-dilutive funding from global competitions.",
     background: "from-yellow-50 via-white to-orange-50/30 dark:from-yellow-900/20 dark:via-gray-800 dark:to-orange-900/20"
+  },
+  {
+    id: 7,
+    badge: "🎉 READY TO USE",
+    title: "Experience the Future of",
+    titleHighlight: "African Commerce",
+    subtitle: "Join thousands of businesses already transforming their operations with Annita's all-in-one digital ecosystem. Start your journey today and discover seamless trade, secure payments, and endless opportunities across Africa.",
+    background: "from-orange-50 via-white to-orange-50/30 dark:from-orange-900/20 dark:via-gray-800 dark:to-orange-900/20"
   }
 ]
 
@@ -280,7 +288,7 @@ const HeroSection = memo(() => {
                       size="lg"
                   icon={ExternalLink}
                       className="w-full sm:w-auto text-base font-semibold px-8 py-4 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
-                  onClick={() => window.open('/maintenance', '_blank')}
+                  onClick={() => window.open('https://marketplace.an-nita.com', '_blank')}
                     >
                   Try V1.0 Now
                   </Button>

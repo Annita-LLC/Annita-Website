@@ -23,6 +23,7 @@ import {
   Download,
 } from 'lucide-react'
 import DownloadChoiceModal from '@/components/ui/DownloadChoiceModal'
+import FooterNewsletter from '@/components/sections/FooterNewsletter'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -77,7 +78,7 @@ const Footer = () => {
   ]
 
   const contactInfo = [
-    { icon: Mail, label: 'Email', value: 'annitallc@gmail.com', href: 'mailto:annitallc@gmail.com' },
+    { icon: Mail, label: 'Email', value: 'info@an-nita.com', href: 'mailto:info@an-nita.com' },
     { icon: Phone, label: 'Phone', value: '+231 77 505 7227', href: 'tel:+231 77 505 7227' },
     { icon: MapPin, label: 'Address', value: 'Monrovia, Liberia', href: '#' }
   ]
@@ -186,6 +187,15 @@ const Footer = () => {
             </div>
 
             {/* Try V1.0 Button removed per request */}
+
+            {/* Newsletter Section */}
+            <div className="xl:col-span-2 lg:col-span-1">
+              <h3 className="text-base sm:text-lg font-semibold text-orange-500 dark:text-orange-400 mb-3 sm:mb-4">Stay Updated</h3>
+              <p className="text-gray-400 mb-4 sm:mb-6 text-xs sm:text-sm leading-relaxed">
+                Get the latest updates on African digital transformation, exclusive insights, and early access to new features.
+              </p>
+              <FooterNewsletter />
+            </div>
           </div>
 
           {/* Footer Links */}

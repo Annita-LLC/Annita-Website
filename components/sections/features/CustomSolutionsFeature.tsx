@@ -36,7 +36,7 @@ const CustomSolutionsFeature = () => {
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-2xl lg:text-3xl font-bold text-orange-600 mb-2"
+          className="text-2xl lg:text-3xl font-bold text-[var(--brand-primary)] mb-2"
         >
           Custom Solutions
         </motion.h3>
@@ -45,7 +45,7 @@ const CustomSolutionsFeature = () => {
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-lg font-medium text-primary-600 mb-4 flex items-center"
+          className="text-lg font-medium text-[var(--brand-primary)] mb-4 flex items-center"
         >
           Tailored Technology for Your Business
           <Zap className="w-5 h-5 ml-2 text-emerald-500" />
@@ -55,9 +55,9 @@ const CustomSolutionsFeature = () => {
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-gray-600 mb-6 leading-relaxed"
+          className="text-[var(--text-secondary)] mb-6 leading-relaxed"
         >
-          Need something unique? Our expert developers build <span className="text-orange-600 font-semibold">custom software solutions</span> from web apps to mobile platforms, system integrations, and enterprise applications tailored to your specific business needs.
+          Need something unique? Our expert developers build <span className="text-[var(--brand-primary)] font-semibold">custom software solutions</span> from web apps to mobile platforms, system integrations, and enterprise applications tailored to your specific business needs.
         </motion.p>
 
 
@@ -76,10 +76,10 @@ const CustomSolutionsFeature = () => {
           <div className="absolute bottom-8 left-6 w-16 h-16 bg-teal-200 rounded-full opacity-30 animate-pulse delay-1000"></div>
 
           {/* Tech Stack Showcase */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 sm:p-6 shadow-soft border border-gray-200 relative z-10">
+          <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-4 sm:p-6 shadow-soft border border-gray-200 dark:border-gray-700 relative z-10">
             <div className="text-center mb-4 sm:mb-6">
-              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-1 sm:mb-2">Custom Solutions</h3>
-              <p className="text-xs sm:text-sm text-gray-600">Technology Stack</p>
+              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-[var(--text-primary)] mb-1 sm:mb-2">Custom Solutions</h3>
+              <p className="text-xs sm:text-sm text-[var(--text-secondary)]">Technology Stack</p>
             </div>
 
             {/* Tech Stack Grid */}

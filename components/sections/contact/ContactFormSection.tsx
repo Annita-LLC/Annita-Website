@@ -11,12 +11,11 @@ const ContactFormSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   const [formData, setFormData] = useState({
-    name: '',
+    firstName: '',
+    lastName: '',
     email: '',
     phone: '',
     company: '',
-    service: '',
-    priority: '',
     message: ''
   })
 
@@ -81,12 +80,11 @@ const ContactFormSection = () => {
               onClick={() => {
                 reset()
                 setFormData({
-                  name: '',
+                  firstName: '',
+                  lastName: '',
                   email: '',
                   phone: '',
                   company: '',
-                  service: '',
-                  priority: '',
                   message: ''
                 })
               }}
@@ -128,18 +126,34 @@ const ContactFormSection = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Full Name *
+                    First Name *
                   </label>
                   <input
                     type="text"
                     required
-                    value={formData.name}
-                    onChange={(e) => handleInputChange('name', e.target.value)}
+                    value={formData.firstName}
+                    onChange={(e) => handleInputChange('firstName', e.target.value)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                    placeholder="Enter your full name"
+                    placeholder="Enter your first name"
                   />
                 </div>
 
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Last Name *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.lastName}
+                    onChange={(e) => handleInputChange('lastName', e.target.value)}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                    placeholder="Enter your last name"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Email Address *
@@ -153,9 +167,7 @@ const ContactFormSection = () => {
                     placeholder="Enter your email"
                   />
                 </div>
-              </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Phone Number
@@ -168,58 +180,19 @@ const ContactFormSection = () => {
                     placeholder="Enter your phone number"
                   />
                 </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Company
-                  </label>
-                  <input
-                    type="text"
-                    value={formData.company}
-                    onChange={(e) => handleInputChange('company', e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                    placeholder="Enter your company name"
-                  />
-                </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Service Inquiry *
-                  </label>
-                  <select
-                    required
-                    value={formData.service}
-                    onChange={(e) => handleInputChange('service', e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                  >
-                    <option value="">Select a service</option>
-                    <option value="technical-support">Technical Support</option>
-                    <option value="account-help">Account Help</option>
-                    <option value="billing">Billing Support</option>
-                    <option value="partnership">Partnership Inquiry</option>
-                    <option value="general">General Inquiry</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Priority Level
-                  </label>
-                  <select
-                    value={formData.priority}
-                    onChange={(e) => handleInputChange('priority', e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                  >
-                    <option value="">Select priority</option>
-                    <option value="low">Low - General inquiry</option>
-                    <option value="medium">Medium - Need assistance soon</option>
-                    <option value="high">High - Urgent issue</option>
-                    <option value="urgent">Urgent - Critical issue</option>
-                  </select>
-                </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Company
+                </label>
+                <input
+                  type="text"
+                  value={formData.company}
+                  onChange={(e) => handleInputChange('company', e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                  placeholder="Enter your company name"
+                />
               </div>
 
               <div>

@@ -15,7 +15,7 @@ const FeaturesSection = () => {
   const isInView = useInView(ref, { once: true, margin: "0px" })
 
   return (
-    <section className="py-8 sm:py-12 bg-gradient-to-br from-gray-50 to-white">
+    <section className="py-8 sm:py-12 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
       <div className="container mx-auto px-3 sm:px-4 lg:px-6 xl:px-8">
         <motion.div
           ref={ref}
@@ -24,13 +24,13 @@ const FeaturesSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-orange-600 mb-4 sm:mb-6">
-            One <span className="text-orange-500">Ecosystem.</span>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-[var(--brand-primary)] mb-4 sm:mb-6">
+            One <span className="text-[var(--brand-accent)]">Ecosystem.</span>
           </h2>
-          <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-4xl mx-auto">
+          <p className="text-sm sm:text-base lg:text-lg text-[var(--text-secondary)] max-w-4xl mx-auto">
             Endless innovative solutions for all MSMEs and individuals.
             <br />
-            <span className="font-medium text-gray-700">
+            <span className="font-medium text-[var(--text-primary)]">
               Sell. Pay. Trade. Deliver. Market. Grow.
             </span>
             <br />

@@ -54,7 +54,7 @@ const ContactSection = () => {
       icon: Mail,
       title: "Email Us",
       description: "Send us a detailed message about your privacy concern",
-      contact: "annitallc@gmail.com",
+      contact: "info@an-nita.com",
       response: "Response within 24 hours",
       color: "from-blue-500 to-cyan-500"
     },

@@ -61,13 +61,13 @@ const TrustedPartnersSection = () => {
   ]
 
   return (
-    <section className="py-8 sm:py-12 bg-gradient-to-br from-neutral-50 to-white overflow-hidden">
+    <section className="py-8 sm:py-12 bg-gradient-to-br from-neutral-50 to-white dark:from-gray-900 dark:to-gray-800 overflow-hidden">
       <div className="container mx-auto px-3 sm:px-4 lg:px-6 xl:px-8">
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-orange-600 mb-4 sm:mb-6">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-[var(--brand-primary)] mb-4 sm:mb-6">
             Trusted & Backed By
           </h2>
-          <p className="text-sm sm:text-base lg:text-lg text-neutral-600 max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base lg:text-lg text-[var(--text-secondary)] max-w-3xl mx-auto">
             Annita is supported by leading organizations and institutions across Africa and Europe.
           </p>
         </div>
@@ -78,7 +78,7 @@ const TrustedPartnersSection = () => {
             {/* First set of logos */}
             {partners.map((partner, index) => (
               <div key={`first-${index}`} className="flex-shrink-0 flex flex-col items-center text-center group min-w-[140px] xs:min-w-[160px] sm:min-w-[180px] md:min-w-[200px] lg:min-w-[220px]">
-                <div className="w-32 h-32 xs:w-40 xs:h-40 sm:w-44 sm:h-44 md:w-48 md:h-48 lg:w-52 lg:h-52 xl:w-56 xl:h-56 bg-white rounded-lg sm:rounded-xl md:rounded-2xl shadow-soft p-3 sm:p-4 md:p-5 mb-2 sm:mb-3 md:mb-4 flex items-center justify-center group-hover:shadow-medium transition-all duration-300">
+                <div className="w-32 h-32 xs:w-40 xs:h-40 sm:w-44 sm:h-44 md:w-48 md:h-48 lg:w-52 lg:h-52 xl:w-56 xl:h-56 bg-white dark:bg-gray-800 rounded-lg sm:rounded-xl md:rounded-2xl shadow-soft p-3 sm:p-4 md:p-5 mb-2 sm:mb-3 md:mb-4 flex items-center justify-center group-hover:shadow-medium transition-all duration-300 border border-gray-100 dark:border-gray-700">
                   <Image
                     src={partner.image}
                     alt={partner.name}
@@ -90,15 +90,15 @@ const TrustedPartnersSection = () => {
                     blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjI0IiBoZWlnaHQ9IjIyNCIgdmlld0JveD0iMCAwIDIyNCAyMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMjQiIGhlaWdodD0iMjI0IiBmaWxsPSIjRjNGNEY2Ii8+Cjwvc3ZnPg=="
                   />
                 </div>
-                <h3 className="text-xs sm:text-sm font-semibold text-orange-600 mb-1">{partner.name}</h3>
-                <p className="text-xs text-neutral-600 hidden md:block">{partner.description}</p>
+                <h3 className="text-xs sm:text-sm font-semibold text-[var(--brand-primary)] mb-1">{partner.name}</h3>
+                <p className="text-xs text-[var(--text-secondary)] hidden md:block">{partner.description}</p>
               </div>
             ))}
             
             {/* Duplicate set for seamless loop */}
             {partners.map((partner, index) => (
               <div key={`second-${index}`} className="flex-shrink-0 flex flex-col items-center text-center group min-w-[140px] xs:min-w-[160px] sm:min-w-[180px] md:min-w-[200px] lg:min-w-[220px]">
-                <div className="w-32 h-32 xs:w-40 xs:h-40 sm:w-44 sm:h-44 md:w-48 md:h-48 lg:w-52 lg:h-52 xl:w-56 xl:h-56 bg-white rounded-lg sm:rounded-xl md:rounded-2xl shadow-soft p-3 sm:p-4 md:p-5 mb-2 sm:mb-3 md:mb-4 flex items-center justify-center group-hover:shadow-medium transition-all duration-300">
+                <div className="w-32 h-32 xs:w-40 xs:h-40 sm:w-44 sm:h-44 md:w-48 md:h-48 lg:w-52 lg:h-52 xl:w-56 xl:h-56 bg-white dark:bg-gray-800 rounded-lg sm:rounded-xl md:rounded-2xl shadow-soft p-3 sm:p-4 md:p-5 mb-2 sm:mb-3 md:mb-4 flex items-center justify-center group-hover:shadow-medium transition-all duration-300 border border-gray-100 dark:border-gray-700">
                   <Image
                     src={partner.image}
                     alt={partner.name}
@@ -110,8 +110,8 @@ const TrustedPartnersSection = () => {
                     blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjI0IiBoZWlnaHQ9IjIyNCIgdmlld0JveD0iMCAwIDIyNCAyMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMjQiIGhlaWdodD0iMjI0IiBmaWxsPSIjRjNGNEY2Ii8+Cjwvc3ZnPg=="
                   />
                 </div>
-                <h3 className="text-xs sm:text-sm font-semibold text-orange-600 mb-1">{partner.name}</h3>
-                <p className="text-xs text-neutral-600 hidden md:block">{partner.description}</p>
+                <h3 className="text-xs sm:text-sm font-semibold text-[var(--brand-primary)] mb-1">{partner.name}</h3>
+                <p className="text-xs text-[var(--text-secondary)] hidden md:block">{partner.description}</p>
               </div>
             ))}
           </div>

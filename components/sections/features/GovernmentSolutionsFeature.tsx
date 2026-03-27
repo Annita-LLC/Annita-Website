@@ -36,7 +36,7 @@ const GovernmentSolutionsFeature = () => {
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-2xl lg:text-3xl font-bold text-orange-600 mb-2"
+          className="text-2xl lg:text-3xl font-bold text-[var(--brand-primary)] mb-2"
         >
           Government Solutions
         </motion.h3>
@@ -45,7 +45,7 @@ const GovernmentSolutionsFeature = () => {
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-lg font-medium text-primary-600 mb-4 flex items-center"
+          className="text-lg font-medium text-[var(--brand-primary)] mb-4 flex items-center"
         >
           Digital Transformation for Public Services
           <Zap className="w-5 h-5 ml-2 text-blue-500" />
@@ -55,9 +55,9 @@ const GovernmentSolutionsFeature = () => {
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-gray-600 mb-6 leading-relaxed"
+          className="text-[var(--text-secondary)] mb-6 leading-relaxed"
         >
-          Empower your government with <span className="text-orange-600 font-semibold">digital solutions</span> designed for public administration. From citizen portals and e-governance platforms to data management systems and compliance tools, we build secure, scalable solutions that enhance service delivery and transparency.
+          Empower your government with <span className="text-[var(--brand-primary)] font-semibold">digital solutions</span> designed for public administration. From citizen portals and e-governance platforms to data management systems and compliance tools, we build secure, scalable solutions that enhance service delivery and transparency.
         </motion.p>
 
 
@@ -70,16 +70,16 @@ const GovernmentSolutionsFeature = () => {
         transition={{ duration: 0.8, delay: 0.4 }}
         className="relative"
       >
-        <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-6 lg:p-8 relative overflow-hidden">
+        <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-3xl p-6 lg:p-8 relative overflow-hidden">
           {/* Animated background elements */}
           <div className="absolute top-4 right-4 w-20 h-20 bg-blue-200 rounded-full opacity-20 animate-pulse"></div>
           <div className="absolute bottom-8 left-6 w-16 h-16 bg-indigo-200 rounded-full opacity-30 animate-pulse delay-1000"></div>
 
           {/* Government Solutions Showcase */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 sm:p-6 shadow-soft border border-gray-200 relative z-10">
+          <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-4 sm:p-6 shadow-soft border border-gray-200 dark:border-gray-700 relative z-10">
             <div className="text-center mb-4 sm:mb-6">
-              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-1 sm:mb-2">Government Solutions</h3>
-              <p className="text-xs sm:text-sm text-gray-600">Digital Services</p>
+              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-[var(--text-primary)] mb-1 sm:mb-2">Government Solutions</h3>
+              <p className="text-xs sm:text-sm text-[var(--text-secondary)]">Digital Services</p>
             </div>
 
             {/* Government Services Grid */}

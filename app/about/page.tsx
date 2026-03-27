@@ -167,9 +167,9 @@ const AboutPage = () => {
         <section className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-orange-600 via-orange-700 to-red-600 text-white overflow-hidden">
           {/* Background Elements */}
           <div className="absolute inset-0">
-            <div className="absolute top-10 left-10 w-32 h-32 bg-white/5 rounded-full animate-pulse"></div>
-            <div className="absolute bottom-10 right-10 w-24 h-24 bg-white/5 rounded-full animate-bounce"></div>
-            <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-white/5 rounded-full animate-pulse delay-1000"></div>
+            <div className="absolute top-10 left-10 w-32 h-32 bg-white/5 dark:bg-white/5 rounded-full animate-pulse"></div>
+            <div className="absolute bottom-10 right-10 w-24 h-24 bg-white/5 dark:bg-white/5 rounded-full animate-bounce"></div>
+            <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-white/5 dark:bg-white/5 rounded-full animate-pulse delay-1000"></div>
           </div>
 
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -191,10 +191,10 @@ const AboutPage = () => {
                 {/* Stats */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
                   {stats.map((stat, index) => (
-                    <div key={index} className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                      <stat.icon className="w-8 h-8 text-orange-200 mx-auto mb-2" />
+                    <div key={index} className="bg-white/10 dark:bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                      <stat.icon className="w-8 h-8 text-orange-200 dark:text-orange-200 mx-auto mb-2" />
                       <div className="text-2xl sm:text-3xl font-bold">{stat.number}</div>
-                      <div className="text-xs sm:text-sm text-orange-200">{stat.label}</div>
+                      <div className="text-xs sm:text-sm text-orange-200 dark:text-orange-200">{stat.label}</div>
                     </div>
                   ))}
                 </div>
@@ -202,13 +202,13 @@ const AboutPage = () => {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link
                     href="#journey"
-                    className="bg-white text-orange-600 px-8 py-4 rounded-lg font-semibold hover:bg-orange-50 transition-all duration-200 shadow-lg text-sm sm:text-base"
+                    className="bg-white dark:bg-gray-800 text-orange-600 dark:text-orange-400 px-8 py-4 rounded-lg font-semibold hover:bg-orange-50 dark:hover:bg-orange-900/20 transition-all duration-200 shadow-lg text-sm sm:text-base"
                   >
                     Our Journey
                   </Link>
                   <Link
                     href="#team"
-                    className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-orange-600 transition-all duration-200 text-sm sm:text-base"
+                    className="border-2 border-white dark:border-gray-300 text-white dark:text-gray-200 px-8 py-4 rounded-lg font-semibold hover:bg-white dark:hover:bg-gray-800 hover:text-orange-600 dark:hover:text-orange-400 transition-all duration-200 text-sm sm:text-base"
                   >
                     Meet Our Team
                   </Link>
@@ -235,7 +235,7 @@ const AboutPage = () => {
                   className={`flex items-center px-4 py-2 rounded-full font-medium transition-all duration-200 ${
                     activeSection === section.id
                       ? 'bg-orange-500 text-white shadow-lg'
-                      : 'bg-white text-gray-600 hover:bg-orange-50 hover:text-orange-600 border border-gray-200'
+                      : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-orange-50 dark:hover:bg-orange-900/20 hover:text-orange-600 dark:hover:text-orange-400 border border-gray-200 dark:border-gray-700'
                   }`}
                 >
                   <section.icon className="w-4 h-4 mr-2" />
@@ -303,13 +303,13 @@ const AboutPage = () => {
                     color: "from-purple-400 to-pink-400"
                   }
                 ].map((stat, index) => (
-                  <div key={index} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow text-center">
+                  <div key={index} className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow text-center">
                     <div className={`w-16 h-16 bg-gradient-to-r ${stat.color} rounded-2xl flex items-center justify-center mx-auto mb-6`}>
                       <stat.icon className="w-8 h-8 text-white" />
                     </div>
-                    <div className="text-3xl font-bold text-gray-900 mb-2">{stat.number}</div>
-                    <div className="text-gray-600 font-medium mb-1">{stat.label}</div>
-                    <div className="text-sm text-gray-500">{stat.desc}</div>
+                    <div className="text-3xl font-bold text-[var(--text-primary)] mb-2">{stat.number}</div>
+                    <div className="text-gray-600 dark:text-[var(--text-secondary)] font-medium mb-1">{stat.label}</div>
+                    <div className="text-sm text-gray-500 dark:text-[var(--text-muted)]">{stat.desc}</div>
                   </div>
                 ))}
               </motion.div>
@@ -410,13 +410,13 @@ const AboutPage = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: index * 0.2 }}
                     viewport={{ once: true }}
-                    className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+                    className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
                   >
                     <div className={`w-16 h-16 bg-gradient-to-r ${goal.color} rounded-2xl flex items-center justify-center mb-6`}>
                       <goal.icon className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-xl font-bold mb-4 text-gray-900">{goal.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{goal.desc}</p>
+                    <h3 className="text-xl font-bold mb-4 text-[var(--text-primary)]">{goal.title}</h3>
+                    <p className="text-[var(--text-secondary)] leading-relaxed">{goal.desc}</p>
                   </motion.div>
                 ))}
               </div>
@@ -425,7 +425,7 @@ const AboutPage = () => {
         </section>
 
         {/* Core Values Section */}
-        <section id="values" className="py-16 sm:py-20 lg:py-24 bg-white">
+        <section id="values" className="py-16 sm:py-20 lg:py-24 bg-white dark:bg-gray-900">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-6xl mx-auto">
               <motion.div
@@ -586,7 +586,7 @@ const AboutPage = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
+                    className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
                   >
                     <div className="flex items-center justify-between mb-4">
                       <div className={`w-12 h-12 bg-gradient-to-r ${milestone.color} rounded-xl flex items-center justify-center`}>
@@ -634,15 +634,15 @@ const AboutPage = () => {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                   <Link
-                    href="/contact"
-                    className="inline-flex items-center justify-center bg-white text-orange-600 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-orange-50 transition-colors duration-200 shadow-lg text-sm sm:text-base"
+                    href="https://marketplace.an-nita.com"
+                    className="inline-flex items-center justify-center bg-white dark:bg-gray-800 text-orange-600 dark:text-orange-400 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-orange-50 dark:hover:bg-orange-900/20 transition-colors duration-200 shadow-lg text-sm sm:text-base"
                   >
                     <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                     Try V1.0 Now
                   </Link>
                   <Link
                     href="/careers"
-                    className="inline-flex items-center justify-center border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition-colors duration-200 text-sm sm:text-base"
+                    className="inline-flex items-center justify-center border-2 border-white dark:border-gray-300 text-white dark:text-gray-200 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-white dark:hover:bg-gray-800 hover:text-orange-600 dark:hover:text-orange-400 transition-colors duration-200 text-sm sm:text-base"
                   >
                     Join Our Team
                   </Link>

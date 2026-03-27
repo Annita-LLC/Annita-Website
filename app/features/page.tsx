@@ -482,7 +482,7 @@ export default function FeaturesPage() {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
-                  href="/maintenance"
+                  href="https://marketplace.an-nita.com"
                   className="bg-white text-orange-600 px-8 py-4 rounded-lg font-semibold hover:bg-orange-50 transition-all duration-200 shadow-lg text-sm sm:text-base"
                 >
                   Try V1.0 Now

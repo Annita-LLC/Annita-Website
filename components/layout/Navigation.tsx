@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import WelcomeModal from '@/components/ui/WelcomeModal'
+import ModernToggle from '@/components/ui/ModernToggle'
 import {
   Menu,
   X,
@@ -14,30 +15,13 @@ import {
   BarChart3,
   Globe,
   Users,
-  Settings,
-  Download,
   ChevronDown,
   ChevronRight,
-  Code,
-  Building2,
-  Video,
-  PenTool,
-  Phone,
-  TrendingUp,
-  Mail,
-  Headphones,
-  DollarSign,
-  Bike,
-  UserPlus,
   Award,
   Briefcase,
+  UserPlus,
   FileText,
   HelpCircle,
-  User,
-  Building,
-  Heart,
-  GraduationCap,
-  MessageCircle,
   Play,
   Zap,
   Target,
@@ -46,9 +30,6 @@ import {
   Image,
   Rocket,
   FileBarChart,
-  Search,
-  Lightbulb,
-  // New service icons
   Wallet,
   Send,
   Shield,
@@ -81,10 +62,10 @@ import {
   Link as LinkIcon,
   UserCheck as UserCheckIcon,
   BookOpen,
-  Cookie
+  Cookie,
+  Building,
+  Phone
 } from 'lucide-react'
-import { ThemeToggle, SimpleThemeToggle } from '@/components/ui/ThemeToggle'
-import GlobalSearch from '@/components/ui/GlobalSearch'
 import dynamic from 'next/dynamic'
 const DownloadChoiceModal = dynamic(() => import('@/components/ui/DownloadChoiceModal'), {
   ssr: false,
@@ -109,16 +90,15 @@ const Navigation = () => {
 
   const navItems = [
     { name: 'Home', href: '/' },
-
-    { 
-      name: 'Company', 
+    {
+      name: 'Company',
       href: '#',
       dropdown: [
         { name: 'About Us', href: '/about', icon: Users, description: 'Our story and mission' },
         { name: 'Features & Solutions', href: '/features', icon: Zap, description: 'Everything Annita offers' },
-        { name: 'Custom Solutions', href: '/solutions', icon: Code, description: 'Bespoke tech development' },
+        { name: 'Custom Solutions', href: '/solutions', icon: FileText, description: 'Bespoke tech development' },
         { name: 'Government Solutions', href: '/government-solutions', icon: Building, description: 'Digital solutions for governments' },
-        { name: 'Ideas & Tips', href: '/ideas', icon: Lightbulb, description: 'Share ideas and feedback' },
+        { name: 'Ideas & Tips', href: '/ideas', icon: HelpCircle, description: 'Share ideas and feedback' },
         { name: 'Become a Partner', href: '/partners', icon: Users, description: 'Partner with Annita' },
         { name: 'Partner Application', href: '/partners/apply', icon: UserCheckIcon, description: 'Apply to become a partner' },
         { name: 'Awards & Recognition', href: '/awards', icon: Award, description: 'Our achievements and recognition' },
@@ -126,13 +106,11 @@ const Navigation = () => {
         { name: 'Apply Now', href: '/careers/apply', icon: UserPlus, description: 'Submit your application' },
       ]
     },
-    { 
-      name: 'Support', 
+    {
+      name: 'Support',
       href: '#',
       dropdown: [
-        { name: 'Search', href: '#', icon: Search, description: 'Search for features, pages, or services', isSearchToggle: true },
-        { name: 'Theme Settings', href: '#', icon: Settings, description: 'Light, dark, or system theme', isThemeToggle: true },
-        { name: 'Contact Us', href: '/contact', icon: Mail, description: 'Get in touch with our team' },
+        { name: 'Contact Us', href: '/contact', icon: MessageSquare, description: 'Get in touch with our team' },
         { name: 'Contact Sales', href: '/contact-sales', icon: Phone, description: 'Talk to our business development team' },
         { name: 'Privacy Policy', href: '/privacy', icon: Shield, description: 'How we handle your data' },
         { name: 'Terms of Service', href: '/terms', icon: FileCheck, description: 'Our terms and conditions' },
@@ -166,8 +144,8 @@ const Navigation = () => {
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-medium border-b border-gray-200 dark:border-gray-700' 
-          : 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-md'
+          ? 'bg-white/95 dark:bg-gray-900/95 shadow-md border-b border-gray-200 dark:border-gray-700' 
+          : 'bg-white/90 dark:bg-gray-900/90'
       }`}>
         <div className="container mx-auto px-3 sm:px-4 lg:px-6 xl:px-8">
           <div className="flex justify-between items-center h-14 sm:h-16 lg:h-20">
@@ -228,51 +206,18 @@ const Navigation = () => {
                             <div className="max-h-96 overflow-y-auto p-4 scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent">
                               <div className="grid gap-3">
                                 {item.dropdown.map((dropdownItem) => (
-                                  'isSearchToggle' in dropdownItem && dropdownItem.isSearchToggle ? (
-                                    <div key={dropdownItem.name} className="p-2">
-                                      <div className="text-sm text-gray-600 dark:text-gray-300 mb-2">{dropdownItem.name}</div>
-                                          <GlobalSearch />
+                                  <Link
+                                    key={dropdownItem.name}
+                                    href={dropdownItem.href}
+                                    className="flex items-start space-x-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200"
+                                    onClick={() => setActiveDropdown(null)}
+                                  >
+                                    <dropdownItem.icon className="w-5 h-5 text-orange-600 dark:text-orange-400 mt-0.5 flex-shrink-0" />
+                                    <div>
+                                      <div className="font-medium text-gray-900 dark:text-white">{dropdownItem.name}</div>
+                                      <div className="text-sm text-gray-500 dark:text-gray-400">{dropdownItem.description}</div>
                                     </div>
-                                  ) : 'isThemeToggle' in dropdownItem && dropdownItem.isThemeToggle ? (
-                                     <div key={dropdownItem.name} className="p-3">
-                                       <div className="flex items-start space-x-3">
-                                         <dropdownItem.icon className="w-5 h-5 text-primary-600 dark:text-primary-400 mt-0.5 flex-shrink-0" />
-                                         <div className="flex-1">
-                                           <div className="font-medium text-gray-900 dark:text-white mb-2">{dropdownItem.name}</div>
-                                           <div className="text-sm text-gray-500 dark:text-gray-400 mb-3">{dropdownItem.description}</div>
-                                           <SimpleThemeToggle />
-                                         </div>
-                                       </div>
-                                    </div>
-                                  ) : 'isExternal' in dropdownItem && dropdownItem.isExternal ? (
-                                    <a
-                                      key={dropdownItem.name}
-                                      href={dropdownItem.href}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className="flex items-start space-x-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200"
-                                      onClick={() => setActiveDropdown(null)}
-                                    >
-                                      <dropdownItem.icon className="w-5 h-5 text-primary-600 dark:text-primary-400 mt-0.5 flex-shrink-0" />
-                                      <div>
-                                        <div className="font-medium text-gray-900 dark:text-white">{dropdownItem.name}</div>
-                                        <div className="text-sm text-gray-500 dark:text-gray-400">{dropdownItem.description}</div>
-                                      </div>
-                                    </a>
-                                  ) : (
-                                    <Link
-                                      key={dropdownItem.name}
-                                      href={dropdownItem.href}
-                                      className="flex items-start space-x-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200"
-                                      onClick={() => setActiveDropdown(null)}
-                                    >
-                                      <dropdownItem.icon className="w-5 h-5 text-primary-600 dark:text-primary-400 mt-0.5 flex-shrink-0" />
-                                      <div>
-                                        <div className="font-medium text-gray-900 dark:text-white">{dropdownItem.name}</div>
-                                        <div className="text-sm text-gray-500 dark:text-gray-400">{dropdownItem.description}</div>
-                                      </div>
-                                    </Link>
-                                  )
+                                  </Link>
                                 ))}
                               </div>
                             </div>
@@ -301,24 +246,31 @@ const Navigation = () => {
               </div>
             </div>
 
-            {/* CTA Buttons */}
-            <div className="hidden lg:flex items-center">
+            {/* Right Side Actions */}
+            <div className="hidden lg:flex items-center space-x-4">
+              {/* Modern Theme Toggle */}
+              <ModernToggle />
+              
+              {/* CTA Button */}
               <button 
                 onClick={() => setIsWelcomeModalOpen(true)}
-                className="btn-primary"
+                className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:from-orange-600 hover:to-orange-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
               >
-                <Download className="w-4 h-4 mr-2" />
                 Try V1.0 Now
               </button>
             </div>
 
             {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-1.5 sm:p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
-            >
-              {isOpen ? <X className="w-4 h-4 sm:w-5 sm:h-5 dark:text-white" /> : <Menu className="w-4 h-4 sm:w-5 sm:h-5 dark:text-white" />}
-            </button>
+            <div className="lg:hidden flex items-center space-x-2">
+              <ModernToggle />
+              
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
+              >
+                {isOpen ? <X className="w-5 h-5 dark:text-white" /> : <Menu className="w-5 h-5 dark:text-white" />}
+              </button>
+            </div>
           </div>
         </div>
       </nav>
@@ -420,43 +372,21 @@ const Navigation = () => {
                                   className="ml-4 mt-2 space-y-1 max-h-64 overflow-y-auto"
                                 >
                                   {item.dropdown.map((dropdownItem) => (
-                                    'isSearchToggle' in dropdownItem && dropdownItem.isSearchToggle ? (
-                                      <div key={dropdownItem.name} className="p-2">
-                                        <div className="text-sm text-gray-600 dark:text-gray-300 mb-2">{dropdownItem.name}</div>
-                                        <GlobalSearch />
+                                    <Link
+                                      key={dropdownItem.name}
+                                      href={dropdownItem.href}
+                                      className="flex items-start space-x-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200"
+                                      onClick={() => {
+                                        setIsOpen(false)
+                                        setActiveDropdown(null)
+                                      }}
+                                    >
+                                      <dropdownItem.icon className="w-5 h-5 text-orange-600 dark:text-orange-400 flex-shrink-0" />
+                                      <div>
+                                        <div className="font-medium text-gray-900 dark:text-white">{dropdownItem.name}</div>
+                                        <div className="text-sm text-gray-500 dark:text-gray-400">{dropdownItem.description}</div>
                                       </div>
-                                    ) : 'isThemeToggle' in dropdownItem && dropdownItem.isThemeToggle ? (
-                                      <div key={dropdownItem.name} className="p-2">
-                                        <div className="text-sm text-gray-600 dark:text-gray-300 mb-2">{dropdownItem.name}</div>
-                                        <SimpleThemeToggle />
-                                      </div>
-                                    ) : 'isExternal' in dropdownItem && dropdownItem.isExternal ? (
-                                      <a
-                                        key={dropdownItem.name}
-                                        href={dropdownItem.href}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="block p-2 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors"
-                                        onClick={() => {
-                                          setIsOpen(false)
-                                          setActiveDropdown(null)
-                                        }}
-                                      >
-                                        {dropdownItem.name}
-                                      </a>
-                                    ) : (
-                                      <Link
-                                        key={dropdownItem.name}
-                                        href={dropdownItem.href}
-                                        className="block p-2 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors"
-                                        onClick={() => {
-                                          setIsOpen(false)
-                                          setActiveDropdown(null)
-                                        }}
-                                      >
-                                        {dropdownItem.name}
-                                      </Link>
-                                    )
+                                    </Link>
                                   ))}
                                 </motion.div>
                               )}
@@ -497,7 +427,6 @@ const Navigation = () => {
                     }}
                     className="flex items-center justify-center w-full px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300"
                   >
-                    <Download className="w-5 h-5 mr-2" />
                     Try V1.0 Now
                   </button>
                 </div>

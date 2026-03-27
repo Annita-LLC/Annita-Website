@@ -2,7 +2,7 @@
 
 // Build fix at 2026-02-15 12:30
 
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Crown, DollarSign, TrendingUp, TrendingDown, BarChart3, PieChart, Calendar, Download, Filter, Search, LogOut } from 'lucide-react'
 import SEOHead from '@/components/seo/SEOHead'
@@ -15,7 +15,7 @@ interface CEOFinancialMetric {
   change: number
   changeType: 'increase' | 'decrease'
   period: string
-  icon: JSX.Element
+  icon: React.ReactElement
 }
 
 interface CEOTransaction {

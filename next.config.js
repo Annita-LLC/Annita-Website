@@ -37,7 +37,6 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   reactStrictMode: true,
-  swcMinify: true,
   async headers() {
     return [
       {
@@ -96,17 +95,18 @@ const nextConfig = {
     optimizePackageImports: ['lucide-react', 'framer-motion'],
     // optimizeCss: true, // Disabled due to critters dependency issue
     scrollRestoration: true,
-    // Enable faster builds
-    turbo: {
-      rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
-        },
-      },
-    },
   },
+  turbopack: {},
   webpack: (config, { dev, isServer }) => {
+    // Exclude backend directory from Next.js build
+    config.externals = config.externals || []
+    config.externals.push(function(context, request, callback) {
+      if (/^backend[\\/]/.test(request)) {
+        return callback(null, 'commonjs ' + request)
+      }
+      callback()
+    })
+
     // Optimize bundle size
     if (!dev && !isServer) {
       config.optimization.splitChunks = {

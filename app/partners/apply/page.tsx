@@ -144,7 +144,7 @@ const PartnerApplyPage = () => {
                   Apply Now
                   </button>
                   <button 
-                    onClick={() => window.open('https://annita.company.site/products', '_blank')}
+                    onClick={() => window.open('https://marketplace.an-nita.com', '_blank')}
                     className="border-2 border-white text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold hover:bg-white hover:text-orange-600 transition-all duration-200 flex items-center justify-center text-sm sm:text-base"
                   >
                     <Globe className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />

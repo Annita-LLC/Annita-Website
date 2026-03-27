@@ -21,12 +21,12 @@ interface SEOHeadProps {
 }
 
 const SEOHead: React.FC<SEOHeadProps> = ({
-  title = "Annita - Africa's First All-in-One Digital Platform",
-  description = "Annita is Africa's premier digital platform, offering integrated e-commerce, fintech, AI, and logistics solutions. Empowering 450M+ African MSMEs with innovative technology.",
+  title = "Annita - Africa's First All-in-One Digital Ecosystem",
+  description = "Annita is Africa's premier digital ecosystem, offering integrated e-commerce, fintech, AI, and logistics solutions. Empowering 450M+ African MSMEs with innovative technology.",
   keywords = [
     'Annita',
     'Africa',
-    'digital platform',
+    'digital ecosystem',
     'e-commerce',
     'fintech',
     'AI',
@@ -70,7 +70,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     "name": "Annita",
     "url": "https://www.an-nita.com",
     "logo": "https://www.an-nita.com/logo.png",
-    "description": "Africa's premier digital platform, offering integrated e-commerce, fintech, AI, and logistics solutions.",
+    "description": "Africa's premier digital ecosystem, offering integrated e-commerce, fintech, AI, and logistics solutions.",
     "foundingDate": "2024",
     "address": {
       "@type": "PostalAddress",

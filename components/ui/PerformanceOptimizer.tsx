@@ -59,11 +59,87 @@ const PerformanceOptimizer = ({ children }: PerformanceOptimizerProps) => {
       
       // Add class for CSS-based optimizations
       document.documentElement.classList.add('performance-optimized')
+      
+      // Optimize scrolling
+      document.documentElement.style.scrollBehavior = 'auto'
     } else {
       document.documentElement.style.removeProperty('--animation-duration')
       document.documentElement.style.removeProperty('--animation-delay')
       document.documentElement.classList.remove('performance-optimized')
+      document.documentElement.style.scrollBehavior = 'smooth'
     }
+    
+    // Additional performance optimizations
+    // Preload critical resources
+    const preloadCriticalResources = () => {
+      const criticalLinks = [
+        { href: '/fonts/inter-var.woff2', as: 'font', type: 'font/woff2', crossOrigin: 'anonymous' },
+        { href: '/images/logo/annita-real-logo.png', as: 'image', type: 'image/png' }
+      ]
+      
+      criticalLinks.forEach(link => {
+        const linkElement = document.createElement('link')
+        Object.entries(link).forEach(([key, value]) => {
+          if (key !== 'href') linkElement.setAttribute(key, value)
+        })
+        document.head.appendChild(linkElement)
+      })
+    }
+    
+    // Optimize images
+    const optimizeImages = () => {
+      const images = document.querySelectorAll('img')
+      images.forEach(img => {
+        img.loading = 'lazy'
+        img.decoding = 'async'
+        if (!img.alt) img.alt = 'Annita'
+      })
+    }
+    
+    // Defer non-critical JavaScript
+    const deferNonCriticalJS = () => {
+      const scripts = document.querySelectorAll('script:not([data-critical])') as NodeListOf<HTMLScriptElement>
+      scripts.forEach(script => {
+        script.defer = true
+        script.async = true
+      })
+    }
+    
+    // Run optimizations after page load
+    if (document.readyState === 'complete') {
+      preloadCriticalResources()
+      optimizeImages()
+      deferNonCriticalJS()
+    } else {
+      window.addEventListener('load', () => {
+        preloadCriticalResources()
+        optimizeImages()
+        deferNonCriticalJS()
+      })
+    }
+    
+    // Monitor performance
+    const monitorPerformance = () => {
+      if ('performance' in window) {
+        const perfData = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming & { 
+          domContentLoadedEventEnd?: number; 
+          loadEventEnd?: number; 
+          responseStart?: number; 
+          fetchStart?: number 
+        }
+        
+        // Log performance metrics for debugging
+        if (perfData.domContentLoadedEventEnd && perfData.fetchStart) {
+          console.log('Performance Metrics:', {
+            domContentLoaded: perfData.domContentLoadedEventEnd - perfData.fetchStart,
+            loadComplete: perfData.loadEventEnd && perfData.fetchStart ? perfData.loadEventEnd - perfData.fetchStart : 0,
+            firstPaint: perfData.responseStart && perfData.fetchStart ? perfData.responseStart - perfData.fetchStart : 0
+          })
+        }
+      }
+    }
+    
+    monitorPerformance()
   }, [prefersReducedMotion, isLowEndDevice])
 
   return <>{children}</>

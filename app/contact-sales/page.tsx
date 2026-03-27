@@ -537,7 +537,7 @@ export default function ContactSalesPage() {
         subtitle="Get tailored digital infrastructure designed for MSMEs, governments, and strategic partners. Integrate our ecosystem of e-commerce, fintech, AI, and more across Africa."
         primaryButtonText="Try V1.0 Now"
         secondaryButtonText="Contact Sales"
-        primaryButtonLink="/maintenance"
+        primaryButtonLink="https://marketplace.an-nita.com"
         secondaryButtonLink="/contact-sales"
       />
 

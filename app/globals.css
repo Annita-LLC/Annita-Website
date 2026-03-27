@@ -25,6 +25,30 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 199 89% 48%;
     --radius: 0.5rem;
+    
+    /* Enhanced typography variables */
+    --text-primary: hsl(222.2 84% 4.9%);
+    --text-secondary: hsl(215.4 16.3% 46.9%);
+    --text-muted: hsl(215.4 16.3% 65.1%);
+    --text-inverse: hsl(210 40% 98%);
+    --text-accent: hsl(199 89% 48%);
+    --text-link: hsl(199 89% 48%);
+    --text-link-hover: hsl(199 79% 38%);
+    
+    /* Content background variables */
+    --content-bg: hsl(0 0% 100%);
+    --content-bg-secondary: hsl(210 40% 96%);
+    --content-bg-tertiary: hsl(210 40% 98%);
+    --content-border: hsl(214.3 31.8% 91.4%);
+    --content-shadow: hsl(0 0% 0% / 0.1);
+    
+    /* Brand colors for content */
+    --brand-primary: hsl(199 89% 48%);
+    --brand-secondary: hsl(262 83% 58%);
+    --brand-accent: hsl(25 100% 50%);
+    --brand-success: hsl(142 76% 36%);
+    --brand-warning: hsl(38 92% 50%);
+    --brand-error: hsl(0 84% 60%);
   }
 
   .dark {
@@ -47,6 +71,31 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 199 89% 48%;
+    --radius: 0.5rem;
+    
+    /* Enhanced typography variables for dark mode */
+    --text-primary: hsl(210 40% 98%);
+    --text-secondary: hsl(215 20.2% 65.1%);
+    --text-muted: hsl(215 20.2% 55.1%);
+    --text-inverse: hsl(222.2 84% 4.9%);
+    --text-accent: hsl(199 89% 48%);
+    --text-link: hsl(199 89% 48%);
+    --text-link-hover: hsl(199 79% 58%);
+    
+    /* Content background variables for dark mode */
+    --content-bg: hsl(222.2 84% 4.9%);
+    --content-bg-secondary: hsl(217.2 32.6% 17.5%);
+    --content-bg-tertiary: hsl(217.2 32.6% 22.5%);
+    --content-border: hsl(217.2 32.6% 17.5%);
+    --content-shadow: hsl(0 0% 0% / 0.3);
+    
+    /* Brand colors for content (adjusted for dark mode) */
+    --brand-primary: hsl(199 89% 48%);
+    --brand-secondary: hsl(262 83% 58%);
+    --brand-accent: hsl(25 100% 50%);
+    --brand-success: hsl(142 76% 36%);
+    --brand-warning: hsl(38 92% 50%);
+    --brand-error: hsl(0 62.8% 30.6%);
   }
 
   * {
@@ -56,6 +105,214 @@
   body {
     @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-white font-sans;
     font-feature-settings: "rlig" 1, "calt" 1;
+    
+    /* Enhanced typography using CSS variables */
+    color: var(--text-primary);
+    background-color: var(--content-bg);
+  }
+  
+  /* Force all common elements to use CSS variables */
+  .bg-white {
+    background-color: var(--content-bg) !important;
+  }
+  
+  .dark .bg-white {
+    background-color: var(--content-bg) !important;
+  }
+  
+  .bg-gray-50 {
+    background-color: var(--content-bg-secondary) !important;
+  }
+  
+  .dark .bg-gray-50 {
+    background-color: var(--content-bg-secondary) !important;
+  }
+  
+  .text-gray-900 {
+    color: var(--text-primary) !important;
+  }
+  
+  .dark .text-gray-900 {
+    color: var(--text-primary) !important;
+  }
+  
+  .text-gray-600 {
+    color: var(--text-secondary) !important;
+  }
+  
+  .dark .text-gray-600 {
+    color: var(--text-secondary) !important;
+  }
+  
+  .text-gray-700 {
+    color: var(--text-secondary) !important;
+  }
+  
+  .dark .text-gray-700 {
+    color: var(--text-secondary) !important;
+  }
+  
+  .text-gray-500 {
+    color: var(--text-muted) !important;
+  }
+  
+  .dark .text-gray-500 {
+    color: var(--text-muted) !important;
+  }
+  
+  .text-gray-400 {
+    color: var(--text-muted) !important;
+  }
+  
+  .dark .text-gray-400 {
+    color: var(--text-muted) !important;
+  }
+  
+  .border-gray-200 {
+    border-color: var(--content-border) !important;
+  }
+  
+  .dark .border-gray-200 {
+    border-color: var(--content-border) !important;
+  }
+  
+  .border-gray-100 {
+    border-color: var(--content-border) !important;
+  }
+  
+  .dark .border-gray-100 {
+    border-color: var(--content-border) !important;
+  }
+  
+  /* Fix gradient backgrounds for dark mode */
+  .bg-gradient-to-br {
+    @apply dark:from-gray-900 dark:to-gray-800;
+  }
+  
+  .from-gray-50 {
+    @apply dark:from-gray-900;
+  }
+  
+  .to-white {
+    @apply dark:to-gray-800;
+  }
+  
+  .from-neutral-50 {
+    @apply dark:from-gray-900;
+  }
+  
+  .to-white {
+    @apply dark:to-gray-800;
+  }
+  
+  /* Typography improvements for dark/light mode */
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary);
+    font-weight: 600;
+    line-height: 1.25;
+  }
+  
+  h1 { font-size: clamp(1.875rem, 4vw, 3rem); }
+  h2 { font-size: clamp(1.5rem, 3.5vw, 2.25rem); }
+  h3 { font-size: clamp(1.25rem, 3vw, 1.875rem); }
+  h4 { font-size: clamp(1.125rem, 2.5vw, 1.5rem); }
+  h5 { font-size: clamp(1rem, 2vw, 1.25rem); }
+  h6 { font-size: clamp(0.875rem, 1.5vw, 1.125rem); }
+  
+  p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+  
+  /* Enhanced link styling */
+  a {
+    color: var(--text-link);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  a:hover {
+    color: var(--text-link-hover);
+    text-decoration: underline;
+  }
+  
+  /* Improved text selection */
+  ::selection {
+    background-color: var(--brand-primary);
+    color: var(--text-inverse);
+  }
+  
+  ::-moz-selection {
+    background-color: var(--brand-primary);
+    color: var(--text-inverse);
+  }
+  
+  /* Enhanced focus styles */
+  :focus-visible {
+    outline: 2px solid var(--brand-primary);
+    outline-offset: 2px;
+  }
+  
+  /* Better contrast for small text */
+  small, .text-xs, .text-sm {
+    color: var(--text-muted);
+  }
+  
+  /* Enhanced code blocks */
+  code, pre {
+    background-color: var(--content-bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--content-border);
+    border-radius: 0.375rem;
+  }
+  
+  /* Blockquotes */
+  blockquote {
+    border-left: 4px solid var(--brand-primary);
+    background-color: var(--content-bg-secondary);
+    color: var(--text-secondary);
+    padding: 1rem;
+    margin: 1.5rem 0;
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
+  
+  blockquote p {
+    margin-bottom: 0;
+  }
+  
+  /* Lists styling */
+  ul, ol {
+    color: var(--text-secondary);
+    padding-left: 1.5rem;
+  }
+  
+  li {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Tables styling */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--text-primary);
+    background-color: var(--content-bg);
+  }
+  
+  th, td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--content-border);
+  }
+  
+  th {
+    background-color: var(--content-bg-secondary);
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+  
+  tr:hover {
+    background-color: var(--content-bg-secondary);
   }
 
   /* Remove default focus outline for better UX */
@@ -75,10 +332,10 @@
   }
 
   /* Remove any responsive hiding for banners */
-  .banner.hidden, .announcement.hidden,
-  .banner.lg\\:hidden, .announcement.lg\\:hidden,
-  .banner.md\\:hidden, .announcement.md\\:hidden,
-  .banner.xl\\:hidden, .announcement.xl\\:hidden {
+  .banner\.hidden, .announcement\.hidden,
+  .banner\.lg\\:hidden, .announcement\.lg\\:hidden,
+  .banner\.md\\:hidden, .announcement\.md\\:hidden,
+  .banner\.xl\\:hidden, .announcement\.xl\\:hidden {
     display: block !important;
   }
 
@@ -189,6 +446,9 @@ html {
 
   .card {
     @apply bg-white dark:bg-gray-800 rounded-xl shadow-soft border border-gray-200 dark:border-gray-700 overflow-hidden transition-colors duration-200;
+    background-color: var(--content-bg);
+    border-color: var(--content-border);
+    box-shadow: var(--content-shadow) 0 2px 15px -3px;
   }
 
 .card-hover {
@@ -197,6 +457,14 @@ html {
 
   .input {
     @apply block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm transition-colors duration-200;
+    background-color: var(--content-bg);
+    border-color: var(--content-border);
+    color: var(--text-primary);
+  }
+  
+  .input:focus {
+    border-color: var(--brand-primary);
+    box-shadow: 0 0 0 3px rgba(199, 89, 48, 0.1);
   }
 
   .textarea {
@@ -209,6 +477,7 @@ html {
 
   .label {
     @apply block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2;
+    color: var(--text-secondary);
   }
 
   .badge {
@@ -217,38 +486,57 @@ html {
 
   .badge-primary {
     @apply badge bg-primary-100 text-primary-800;
+    background-color: var(--brand-primary);
+    color: var(--text-inverse);
   }
 
   .badge-secondary {
     @apply badge bg-secondary-100 text-secondary-800;
+    background-color: var(--brand-secondary);
+    color: var(--text-inverse);
   }
 
   .badge-success {
     @apply badge bg-success-100 text-success-800;
+    background-color: var(--brand-success);
+    color: var(--text-inverse);
   }
 
   .badge-warning {
     @apply badge bg-warning-100 text-warning-800;
+    background-color: var(--brand-warning);
+    color: var(--text-inverse);
   }
 
   .badge-error {
     @apply badge bg-error-100 text-error-800;
+    background-color: var(--brand-error);
+    color: var(--text-inverse);
   }
 
   .gradient-text {
     @apply bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent;
+    background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .gradient-bg {
     @apply bg-gradient-to-r from-primary-600 to-secondary-600;
+    background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
   }
 
   .glass {
     @apply bg-white/80 backdrop-blur-md border border-white/20;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-color: rgba(255, 255, 255, 0.2);
   }
 
   .glass-dark {
     @apply bg-gray-900/80 backdrop-blur-md border border-gray-700/20;
+    background-color: rgba(17, 24, 39, 0.8);
+    border-color: rgba(55, 65, 81, 0.2);
   }
 
   .text-balance {
@@ -278,22 +566,25 @@ html {
   /* Feature card styles */
   .feature-card {
     @apply relative overflow-hidden rounded-2xl bg-white p-8 shadow-soft border border-gray-200 transition-all duration-300 hover:shadow-medium hover:-translate-y-2;
+    background-color: var(--content-bg);
+    border-color: var(--content-border);
   }
 
   .feature-card::before {
     content: '';
     @apply absolute inset-0 bg-gradient-to-br from-primary-50 to-secondary-50 opacity-0 transition-opacity duration-300;
+    background: linear-gradient(135deg, var(--brand-primary) / 0.1, var(--brand-secondary) / 0.1);
   }
 
   .feature-card:hover::before {
     @apply opacity-100;
   }
 
-
-
   /* Stats styles */
   .stat-card {
     @apply text-center p-6 rounded-xl bg-gradient-to-br from-primary-50 to-secondary-50 border border-primary-100;
+    background: linear-gradient(135deg, var(--brand-primary) / 0.05, var(--brand-secondary) / 0.05);
+    border-color: var(--brand-primary) / 0.2;
   }
 
   .stat-number {
@@ -302,16 +593,23 @@ html {
 
   .stat-label {
     @apply text-gray-600 font-medium;
+    color: var(--text-secondary);
   }
 
   /* Navigation styles */
   .nav-link {
     @apply relative px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200;
+    color: var(--text-secondary);
+  }
+  
+  .nav-link:hover {
+    color: var(--text-link-hover);
   }
 
   .nav-link::after {
     content: '';
     @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary-600 transition-all duration-300;
+    background-color: var(--brand-primary);
   }
 
   .nav-link:hover::after {
@@ -319,7 +617,7 @@ html {
   }
 
   .nav-link.active {
-    @apply text-primary-600 dark:text-primary-400;
+    color: var(--text-link);
   }
 
   .nav-link.active::after {
@@ -329,6 +627,7 @@ html {
   /* Mobile menu styles */
   .mobile-menu {
     @apply fixed inset-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md transform transition-transform duration-300;
+    background-color: var(--content-bg) / 0.95;
   }
 
   .mobile-menu.closed {
@@ -338,6 +637,11 @@ html {
   /* Footer styles */
   .footer-link {
     @apply text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200;
+    color: var(--text-secondary);
+  }
+  
+  .footer-link:hover {
+    color: var(--text-link-hover);
   }
 
   .footer-section {
@@ -346,6 +650,7 @@ html {
 
   .footer-title {
     @apply text-lg font-semibold text-gray-900 dark:text-white mb-4;
+    color: var(--text-primary);
   }
 
   /* Form styles */
@@ -355,11 +660,13 @@ html {
 
   .form-error {
     @apply text-sm text-error-600 mt-1;
+    color: var(--brand-error);
   }
 
   .form-success {
     @apply text-sm text-success-600 mt-1;
-}
+    color: var(--brand-success);
+  }
 
 /* Loading states */
 .loading {
@@ -373,31 +680,46 @@ html {
   /* Modal styles */
   .modal-overlay {
     @apply fixed inset-0 bg-black/50 backdrop-blur-sm z-50;
+    background-color: rgba(0, 0, 0, 0.5);
   }
 
   .modal-content {
     @apply fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full mx-4 p-6;
+    background-color: var(--content-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--content-border);
   }
 
   /* Toast styles */
   .toast {
     @apply fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg max-w-sm;
+    background-color: var(--content-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--content-border);
   }
 
   .toast-success {
     @apply toast bg-success-500 text-white;
+    background-color: var(--brand-success);
+    color: var(--text-inverse);
   }
 
   .toast-error {
     @apply toast bg-error-500 text-white;
+    background-color: var(--brand-error);
+    color: var(--text-inverse);
   }
 
   .toast-warning {
     @apply toast bg-warning-500 text-white;
+    background-color: var(--brand-warning);
+    color: var(--text-inverse);
   }
 
   .toast-info {
     @apply toast bg-primary-500 text-white;
+    background-color: var(--brand-primary);
+    color: var(--text-inverse);
   }
 
   /* Responsive utilities */
@@ -494,15 +816,58 @@ html {
     animation: none !important;
   }
 
+  /* Aggressive performance optimizations */
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
   /* Optimize images for better performance */
   img {
     content-visibility: auto;
     contain-intrinsic-size: 300px 200px;
+    loading: lazy;
+    will-change: transform;
+  }
+
+  /* Optimize heavy elements */
+  .hero-section,
+  .feature-card,
+  .testimonial-card {
+    contain: layout style paint;
+    will-change: transform;
+  }
+
+  /* Optimize animations */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 
   /* Optimize scrolling performance */
-  html {
-    scroll-behavior: smooth;
+  .scroll-container {
+    overflow-anchor: none;
+  }
+
+  /* Preload critical resources */
+  .critical-resource {
+    contain: layout style paint;
   }
 
   @media (prefers-reduced-motion: reduce) {

@@ -30,7 +30,7 @@ const CTASectionInner = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-lg mx-auto">
               <a
-                href="/maintenance"
+                href="https://marketplace.an-nita.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center bg-white text-orange-600 px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3 rounded-lg font-semibold hover:bg-orange-50 transition-colors duration-200 text-sm sm:text-base"

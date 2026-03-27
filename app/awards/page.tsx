@@ -8,7 +8,6 @@ import {
   TrendingUp,
   Users,
   Target,
-  ExternalLink,
   Linkedin,
   ArrowRight,
   Download,
@@ -18,7 +17,9 @@ import {
   Medal,
   Crown,
   Sparkles,
-  Code
+  Code,
+  ShoppingCart,
+  ExternalLink
 } from 'lucide-react'
 import CTASection from '@/components/sections/CTASection'
 import Link from 'next/link'
@@ -179,6 +180,28 @@ export default function AwardsPage() {
                     <div className="font-semibold text-white">Funding Secured</div>
                     <div className="text-sm text-orange-200">$12,375 USD Grants</div>
                   </div>
+                </div>
+              </div>
+
+              {/* Marketplace Link */}
+              <div className="bg-gradient-to-r from-orange-50 to-red-50 border border-orange-200 rounded-xl p-6 mb-8">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-3">
+                    <ShoppingCart className="w-6 h-6 text-orange-600" />
+                    <div>
+                      <h3 className="text-lg font-bold text-gray-900 mb-1">Try Our V1.0 Marketplace</h3>
+                      <p className="text-sm text-gray-600">Start buying, selling, and trading across Africa today</p>
+                    </div>
+                  </div>
+                  <Link
+                    href="https://marketplace.an-nita.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-all duration-200 shadow-lg hover:shadow-xl"
+                  >
+                    <span>Visit Marketplace</span>
+                    <ExternalLink className="w-4 h-4 ml-2" />
+                  </Link>
                 </div>
               </div>
             </motion.div>
