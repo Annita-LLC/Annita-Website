@@ -8,7 +8,10 @@ import CookieConsent from '@/components/ui/CookieConsent'
 import OfflineBanner from '@/components/ui/OfflineBanner'
 import PerformanceOptimizer from '@/components/ui/PerformanceOptimizer'
 import PerformanceMonitor from '@/components/ui/PerformanceMonitor'
+import ModernAIChat from '@/components/ui/ModernAIChat'
+import ErrorBoundary from '@/components/ui/ErrorBoundary'
 import { ThemeProvider } from '@/lib/theme'
+import V1MarketplaceModalWrapper from '@/components/ui/V1MarketplaceModalWrapper'
 
 const zenDots = Zen_Dots({
   subsets: ['latin'],
@@ -79,7 +82,30 @@ export const metadata: Metadata = {
     'cross-border trade',
     'African innovation',
     'tech startup',
-    'digital economy'
+    'digital economy',
+    'awards',
+    'recognition',
+    'achievements',
+    'innovation awards',
+    'African startup awards',
+    'grant funding',
+    'business excellence',
+    'Annita awards',
+    'Annita recognition',
+    'African innovation awards',
+    'digital transformation awards',
+    'marketplace',
+    'online marketplace',
+    'African marketplace',
+    'buy and sell',
+    'digital trading',
+    'B2B platform',
+    'business to business',
+    'cross-border trade',
+    'African commerce',
+    'secure payments',
+    'verified traders',
+    'digital marketplace Africa'
   ],
   authors: [{ name: 'Annita Team' }],
   creator: 'Annita',
@@ -146,11 +172,12 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon.png', type: 'image/png' },
-      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/images/logo/annita-real-logo.png', type: 'image/png', sizes: '32x32' },
+      { url: '/images/logo/annita-real-logo.png', type: 'image/png', sizes: '16x16' },
+      { url: '/images/logo/annita-real-logo.png', type: 'image/png', sizes: '192x192' },
     ],
-    apple: [{ url: '/apple-icon.png', type: 'image/png' }],
-    shortcut: ['/favicon.png'],
+    apple: [{ url: '/images/logo/annita-real-logo.png', type: 'image/png', sizes: '180x180' }],
+    shortcut: ['/images/logo/annita-real-logo.png'],
   },
 }
 
@@ -170,14 +197,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${zenDots.variable} ${lora.variable}`}>
       <head>
-        <link rel="icon" type="image/png" href="/favicon.png" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/images/logo/favicon.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/images/logo/favicon.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/images/logo/favicon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/logo/annita-real-logo.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/logo/annita-real-logo.png" />
+        <link rel="shortcut icon" href="/images/logo/annita-real-logo.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/logo/annita-real-logo.png" />
         <link rel="manifest" href="/site.webmanifest" />
-        <meta name="msapplication-TileColor" content="#0ea5e9" />
-        <meta name="theme-color" content="#0ea5e9" />
+        <meta name="msapplication-TileColor" content="#f97316" />
+        <meta name="theme-color" content="#f97316" />
         
         {/* Preconnect to external domains */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -189,6 +215,9 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//www.google-analytics.com" />
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+        
+        {/* Preload critical resources */}
+        <link rel="preload" href="/images/logo/annita-real-logo.png" as="image" type="image/png" />
         
         {/* Structured Data */}
         <script
@@ -210,7 +239,7 @@ export default function RootLayout({
               "contactPoint": {
                 "@type": "ContactPoint",
                 "contactType": "customer service",
-                                 "email": "annitallc@gmail.com"
+                "email": "info@an-nita.com"
               },
               "sameAs": [
                 "https://twitter.com/annita_africa",
@@ -230,38 +259,66 @@ export default function RootLayout({
       </head>
       <body className={`${zenDots.variable} ${lora.variable} antialiased`}>
         <ThemeProvider>
-          <PerformanceOptimizer>
-            <SiteChrome>{children}</SiteChrome>
-          </PerformanceOptimizer>
-          <Analytics />
-          <CookieConsent />
-          <OfflineBanner />
-          <PerformanceMonitor />
-          <Toaster
-            position="top-right"
-            toastOptions={{
-              duration: 4000,
-              style: {
-                background: '#363636',
-                color: '#fff',
-              },
-              success: {
-                duration: 3000,
-                iconTheme: {
-                  primary: '#22c55e',
-                  secondary: '#fff',
+          <ErrorBoundary>
+            <PerformanceOptimizer>
+              <SiteChrome>{children}</SiteChrome>
+            </PerformanceOptimizer>
+            <Analytics />
+            <CookieConsent />
+            <OfflineBanner />
+            <PerformanceMonitor />
+            <ModernAIChat />
+            <V1MarketplaceModalWrapper />
+            <Toaster
+              position="top-right"
+              toastOptions={{
+                duration: 4000,
+                style: {
+                  background: '#363636',
+                  color: '#fff',
                 },
-              },
-              error: {
-                duration: 5000,
-                iconTheme: {
-                  primary: '#ef4444',
-                  secondary: '#fff',
+                success: {
+                  duration: 3000,
+                  iconTheme: {
+                    primary: '#22c55e',
+                    secondary: '#fff',
+                  },
                 },
-              },
-            }}
-          />
+                error: {
+                  duration: 5000,
+                  iconTheme: {
+                    primary: '#ef4444',
+                    secondary: '#fff',
+                  },
+                },
+              }}
+            />
+          </ErrorBoundary>
         </ThemeProvider>
+            <Toaster
+              position="top-right"
+              toastOptions={{
+                duration: 4000,
+                style: {
+                  background: '#363636',
+                  color: '#fff',
+                },
+                success: {
+                  duration: 3000,
+                  iconTheme: {
+                    primary: '#22c55e',
+                    secondary: '#fff',
+                  },
+                },
+                error: {
+                  duration: 5000,
+                  iconTheme: {
+                    primary: '#ef4444',
+                    secondary: '#fff',
+                  },
+                },
+              }}
+            />
       </body>
     </html>
   )

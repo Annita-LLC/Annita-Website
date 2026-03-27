@@ -1,17 +1,16 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import dynamic from 'next/dynamic'
 import SEOHead from '@/components/seo/SEOHead'
 import HeroSection from '@/components/sections/hero/HeroSection'
 import WelcomeModal from '@/components/ui/WelcomeModal'
-
-// Lazy-load below-the-fold sections to reduce initial payload
-const FeaturesSection = dynamic(() => import('@/components/sections/FeaturesSection'), { ssr: false })
-const V3AnnouncementSection = dynamic(() => import('@/components/sections/V3AnnouncementSection'), { ssr: false })
-const V1MarketplaceSection = dynamic(() => import('@/components/sections/V1MarketplaceSection'), { ssr: false })
-const TrustedPartnersSection = dynamic(() => import('@/components/sections/TrustedPartnersSection'), { ssr: false })
-const CTASection = dynamic(() => import('@/components/sections/CTASection'), { ssr: false })
+import ErrorBoundary from '@/components/ui/ErrorBoundary'
+import FeaturesSection from '@/components/sections/FeaturesSection'
+import CountdownSection from '@/components/sections/CountdownSection'
+import V3AnnouncementSection from '@/components/sections/V3AnnouncementSection'
+import V1MarketplaceSection from '@/components/sections/V1MarketplaceSection'
+import TrustedPartnersSection from '@/components/sections/TrustedPartnersSection'
+import CTASection from '@/components/sections/CTASection'
 
 // Home page specific CTA content
 const homeCTAProps = {
@@ -21,26 +20,21 @@ const homeCTAProps = {
 
 export default function HomePage() {
   const [isWelcomeModalOpen, setIsWelcomeModalOpen] = useState(false)
-
+  
   useEffect(() => {
-    // Check if user has seen the welcome modal before
-    const hasSeenWelcome = localStorage.getItem('annita-welcome-seen')
+    // Show welcome modal after a short delay for better UX
+    const timer = setTimeout(() => {
+      setIsWelcomeModalOpen(true)
+    }, 2000) // Show after 2 seconds
 
-    if (!hasSeenWelcome) {
-      // Show modal after a short delay for better UX
-      const timer = setTimeout(() => {
-        setIsWelcomeModalOpen(true)
-      }, 2000) // Show after 2 seconds
-
-      return () => clearTimeout(timer)
-    }
+    return () => clearTimeout(timer)
   }, [])
 
   const homeStructuredData = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Annita - Africa's First AI-Powered All-in-One Digital Platform",
-    "description": "Annita is Africa's first all-in-one digital platform, combining e-commerce, fintech, Artificial Intelligence, communication, marketing, logistics, and more into a single ecosystem. We empower MSMEs and individuals with innovative AI-powered solutions, connectivity, and convenience.",
+    "name": "Annita - Africa's First AI-Powered All-in-One Digital Ecosystem",
+    "description": "Annita is Africa's first all-in-one digital ecosystem, combining e-commerce, fintech, Artificial Intelligence, communication, marketing, logistics, and more into a single ecosystem. We empower MSMEs and individuals with innovative AI-powered solutions, connectivity, and convenience.",
     "url": "https://annita.com",
     "potentialAction": {
       "@type": "SearchAction",
@@ -70,7 +64,7 @@ export default function HomePage() {
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "customer service",
-        "email": "annitallc@gmail.com"
+        "email": "info@an-nita.com"
       },
       "sameAs": [
         "https://twitter.com/annita_africa",
@@ -94,13 +88,13 @@ export default function HomePage() {
         description="Africa's first all-in-one digital ecosystem. Custom-built solutions for MSMEs, governments, and partners. Integrating e-commerce, fintech, AI, communication, marketing, logistics, and more."
         keywords={[
           'Annita',
-          'Africa digital platform',
-          'all-in-one platform',
-          'e-commerce platform',
+          'Africa digital ecosystem',
+          'all-in-one ecosystem',
+          'e-commerce ecosystem',
           'fintech solutions',
           'AI services',
           'MSME empowerment',
-          'African business platform',
+          'African business ecosystem',
           'digital transformation',
           'payment gateway',
           'escrow services',
@@ -122,13 +116,13 @@ export default function HomePage() {
           'marketing',
           'communication',
           'African startups',
-          'small business platform',
+          'small business ecosystem',
           'micro-enterprises',
           'digital commerce',
           'mobile payments',
           'cross-border trade',
           'African innovation',
-          'technology platform',
+          'technology ecosystem',
           'business growth',
           'digital economy',
           'African entrepreneurship',
@@ -161,26 +155,44 @@ export default function HomePage() {
           'secure transactions',
           'African business features',
           'generic marketplace alternative',
-          'African-focused platform',
+          'African-focused ecosystem',
           'continental integration',
-          'African trade platform'
+          'African trade ecosystem'
         ]}
         canonical="/"
         ogImage="/home-og-image.jpg"
         structuredData={homeStructuredData}
       />
-        <HeroSection />
-        <FeaturesSection />
-        <V3AnnouncementSection />
-        <V1MarketplaceSection />
-        <TrustedPartnersSection />
-        <CTASection {...homeCTAProps} />
+        <ErrorBoundary>
+          <HeroSection />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <FeaturesSection />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <CountdownSection />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <V3AnnouncementSection />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <V1MarketplaceSection />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <TrustedPartnersSection />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <CTASection {...homeCTAProps} />
+        </ErrorBoundary>
 
         {/* Welcome Modal */}
         <WelcomeModal
           isOpen={isWelcomeModalOpen}
-          onClose={() => setIsWelcomeModalOpen(false)}
+          onClose={() => {
+            setIsWelcomeModalOpen(false)
+          }}
         />
+
     </>
   )
 }
