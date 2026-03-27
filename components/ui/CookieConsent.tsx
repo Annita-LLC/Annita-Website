@@ -170,7 +170,7 @@ const CookieConsent = ({ onPreferencesChange }: CookieConsentProps) => {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 100, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed bottom-0 left-0 right-0 z-[60] bg-gradient-to-r from-slate-900 to-slate-800 text-white shadow-lg border-t border-white/10"
+            className="fixed bottom-4 left-0 right-0 z-[70] bg-gradient-to-r from-slate-900 to-slate-800 text-white shadow-lg border-t border-white/10"
           >
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">

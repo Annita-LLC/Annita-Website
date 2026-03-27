@@ -89,7 +89,7 @@ const AIChatBubble = () => {
 
   if (!isOpen) {
     return (
-      <div className="fixed bottom-6 right-6 z-50">
+      <div className="fixed bottom-20 right-6 z-[65]">
         <Button
           onClick={() => setIsOpen(true)}
           variant="primary"
@@ -108,7 +108,7 @@ const AIChatBubble = () => {
 
   return (
     <div className={cn(
-      "fixed bottom-6 right-6 z-50 transition-all duration-300",
+      "fixed bottom-20 right-6 z-[65] transition-all duration-300",
       isMinimized ? "w-80" : "w-96 h-[600px]"
     )}>
       <div className="bg-white rounded-2xl shadow-2xl border border-gray-200 h-full flex flex-col overflow-hidden dark:bg-gray-800 dark:border-gray-700">
