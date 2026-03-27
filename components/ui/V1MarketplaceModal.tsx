@@ -22,7 +22,7 @@ const V1MarketplaceModal = memo(({ isOpen, onClose }: V1MarketplaceModalProps) =
   }, [onClose])
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/60">
+    <div className="fixed inset-0 z-50 flex items-start justify-center p-2 sm:p-4 pt-[15vh] bg-black/60">
       <div className="relative w-full max-w-[95vw] sm:max-w-lg bg-white dark:bg-gray-900 rounded-2xl shadow-2xl max-h-[80vh] sm:max-h-[90vh] overflow-y-auto mx-auto">
         {/* Close Button */}
         <button
